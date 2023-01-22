@@ -133,11 +133,6 @@ SFX_Swap_1::
 	channel 5, SFX_Swap_1_Ch5
 	channel 6, SFX_Swap_1_Ch6
 
-SFX_59_1::
-	channel_count 2
-	channel 5, SFX_59_1_Ch5
-	channel 6, SFX_59_1_Ch6
-
 SFX_Purchase_1::
 	channel_count 2
 	channel 5, SFX_Purchase_1_Ch5

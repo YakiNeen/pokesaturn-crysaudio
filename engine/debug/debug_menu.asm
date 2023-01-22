@@ -13,7 +13,7 @@ IF DEF(_DEBUG)
 	call CopyData
 
 	call LoadFontTilePatterns
-	call LoadHpBarAndStatusTilePatterns
+	call LoadTextBoxTilePatterns
 	call ClearSprites
 	call RunDefaultPaletteCommand
 

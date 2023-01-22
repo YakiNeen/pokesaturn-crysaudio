@@ -1,7 +1,7 @@
 SeafoamIslands1FWildMons:
 	def_grass_wildmons 15 ; encounter rate
 	db 30, SEEL
-IF DEF(_RED)
+IF DEF(_SATURN)
 	db 30, SLOWPOKE
 	db 30, SHELLDER
 	db 30, HORSEA
@@ -12,7 +12,7 @@ IF DEF(_RED)
 	db 28, SHELLDER
 	db 38, GOLDUCK
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	db 30, PSYDUCK
 	db 30, STARYU
 	db 30, KRABBY

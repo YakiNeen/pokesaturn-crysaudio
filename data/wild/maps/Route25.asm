@@ -1,6 +1,6 @@
 Route25WildMons:
 	def_grass_wildmons 15 ; encounter rate
-IF DEF(_RED)
+IF DEF(_SATURN)
 	db  8, WEEDLE
 	db  9, KAKUNA
 	db 13, PIDGEY
@@ -12,7 +12,7 @@ IF DEF(_RED)
 	db  7, METAPOD
 	db  8, CATERPIE
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	db  8, CATERPIE
 	db  9, METAPOD
 	db 13, PIDGEY

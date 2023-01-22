@@ -34,7 +34,6 @@ SFX:
 	dba SFX_Cut_1
 	dba SFX_Go_Inside_1
 	dba SFX_Swap_1
-	dba SFX_59_1
 	dba SFX_Purchase_1
 	dba SFX_Collision_1
 	dba SFX_Go_Outside_1
@@ -66,7 +65,6 @@ SFX:
 	dba SFX_Battle_13
 	dba SFX_Battle_14
 	dba SFX_Vine_Whip
-	dba SFX_Battle_16
 	dba SFX_Battle_17
 	dba SFX_Battle_18
 	dba SFX_Battle_19
@@ -101,15 +99,10 @@ SFX:
 	dba SFX_Battle_36
 	dba SFX_Silph_Scope
 
-	dba SFX_Intro_Lunge
-	dba SFX_Intro_Hip
-	dba SFX_Intro_Hop
-	dba SFX_Intro_Raise
 	dba SFX_Intro_Crash
 	dba SFX_Intro_Whoosh
 	dba SFX_Slots_Stop_Wheel
 	dba SFX_Slots_Reward
 	dba SFX_Slots_New_Spin
-	dba SFX_Shooting_Star
 
 	dba SFX_PokefluteInBattle

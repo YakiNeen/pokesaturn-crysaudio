@@ -1,7 +1,7 @@
 SeafoamIslandsB2FWildMons:
 	def_grass_wildmons 10 ; encounter rate
 	db 30, SEEL
-IF DEF(_RED)
+IF DEF(_SATURN)
 	db 30, SLOWPOKE
 	db 32, SEEL
 	db 32, SLOWPOKE
@@ -12,7 +12,7 @@ IF DEF(_RED)
 	db 30, GOLBAT
 	db 37, SLOWBRO
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	db 30, PSYDUCK
 	db 32, SEEL
 	db 32, PSYDUCK

@@ -1,9 +1,9 @@
 Route23WildMons:
 	def_grass_wildmons 10 ; encounter rate
-IF DEF(_RED)
+IF DEF(_SATURN)
 	db 26, EKANS
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	db 26, SANDSHREW
 ENDC
 	db 33, DITTO
@@ -11,10 +11,10 @@ ENDC
 	db 38, FEAROW
 	db 38, DITTO
 	db 38, FEAROW
-IF DEF(_RED)
+IF DEF(_SATURN)
 	db 41, ARBOK
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	db 41, SANDSLASH
 ENDC
 	db 43, DITTO

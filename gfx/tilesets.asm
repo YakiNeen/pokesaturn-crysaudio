@@ -1,6 +1,11 @@
 SECTION "Tilesets 1", ROMX
 
-Overworld_GFX::     INCBIN "gfx/tilesets/overworld.2bpp"
+IF DEF(_SATURN)
+Overworld_GFX::     INCBIN "gfx/tilesets/overworld_saturn.2bpp"
+ENDC
+IF DEF(_MARS)
+Overworld_GFX::     INCBIN "gfx/tilesets/overworld_mars.2bpp"
+ENDC
 Overworld_Block::   INCBIN "gfx/blocksets/overworld.bst"
 
 RedsHouse1_GFX::
@@ -39,7 +44,12 @@ ForestGate_Block::
 Museum_Block::
 Gate_Block::        INCBIN "gfx/blocksets/gate.bst"
 
-Forest_GFX::        INCBIN "gfx/tilesets/forest.2bpp"
+IF DEF(_SATURN)
+Forest_GFX::        INCBIN "gfx/tilesets/forest_saturn.2bpp"
+ENDC
+IF DEF(_MARS)
+Forest_GFX::        INCBIN "gfx/tilesets/forest_mars.2bpp"
+ENDC
 Forest_Block::      INCBIN "gfx/blocksets/forest.bst"
 Facility_GFX::      INCBIN "gfx/tilesets/facility.2bpp"
 Facility_Block::    INCBIN "gfx/blocksets/facility.bst"

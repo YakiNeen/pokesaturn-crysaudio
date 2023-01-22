@@ -41,13 +41,18 @@ DisplayDiploma::
 	call PlaceString
 	farcall DrawPlayerCharacter
 
-; Move the player 33 pixels right and set the priority bit so he appears
+; Move the player 76 pixels (Saturn)/33 pixels (Mars) right and set the priority bit so he appears
 ; behind the background layer.
 	ld hl, wShadowOAMSprite00XCoord
 	lb bc, $80, $28
 .adjustPlayerGfxLoop
 	ld a, [hl] ; X
+IF DEF(_SATURN)
+	add 76
+ENDC
+IF DEF(_MARS)
 	add 33
+ENDC
 	ld [hli], a
 	inc hl
 	ld a, b

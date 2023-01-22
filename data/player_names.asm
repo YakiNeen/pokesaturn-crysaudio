@@ -1,4 +1,4 @@
-IF DEF(_RED)
+IF DEF(_SATURN)
 DefaultNamesPlayer:
 	db   "NEW NAME"
 	next "RED"
@@ -14,7 +14,7 @@ DefaultNamesRival:
 	db   "@"
 ENDC
 
-IF DEF(_BLUE)
+IF DEF(_MARS)
 DefaultNamesPlayer:
 	db   "NEW NAME"
 	next "BLUE"

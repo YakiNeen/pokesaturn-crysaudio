@@ -15,7 +15,7 @@ Music:
 	dba Music_SSAnne
 	dba Music_MeetProfOak
 	dba Music_MeetRival
-	dba Music_MuseumGuy
+	dba Music_FollowMe
 	dba Music_SafariZone
 	dba Music_PkmnHealed
 	dba Music_Routes1
@@ -38,7 +38,7 @@ Music:
 	dba Music_BikeRiding
 	dba Music_Surfing
 	dba Music_RBYGameCorner
-	dba Music_IntroBattle
+	dba Music_Intro
 	dba Music_Dungeon1
 	dba Music_Dungeon2
 	dba Music_Dungeon3

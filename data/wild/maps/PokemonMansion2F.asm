@@ -1,6 +1,6 @@
 PokemonMansion2FWildMons:
 	def_grass_wildmons 10 ; encounter rate
-IF DEF(_RED)
+IF DEF(_SATURN)
 	db 32, GROWLITHE
 	db 34, KOFFING
 	db 34, KOFFING
@@ -12,7 +12,7 @@ IF DEF(_RED)
 	db 39, WEEZING
 	db 37, MUK
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	db 32, VULPIX
 	db 34, GRIMER
 	db 34, GRIMER

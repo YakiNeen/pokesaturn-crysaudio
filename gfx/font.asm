@@ -1,4 +1,10 @@
-PokemonLogoGraphics: INCBIN "gfx/title/pokemon_logo.2bpp"
+IF DEF(_SATURN)
+PokemonLogoGraphics: INCBIN "gfx/title/pokemon_saturn.2bpp"
+ENDC
+IF DEF(_MARS)
+PokemonLogoGraphics: INCBIN "gfx/title/pokemon_mars.2bpp"
+ENDC
+
 FontGraphics:: INCBIN "gfx/font/font.1bpp"
 FontGraphicsEnd::
 
@@ -14,11 +20,14 @@ BattleHudTiles3: INCBIN "gfx/battle/battle_hud_3.1bpp"
 BattleHudTiles3End:
 
 NintendoCopyrightLogoGraphics: INCBIN "gfx/splash/copyright.2bpp"
+NintendoCopyrightLogoGraphicsEnd:
 
-GamefreakLogoGraphics: INCBIN "gfx/title/gamefreak_inc.2bpp"
-GamefreakLogoGraphicsEnd:
-
-TextBoxGraphics:: INCBIN "gfx/font/font_extra.2bpp"
+IF DEF(_SATURN)
+TextBoxGraphics:: INCBIN "gfx/font/font_extra_saturn.2bpp"
+ENDC
+IF DEF(_MARS)
+TextBoxGraphics:: INCBIN "gfx/font/font_extra_mars.2bpp"
+ENDC
 TextBoxGraphicsEnd::
 
 PokedexTileGraphics: INCBIN "gfx/pokedex/pokedex.2bpp"
@@ -27,5 +36,10 @@ PokedexTileGraphicsEnd:
 WorldMapTileGraphics: INCBIN "gfx/town_map/town_map.2bpp"
 WorldMapTileGraphicsEnd:
 
-PlayerCharacterTitleGraphics: INCBIN "gfx/title/player.2bpp"
+IF DEF(_SATURN)
+PlayerCharacterTitleGraphics: INCBIN "gfx/title/player_saturn.2bpp"
+ENDC
+IF DEF(_MARS)
+PlayerCharacterTitleGraphics: INCBIN "gfx/title/player_mars.2bpp"
+ENDC
 PlayerCharacterTitleGraphicsEnd:

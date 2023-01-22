@@ -1,4 +1,4 @@
-IF DEF(_RED)
+IF DEF(_SATURN)
 DefaultNamesPlayerList:
 	db "NEW NAME@"
 	db "RED@"
@@ -12,7 +12,7 @@ DefaultNamesRivalList:
 	db "JOHN@"
 ENDC
 
-IF DEF(_BLUE)
+IF DEF(_MARS)
 DefaultNamesPlayerList:
 	db "NEW NAME@"
 	db "BLUE@"

@@ -22,11 +22,11 @@ SetDefaultNames:
 	ld a, [wOptionsInitialized]
 	and a
 	call z, InitOptions
-	ld hl, NintenText
+	ld hl, PlayerDefaultName
 	ld de, wPlayerName
 	ld bc, NAME_LENGTH
 	call CopyData
-	ld hl, SonyText
+	ld hl, RivalDefaultName
 	ld de, wRivalName
 	ld bc, NAME_LENGTH
 	jp CopyData

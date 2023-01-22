@@ -1,6 +1,6 @@
 SafariZoneEastWildMons:
 	def_grass_wildmons 30 ; encounter rate
-IF DEF(_RED)
+IF DEF(_SATURN)
 	db 24, NIDORAN_M
 	db 26, DODUO
 	db 22, PARAS
@@ -12,7 +12,7 @@ IF DEF(_RED)
 	db 25, KANGASKHAN
 	db 28, SCYTHER
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	db 24, NIDORAN_F
 	db 26, DODUO
 	db 22, PARAS

@@ -1,6 +1,6 @@
 Route13WildMons:
 	def_grass_wildmons 20 ; encounter rate
-IF DEF(_RED)
+IF DEF(_SATURN)
 	db 24, ODDISH
 	db 25, PIDGEY
 	db 27, PIDGEY
@@ -12,7 +12,7 @@ IF DEF(_RED)
 	db 28, GLOOM
 	db 30, GLOOM
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	db 24, BELLSPROUT
 	db 25, PIDGEY
 	db 27, PIDGEY

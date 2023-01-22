@@ -4,10 +4,10 @@ CopyFixedLengthText:
 	jp CopyData
 
 SetDefaultNamesBeforeTitlescreen::
-	ld hl, NintenText
+	ld hl, PlayerDefaultName
 	ld de, wPlayerName
 	call CopyFixedLengthText
-	ld hl, SonyText
+	ld hl, RivalDefaultName
 	ld de, wRivalName
 	call CopyFixedLengthText
 	xor a
@@ -27,9 +27,15 @@ DisplayTitleScreen:
 	ldh [hAutoBGTransferEnabled], a
 	xor a
 	ldh [hTileAnimations], a
+IF DEF(_SATURN)
+	ld a, $90
+	ldh [hSCX], a
+ENDC
+IF DEF(_MARS)
 	ldh [hSCX], a
 	ld a, $40
 	ldh [hSCY], a
+ENDC
 	ld a, $90
 	ldh [hWY], a
 	call ClearScreen
@@ -37,13 +43,8 @@ DisplayTitleScreen:
 	call LoadFontTilePatterns
 	ld hl, NintendoCopyrightLogoGraphics
 	ld de, vTitleLogo2 tile 16
-	ld bc, 5 tiles
+	ld bc, 13 tiles
 	ld a, BANK(NintendoCopyrightLogoGraphics)
-	call FarCopyData2
-	ld hl, GamefreakLogoGraphics
-	ld de, vTitleLogo2 tile (16 + 5)
-	ld bc, 9 tiles
-	ld a, BANK(GamefreakLogoGraphics)
 	call FarCopyData2
 	ld hl, PokemonLogoGraphics
 	ld de, vTitleLogo
@@ -92,36 +93,35 @@ DisplayTitleScreen:
 
 	call DrawPlayerCharacter
 
+IF DEF(_MARS)
 ; put a pokeball in the player's hand
 	ld hl, wShadowOAMSprite10
 	ld a, $74
 	ld [hl], a
+ENDC
 
 ; place tiles for title screen copyright
-	hlcoord 2, 17
-	ld de, .tileScreenCopyrightTiles
-	ld b, $10
+	hlcoord 3, 17
+	ld a, $41
+	ld b, 13 tiles
 .tileScreenCopyrightTilesLoop
-	ld a, [de]
 	ld [hli], a
-	inc de
+	inc a
 	dec b
 	jr nz, .tileScreenCopyrightTilesLoop
 
-	jr .next
-
-.tileScreenCopyrightTiles
-	db $41,$42,$43,$42,$44,$42,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E ; ©'95.'96.'98 GAME FREAK inc.
-
-.next
 	call SaveScreenTilesToBuffer2
+IF DEF(_SATURN)
+	call PrintGameVersionOnTitleScreen
+	call SaveScreenTilesToBuffer1
+ENDC
 	call LoadScreenTilesFromBuffer2
 	call EnableLCD
 
-IF DEF(_RED)
+IF DEF(_SATURN)
 	ld a, STARTER1 ; which Pokemon to show first on the title screen
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	ld a, STARTER2 ; which Pokemon to show first on the title screen
 ENDC
 	ld [wTitleMonSpecies], a
@@ -129,10 +129,14 @@ ENDC
 
 	ld a, HIGH(vBGMap0 + $300)
 	call TitleScreenCopyTileMapToVRAM
+IF DEF(_MARS)
 	call SaveScreenTilesToBuffer1
+ENDC
 	ld a, $40
 	ldh [hWY], a
+IF DEF(_MARS)
 	call LoadScreenTilesFromBuffer2
+ENDC
 	ld a, HIGH(vBGMap0)
 	call TitleScreenCopyTileMapToVRAM
 	ld b, SET_PAL_TITLE_SCREEN
@@ -141,6 +145,29 @@ ENDC
 	ld a, %11100100
 	ldh [rOBP0], a
 
+IF DEF(_SATURN)
+	ld a, SFX_INTRO_WHOOSH
+	call PlaySound
+.scrollInLogoLoop
+	call DelayFrame
+	ld a, [hSCX]
+	add 4
+	ldh [hSCX], a
+	jr nz, .scrollInLogoLoop
+	ld a, $90
+	ldh [hWY], a
+	ld c, $14
+	call DelayFrames
+	call PrintGameVersionOnTitleScreen
+	call Delay3
+	ld a, HIGH(vBGMap1)
+	call TitleScreenCopyTileMapToVRAM
+	call LoadScreenTilesFromBuffer1
+	call Delay3
+	ld a, MUSIC_TITLE_SCREEN
+	call PlayMusic
+ENDC
+IF DEF(_MARS)
 ; make pokemon logo bounce up and down
 	ld bc, hSCY ; background scroll Y
 	ld hl, .TitleScreenPokemonLogoYScrolls
@@ -217,17 +244,25 @@ ENDC
 	call PlayMusic
 	xor a
 	ld [wUnusedCC5B], a
+ENDC
 
 ; Keep scrolling in new mons indefinitely until the user performs input.
 .awaitUserInterruptionLoop
+IF DEF(_SATURN)
+	ld c, 255
+ENDC
+IF DEF(_MARS)
 	ld c, 200
+ENDC
 	call CheckForUserInterruption
 	jr c, .finishedWaiting
 	call TitleScreenScrollInMon
+IF DEF(_MARS)
 	ld c, 1
 	call CheckForUserInterruption
 	jr c, .finishedWaiting
 	farcall TitleScreenAnimateBallIfStarterOut
+ENDC
 	call TitleScreenPickNewMon
 	jr .awaitUserInterruptionLoop
 
@@ -239,7 +274,12 @@ ENDC
 	call ClearSprites
 	xor a
 	ldh [hWY], a
+IF DEF(_SATURN)
+	ld a, 1
+ENDC
+IF DEF(_MARS)
 	inc a
+ENDC
 	ldh [hAutoBGTransferEnabled], a
 	call ClearScreen
 	ld a, HIGH(vBGMap0)
@@ -287,18 +327,50 @@ TitleScreenPickNewMon:
 
 	ld a, $90
 	ldh [hWY], a
+IF DEF(_SATURN)
+	ld d, $A0
+	ld c, $C
+	jp TitleScroll
+ENDC
+IF DEF(_MARS)
 	ld d, 1 ; scroll out
 	farcall TitleScroll
 	ret
+ENDC
 
 TitleScreenScrollInMon:
 	ld d, 0 ; scroll in
+IF DEF(_SATURN)
+	ld c, $14
+	call TitleScroll
+ENDC
+IF DEF(_MARS)
 	farcall TitleScroll
+ENDC
 	xor a
 	ldh [hWY], a
 	ret
 
+IF DEF(_SATURN)
+TitleScroll:
+	ld h, d
+	ld l, $48
+	call .Scroll
+	ld h, 0
+	ld l, $88
+	call .Scroll
+	ld a, d
+	add 8
+	ld d, a
+	dec c
+	jr nz, TitleScroll
+	ret
+
+.Scroll
+ENDC
+IF DEF(_MARS)
 ScrollTitleScreenGameVersion:
+ENDC
 .wait
 	ldh a, [rLY]
 	cp l
@@ -323,7 +395,12 @@ DrawPlayerCharacter:
 	xor a
 	ld [wPlayerCharacterOAMTile], a
 	ld hl, wShadowOAM
+IF DEF(_SATURN)
+	lb de, $60, $30
+ENDC
+IF DEF(_MARS)
 	lb de, $60, $5a
+ENDC
 	ld b, 7
 .loop
 	push de
@@ -359,7 +436,12 @@ ClearBothBGMaps:
 LoadTitleMonSprite:
 	ld [wcf91], a
 	ld [wd0b5], a
+IF DEF(_SATURN)
+	hlcoord 9, 10
+ENDC
+IF DEF(_MARS)
 	hlcoord 5, 10
+ENDC
 	call GetMonHeader
 	jp LoadFrontSpriteByMonIndex
 
@@ -376,34 +458,29 @@ LoadCopyrightAndTextBoxTiles:
 LoadCopyrightTiles:
 	ld de, NintendoCopyrightLogoGraphics
 	ld hl, vChars2 tile $60
-	lb bc, BANK(NintendoCopyrightLogoGraphics), (GamefreakLogoGraphicsEnd - NintendoCopyrightLogoGraphics) / $10
+	lb bc, BANK(NintendoCopyrightLogoGraphics), (NintendoCopyrightLogoGraphicsEnd - NintendoCopyrightLogoGraphics) / $10
 	call CopyVideoData
 	hlcoord 2, 7
 	ld de, CopyrightTextString
 	jp PlaceString
 
 CopyrightTextString:
-	db   $60,$61,$62,$61,$63,$61,$64,$7F,$65,$66,$67,$68,$69,$6A             ; ©'95.'96.'98 Nintendo
-	next $60,$61,$62,$61,$63,$61,$64,$7F,$6B,$6C,$6D,$6E,$6F,$70,$71,$72     ; ©'95.'96.'98 Creatures inc.
-	next $60,$61,$62,$61,$63,$61,$64,$7F,$73,$74,$75,$76,$77,$78,$79,$7A,$7B ; ©'95.'96.'98 GAME FREAK inc.
+	db   $60,$61,$62,$7C,$79,$7A,$7B,$7F,$6D,$6E,$6F,$70,$71,$72             ; ©1995-2023 Nintendo
+	next $60,$61,$62,$7C,$79,$7A,$7B,$7F,$73,$74,$75,$76,$77,$78,$6B,$6C     ; ©1995-2023 Creatures inc.
+	next $60,$61,$62,$7C,$79,$7A,$7B,$7F,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C ; ©1995-2023 GAME FREAK inc.
 	db   "@"
 
 INCLUDE "data/pokemon/title_mons.asm"
 
 ; prints version text (red, blue)
 PrintGameVersionOnTitleScreen:
-	hlcoord 7, 8
+	hlcoord 5, 8
 	ld de, VersionOnTitleScreenText
 	jp PlaceString
 
 ; these point to special tiles specifically loaded for that purpose and are not usual text
 VersionOnTitleScreenText:
-IF DEF(_RED)
-	db $60,$61,$7F,$65,$66,$67,$68,$69,"@" ; "Red Version"
-ENDC
-IF DEF(_BLUE)
-	db $61,$62,$63,$64,$65,$66,$67,$68,"@" ; "Blue Version"
-ENDC
+	db $60,$61,$62,$63,$64,$65,$66,$67,$68,$69,"@"
 
-NintenText: db "NINTEN@"
-SonyText:   db "SONY@"
+PlayerDefaultName:  db "YAKI@"
+RivalDefaultName:   db "NEEN@"

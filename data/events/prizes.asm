@@ -9,20 +9,20 @@ NoThanksText:
 PrizeMenuMon1Entries:
 	db ABRA
 	db CLEFAIRY
-IF DEF(_RED)
+IF DEF(_SATURN)
 	db NIDORINA
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	db NIDORINO
 ENDC
 	db "@"
 
 PrizeMenuMon1Cost:
-IF DEF(_RED)
+IF DEF(_SATURN)
 	bcd2 180
 	bcd2 500
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	bcd2 120
 	bcd2 750
 ENDC
@@ -30,11 +30,11 @@ ENDC
 	db "@"
 
 PrizeMenuMon2Entries:
-IF DEF(_RED)
+IF DEF(_SATURN)
 	db DRATINI
 	db SCYTHER
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	db PINSIR
 	db DRATINI
 ENDC
@@ -42,12 +42,12 @@ ENDC
 	db "@"
 
 PrizeMenuMon2Cost:
-IF DEF(_RED)
+IF DEF(_SATURN)
 	bcd2 2800
 	bcd2 5500
 	bcd2 9999
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	bcd2 2500
 	bcd2 4600
 	bcd2 6500

@@ -1,6 +1,6 @@
 ViridianForestWildMons:
 	def_grass_wildmons 8 ; encounter rate
-IF DEF(_RED)
+IF DEF(_SATURN)
 	db  4, WEEDLE
 	db  5, KAKUNA
 	db  3, WEEDLE
@@ -10,7 +10,7 @@ IF DEF(_RED)
 	db  4, METAPOD
 	db  3, CATERPIE
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	db  4, CATERPIE
 	db  5, METAPOD
 	db  3, CATERPIE

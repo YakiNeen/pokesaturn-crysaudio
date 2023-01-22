@@ -3,7 +3,7 @@ Route4WildMons:
 	db 10, RATTATA
 	db 10, SPEAROW
 	db  8, RATTATA
-IF DEF(_RED)
+IF DEF(_SATURN)
 	db  6, EKANS
 	db  8, SPEAROW
 	db 10, EKANS
@@ -12,7 +12,7 @@ IF DEF(_RED)
 	db  8, EKANS
 	db 12, EKANS
 ENDC
-IF DEF(_BLUE)
+IF DEF(_MARS)
 	db  6, SANDSHREW
 	db  8, SPEAROW
 	db 10, SANDSHREW

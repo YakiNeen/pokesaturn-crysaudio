@@ -488,6 +488,10 @@ Trade_DrawLeftGameboy:
 
 	jp DelayFrame
 
+CopyTileIDsFromList_ZeroBaseTileID:
+	ld c, 0
+	predef_jump CopyTileIDsFromList
+
 Trade_DrawRightGameboy:
 	call Trade_ClearTileMap
 

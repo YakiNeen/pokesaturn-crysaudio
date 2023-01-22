@@ -444,6 +444,13 @@ UpdateMovingBgTiles::
 	jr nz, .loop
 	ret
 
-FlowerTile1: INCBIN "gfx/tilesets/flower/flower1.2bpp"
-FlowerTile2: INCBIN "gfx/tilesets/flower/flower2.2bpp"
-FlowerTile3: INCBIN "gfx/tilesets/flower/flower3.2bpp"
+IF DEF(_SATURN)
+FlowerTile1: INCBIN "gfx/tilesets/flower/flower1_saturn.2bpp"
+FlowerTile2: INCBIN "gfx/tilesets/flower/flower2_saturn.2bpp"
+FlowerTile3: INCBIN "gfx/tilesets/flower/flower3_saturn.2bpp"
+ENDC
+IF DEF(_MARS)
+FlowerTile1: INCBIN "gfx/tilesets/flower/flower1_mars.2bpp"
+FlowerTile2: INCBIN "gfx/tilesets/flower/flower2_mars.2bpp"
+FlowerTile3: INCBIN "gfx/tilesets/flower/flower3_mars.2bpp"
+ENDC
