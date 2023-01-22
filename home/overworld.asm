@@ -1225,6 +1225,8 @@ CollisionCheckOnLand::
 	ld a, [wSimulatedJoypadStatesIndex]
 	and a
 	jr nz, .noCollision ; no collisions when the player's movements are being controlled by the game
+	call DebugPressedOrHeldB
+	jr nz, .noCollision ; no collisions when debugging
 	ld a, [wPlayerDirection] ; the direction that the player is trying to go in
 	ld d, a
 	ld a, [wSpritePlayerStateData1CollisionData]
