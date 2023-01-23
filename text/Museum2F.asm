@@ -41,5 +41,4 @@ _Museum2FText6::
 _Museum2FText7::
 	text "Meteorite that"
 	line "fell on MT.MOON."
-	cont "(MOON STONE?)"
 	done

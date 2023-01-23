@@ -94,7 +94,7 @@ DisplayNamingScreen:
 	call LoadNicknameTiles
 	farcall LoadMonPartySpriteGfx
 	hlcoord 0, 4
-	ld b, 9
+	ld b, 11
 	ld c, 18
 	call TextBoxBorder
 	call PrintNamingText
@@ -209,14 +209,14 @@ DisplayNamingScreen:
 
 .pressedA
 	ld a, [wCurrentMenuItem]
-	cp $5 ; "ED" row
+	cp $6 ; "ED" row
 	jr nz, .didNotPressED
 	ld a, [wTopMenuItemX]
 	cp $11 ; "ED" column
 	jr z, .pressedStart
 .didNotPressED
 	ld a, [wCurrentMenuItem]
-	cp $6 ; case switch row
+	cp $7 ; case switch row
 	jr nz, .didNotPressCaseSwtich
 	ld a, [wTopMenuItemX]
 	cp $1 ; case switch column
@@ -260,7 +260,7 @@ DisplayNamingScreen:
 	ret
 .pressedRight
 	ld a, [wCurrentMenuItem]
-	cp $6
+	cp $7
 	ret z ; can't scroll right on bottom row
 	ld a, [wTopMenuItemX]
 	cp $11 ; max
@@ -273,7 +273,7 @@ DisplayNamingScreen:
 	jr .done
 .pressedLeft
 	ld a, [wCurrentMenuItem]
-	cp $6
+	cp $7
 	ret z ; can't scroll right on bottom row
 	ld a, [wTopMenuItemX]
 	dec a
@@ -289,7 +289,7 @@ DisplayNamingScreen:
 	ld [wCurrentMenuItem], a
 	and a
 	ret nz
-	ld a, $6 ; wrap to bottom row
+	ld a, $7 ; wrap to bottom row
 	ld [wCurrentMenuItem], a
 	ld a, $1 ; force left column
 	jr .done
@@ -297,13 +297,13 @@ DisplayNamingScreen:
 	ld a, [wCurrentMenuItem]
 	inc a
 	ld [wCurrentMenuItem], a
-	cp $7
+	cp $8
 	jr nz, .wrapToTopRow
 	ld a, $1
 	ld [wCurrentMenuItem], a
 	jr .done
 .wrapToTopRow
-	cp $6
+	cp $7
 	ret nz
 	ld a, $1
 .done
@@ -330,7 +330,7 @@ PrintAlphabet:
 	ld de, UpperCaseAlphabet
 .lowercase
 	hlcoord 2, 5
-	lb bc, 5, 9 ; 5 rows, 9 columns
+	lb bc, 6, 9 ; 6 rows, 9 columns
 .outerLoop
 	push bc
 .innerLoop
@@ -390,7 +390,7 @@ PrintNicknameAndUnderscores:
 	call EraseMenuCursor
 	ld a, $11 ; "ED" x coord
 	ld [wTopMenuItemX], a
-	ld a, $5 ; "ED" y coord
+	ld a, $6 ; "ED" y coord
 	ld [wCurrentMenuItem], a
 	ld a, [wNamingScreenType]
 	cp NAME_MON_SCREEN

@@ -113,73 +113,120 @@
 	charmap "Y",         $98
 	charmap "Z",         $99
 
-	charmap "(",         $9a
-	charmap ")",         $9b
-	charmap ":",         $9c
-	charmap ";",         $9d
-	charmap "[",         $9e
-	charmap "]",         $9f
+	charmap "a",         $9a
+	charmap "b",         $9b
+	charmap "c",         $9c
+	charmap "d",         $9d
+	charmap "e",         $9e
+	charmap "f",         $9f
+	charmap "g",         $a0
+	charmap "h",         $a1
+	charmap "i",         $a2
+	charmap "j",         $a3
+	charmap "k",         $a4
+	charmap "l",         $a5
+	charmap "m",         $a6
+	charmap "n",         $a7
+	charmap "o",         $a8
+	charmap "p",         $a9
+	charmap "q",         $aa
+	charmap "r",         $ab
+	charmap "s",         $ac
+	charmap "t",         $ad
+	charmap "u",         $ae
+	charmap "v",         $af
+	charmap "w",         $b0
+	charmap "x",         $b1
+	charmap "y",         $b2
+	charmap "z",         $b3
 
-	charmap "a",         $a0
-	charmap "b",         $a1
-	charmap "c",         $a2
-	charmap "d",         $a3
-	charmap "e",         $a4
-	charmap "f",         $a5
-	charmap "g",         $a6
-	charmap "h",         $a7
-	charmap "i",         $a8
-	charmap "j",         $a9
-	charmap "k",         $aa
-	charmap "l",         $ab
-	charmap "m",         $ac
-	charmap "n",         $ad
-	charmap "o",         $ae
-	charmap "p",         $af
-	charmap "q",         $b0
-	charmap "r",         $b1
-	charmap "s",         $b2
-	charmap "t",         $b3
-	charmap "u",         $b4
-	charmap "v",         $b5
-	charmap "w",         $b6
-	charmap "x",         $b7
-	charmap "y",         $b8
-	charmap "z",         $b9
+	charmap "á",         $b4
+	charmap "é",         $b5
+	charmap "í",         $b6
+	charmap "ó",         $b7
+	charmap "ú",         $b8
 
-	charmap "é",         $ba
-	charmap "'d",        $bb
-	charmap "'l",        $bc
-	charmap "'s",        $bd
-	charmap "'t",        $be
-	charmap "'v",        $bf
+	charmap "â",         $b9
+	charmap "ê",         $ba
+	charmap "î",         $bb
+	charmap "ô",         $bc
+	charmap "û",         $bd
 
-	charmap "'",         $e0
-	charmap "<PK>",      $e1
-	charmap "<MN>",      $e2
-	charmap "-",         $e3
+	charmap "ã",         $be
+	charmap "õ",         $bf
 
-	charmap "'r",        $e4
-	charmap "'m",        $e5
+	charmap "<c'>",      $c0
+	charmap "<d'>",      $c1
+	charmap "<j'>",      $c2
+	charmap "<l'>",      $c3
+	charmap "<m'>",      $c4
+	charmap "<n'>",      $c5
+	charmap "<p'>",      $c6
+	charmap "<s'>",      $c7
+	charmap "<t'>",      $c8
+	charmap "<u'>",      $c9
+	charmap "<y'>",      $ca
 
-	charmap "?",         $e6
-	charmap "!",         $e7
-	charmap ".",         $e8
+	charmap "²",         $cb
 
-	charmap "ァ",         $e9 ; katakana small a, unused
-	charmap "ゥ",         $ea ; katakana small u, unused
-	charmap "ェ",         $eb ; katakana small e, unused
+	charmap "&",         $cc
 
-	charmap "▷",         $ec
-	charmap "▶",         $ed
-	charmap "▼",         $ee
-	charmap "♂",         $ef
+	charmap "▷",         $cd
+	charmap "▶",         $ce
+	charmap "▼",         $cf
+
+	charmap "à",         $d0
+	charmap "è",         $d1
+	charmap "ì",         $d2
+	charmap "ò",         $d3
+	charmap "ù",         $d4
+
+	charmap "ä",         $d5
+	charmap "ë",         $d6
+	charmap "ï",         $d7
+	charmap "ö",         $d8
+	charmap "ü",         $d9
+
+	charmap "ç",         $da
+
+	charmap "ñ",         $db
+
+	charmap "ß",         $dc
+
+	charmap ":",         $dd
+
+	charmap "♀",         $de
+	charmap "♂",         $df
+
+	charmap "'d",        $e0
+	charmap "'l",        $e1
+	charmap "'m",        $e2
+	charmap "'r",        $e3
+	charmap "'s",        $e4
+	charmap "'t",        $e5
+	charmap "'v",        $e6
+
+	charmap "(",         $e7
+	charmap ")",         $e8
+
+	charmap "-",         $e9
+
+	charmap "<PK>",      $ea
+	charmap "<MN>",      $eb
+
+	charmap "<PEGADO>",  $ec
+
+	charmap "<SHINY>",   $ed
+
+	charmap "?",         $ee
+	charmap "!",         $ef
+
 	charmap "¥",         $f0
 	charmap "×",         $f1
-	charmap "<DOT>",     $f2 ; decimal point; same as "." in English
+	charmap ".",         $f2
 	charmap "/",         $f3
-	charmap ",",         $f4
-	charmap "♀",         $f5
+	charmap "'",         $f4
+	charmap ",",         $f5
 
 	charmap "0",         $f6
 	charmap "1",         $f7
