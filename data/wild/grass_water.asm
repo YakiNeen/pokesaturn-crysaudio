@@ -142,8 +142,8 @@ WildDataPointers:
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
-	dw PokemonTower1FWildMons
-	dw PokemonTower2FWildMons
+	dw NothingWildMons
+	dw NothingWildMons
 	dw PokemonTower3FWildMons
 	dw PokemonTower4FWildMons
 	dw PokemonTower5FWildMons
@@ -284,8 +284,6 @@ INCLUDE "data/wild/maps/Route10.asm"
 INCLUDE "data/wild/maps/Route12.asm"
 INCLUDE "data/wild/maps/Route8.asm"
 INCLUDE "data/wild/maps/Route7.asm"
-INCLUDE "data/wild/maps/PokemonTower1F.asm"
-INCLUDE "data/wild/maps/PokemonTower2F.asm"
 INCLUDE "data/wild/maps/PokemonTower3F.asm"
 INCLUDE "data/wild/maps/PokemonTower4F.asm"
 INCLUDE "data/wild/maps/PokemonTower5F.asm"
