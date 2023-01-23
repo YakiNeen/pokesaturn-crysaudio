@@ -52,27 +52,26 @@
 	const SPRITE_KOGA                    ; $30
 	const SPRITE_GUARD                   ; $31
 	const SPRITE_UNUSED_GUARD            ; $32
-	const SPRITE_MOM                     ; $33
-	const SPRITE_BALDING_GUY             ; $34
-	const SPRITE_LITTLE_BOY              ; $35
-	const SPRITE_UNUSED_GAMEBOY_KID      ; $36
-	const SPRITE_GAMEBOY_KID             ; $37
-	const SPRITE_FAIRY                   ; $38
-	const SPRITE_AGATHA                  ; $39
-	const SPRITE_BRUNO                   ; $3a
-	const SPRITE_LORELEI                 ; $3b
-	const SPRITE_SEEL                    ; $3c
+	const SPRITE_BALDING_GUY             ; $33
+	const SPRITE_LITTLE_BOY              ; $34
+	const SPRITE_UNUSED_GAMEBOY_KID      ; $35
+	const SPRITE_GAMEBOY_KID             ; $36
+	const SPRITE_FAIRY                   ; $37
+	const SPRITE_AGATHA                  ; $38
+	const SPRITE_BRUNO                   ; $39
+	const SPRITE_LORELEI                 ; $3a
+	const SPRITE_SEEL                    ; $3b
 DEF FIRST_STILL_SPRITE EQU const_value
-	const SPRITE_POKE_BALL               ; $3d
-	const SPRITE_FOSSIL                  ; $3e
-	const SPRITE_BOULDER                 ; $3f
-	const SPRITE_PAPER                   ; $40
-	const SPRITE_POKEDEX                 ; $41
-	const SPRITE_CLIPBOARD               ; $42
-	const SPRITE_SNORLAX                 ; $43
-	const SPRITE_UNUSED_OLD_AMBER        ; $44
-	const SPRITE_OLD_AMBER               ; $45
-	const SPRITE_UNUSED_GAMBLER_ASLEEP_1 ; $46
-	const SPRITE_UNUSED_GAMBLER_ASLEEP_2 ; $47
-	const SPRITE_GAMBLER_ASLEEP          ; $48
+	const SPRITE_POKE_BALL               ; $3c
+	const SPRITE_FOSSIL                  ; $3d
+	const SPRITE_BOULDER                 ; $3e
+	const SPRITE_PAPER                   ; $3f
+	const SPRITE_POKEDEX                 ; $40
+	const SPRITE_CLIPBOARD               ; $41
+	const SPRITE_SNORLAX                 ; $42
+	const SPRITE_UNUSED_OLD_AMBER        ; $43
+	const SPRITE_OLD_AMBER               ; $44
+	const SPRITE_UNUSED_GAMBLER_ASLEEP_1 ; $45
+	const SPRITE_UNUSED_GAMBLER_ASLEEP_2 ; $46
+	const SPRITE_GAMBLER_ASLEEP          ; $47
 DEF NUM_SPRITES EQU const_value - 1
