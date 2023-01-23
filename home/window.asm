@@ -30,6 +30,7 @@ HandleMenuInput_::
 	jr nz, .keyPressed
 	push hl
 	hlcoord 18, 11 ; coordinates of blinking down arrow in some menus
+	ld a, " "
 	call HandleDownArrowBlinkTiming ; blink down arrow (if any)
 	pop hl
 	ld a, [wMenuJoypadPollCount]
@@ -223,6 +224,7 @@ EraseMenuCursor::
 ; That allows this to be called without worrying about if a down arrow should
 ; be blinking.
 HandleDownArrowBlinkTiming::
+	push af
 	ld a, [hl]
 	ld b, a
 	ld a, "▼"
@@ -232,19 +234,23 @@ HandleDownArrowBlinkTiming::
 	ldh a, [hDownArrowBlinkCount1]
 	dec a
 	ldh [hDownArrowBlinkCount1], a
-	ret nz
+	jr nz, .return
 	ldh a, [hDownArrowBlinkCount2]
 	dec a
 	ldh [hDownArrowBlinkCount2], a
-	ret nz
-	ld a, " "
+	jr nz, .return
+	pop af
 	ld [hl], a
 	ld a, $ff
 	ldh [hDownArrowBlinkCount1], a
 	ld a, $06
 	ldh [hDownArrowBlinkCount2], a
 	ret
+.return
+	pop af
+	ret
 .downArrowOff
+	pop af
 	ldh a, [hDownArrowBlinkCount1]
 	and a
 	ret z

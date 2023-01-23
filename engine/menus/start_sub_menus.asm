@@ -508,7 +508,7 @@ DrawTrainerInfo:
 	ld a, BANK(GymLeaderFaceAndBadgeTileGraphics)
 	call FarCopyData2
 	ld hl, TextBoxGraphics
-	ld de, 13 tiles
+	ld de, 11 tiles
 	add hl, de ; hl = colon tile pattern
 	ld de, vChars1 tile $56
 	ld bc, 1 tiles
@@ -586,7 +586,7 @@ TrainerInfo_BadgesText:
 ; [wTrainerInfoTextBoxNextRowOffset] = distance from the end of a text box row to the start of the next
 TrainerInfo_DrawTextBox:
 	ld a, $79 ; upper left corner tile ID
-	lb de, $7a, $7b ; top edge and upper right corner tile ID's
+	lb de, $7a, $77 ; top edge and upper right corner tile ID's
 	call TrainerInfo_DrawHorizontalEdge ; draw top edge
 	call TrainerInfo_NextTextBoxRow
 	ld a, [wTrainerInfoTextBoxWidthPlus1]
@@ -601,7 +601,7 @@ TrainerInfo_DrawTextBox:
 	dec c
 	jr nz, .loop
 	ld a, $7d ; lower left corner tile ID
-	lb de, $77, $7e ; bottom edge and lower right corner tile ID's
+	lb de, $7b, $7e ; bottom edge and lower right corner tile ID's
 
 TrainerInfo_DrawHorizontalEdge:
 	ld [hli], a ; place left corner tile

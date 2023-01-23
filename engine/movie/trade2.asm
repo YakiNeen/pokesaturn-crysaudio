@@ -1,4 +1,5 @@
 Trade_PrintPlayerMonInfoText:
+	call LoadTextBoxTilePatterns
 	hlcoord 5, 0
 	ld de, Trade_MonInfoText
 	call PlaceString
@@ -21,6 +22,7 @@ Trade_PrintPlayerMonInfoText:
 	jp PrintNumber
 
 Trade_PrintEnemyMonInfoText:
+	call LoadTextBoxTilePatterns
 	hlcoord 5, 10
 	ld de, Trade_MonInfoText
 	call PlaceString

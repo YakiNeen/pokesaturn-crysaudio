@@ -68,7 +68,8 @@ WaitForTextScrollButtonPress::
 	jr z, .skipAnimation
 	call TownMapSpriteBlinkingAnimation
 .skipAnimation
-	hlcoord 18, 16
+	hlcoord 18, 17
+	ld a, "─"
 	call HandleDownArrowBlinkTiming
 	pop hl
 	call JoypadLowSensitivity
@@ -93,3 +94,29 @@ ManualTextScroll::
 .inLinkBattle
 	ld c, 65
 	jp DelayFrames
+
+PokedexTextScroll::
+	ld a, [hDownArrowBlinkCount1]
+	push af
+	ld a, [hDownArrowBlinkCount2]
+	push af
+	xor a
+	ld [hDownArrowBlinkCount1], a
+	ld a, $6
+	ld [hDownArrowBlinkCount2], a
+.loop
+	push hl
+	hlcoord 18, 16
+	ld a, " "
+	call HandleDownArrowBlinkTiming
+	pop hl
+	call JoypadLowSensitivity
+	ld a, [hJoy5]
+	and A_BUTTON | B_BUTTON
+	jr z, .loop
+	pop af
+	ld [hDownArrowBlinkCount2], a
+	pop af
+	ld [hDownArrowBlinkCount1], a
+	ld a, SFX_PRESS_AB
+	jp PlaySound

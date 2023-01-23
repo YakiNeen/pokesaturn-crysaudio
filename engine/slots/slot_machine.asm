@@ -628,7 +628,7 @@ SlotMachine_PrintWinningSymbol:
 	ld [hli], a
 	inc a
 	ld [hl], a
-	hlcoord 18, 16
+	hlcoord 18, 17
 	ld [hl], "▼"
 	ret
 

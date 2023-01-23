@@ -837,6 +837,7 @@ TradeTakeCareText:
 	text_end
 
 PrintTradeWillTradeText:
+	call LoadTextBoxTilePatterns
 	ld hl, TradeWillTradeText
 	call PrintText
 	call Trade_Delay80

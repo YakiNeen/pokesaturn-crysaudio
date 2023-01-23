@@ -64,6 +64,7 @@ DrawHP_:
 
 ; Predef 0x37
 StatusScreen:
+	call LoadTextBoxTilePatterns
 	call LoadMonData
 	ld a, [wMonDataLocation]
 	cp BOX_DATA

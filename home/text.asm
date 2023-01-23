@@ -59,12 +59,15 @@ PlaceNextChar::
 	ret
 
 .NotTerminator
+	cp "<LF>"
+	jr z, .line_feed
 	cp "<NEXT>"
 	jr nz, .NotNext
 	ld bc, 2 * SCREEN_WIDTH
 	ldh a, [hUILayoutFlags]
 	bit 2, a
 	jr z, .ok
+.line_feed
 	ld bc, SCREEN_WIDTH
 .ok
 	pop hl
@@ -207,12 +210,12 @@ PromptText::
 	cp LINK_STATE_BATTLING
 	jp z, .ok
 	ld a, "▼"
-	ldcoord_a 18, 16
+	ldcoord_a 18, 17
 .ok
 	call ProtectedDelay3
 	call ManualTextScroll
-	ld a, " "
-	ldcoord_a 18, 16
+	ld a, "─"
+	ldcoord_a 18, 17
 
 DoneText::
 	pop hl
@@ -226,12 +229,14 @@ DoneText::
 Paragraph::
 	push de
 	ld a, "▼"
-	ldcoord_a 18, 16
+	ldcoord_a 18, 17
 	call ProtectedDelay3
 	call ManualTextScroll
 	hlcoord 1, 13
 	lb bc, 4, 18
 	call ClearScreenArea
+	ld a, "─"
+	ldcoord_a 18, 17
 	ld c, 20
 	call DelayFrames
 	pop de
@@ -243,7 +248,7 @@ PageChar::
 	ld a, "▼"
 	ldcoord_a 18, 16
 	call ProtectedDelay3
-	call ManualTextScroll
+	call PokedexTextScroll
 	hlcoord 1, 10
 	lb bc, 7, 18
 	call ClearScreenArea
@@ -257,13 +262,13 @@ PageChar::
 
 _ContText::
 	ld a, "▼"
-	ldcoord_a 18, 16
+	ldcoord_a 18, 17
 	call ProtectedDelay3
 	push de
 	call ManualTextScroll
 	pop de
-	ld a, " "
-	ldcoord_a 18, 16
+	ld a, "─"
+	ldcoord_a 18, 17
 _ContTextNoPause::
 	push de
 	call ScrollTextUpOneLine
@@ -433,20 +438,20 @@ TextCommand_PROMPT_BUTTON::
 	cp LINK_STATE_BATTLING
 	jp z, TextCommand_WAIT_BUTTON
 	ld a, "▼"
-	ldcoord_a 18, 16 ; place down arrow in lower right corner of dialogue text box
+	ldcoord_a 18, 17 ; place down arrow in dialogue text box
 	push bc
 	call ManualTextScroll ; blink arrow and wait for A or B to be pressed
 	pop bc
-	ld a, " "
-	ldcoord_a 18, 16 ; overwrite down arrow with blank space
+	ld a, "─"
+	ldcoord_a 18, 17 ; overwrite down arrow with text box down tile
 	pop hl
 	jp NextTextCommand
 
 TextCommand_SCROLL::
 ; pushes text up two lines and sets the BC cursor to the border tile
 ; below the first character column of the text box.
-	ld a, " "
-	ldcoord_a 18, 16 ; place blank space in lower right corner of dialogue text box
+	ld a, "─"
+	ldcoord_a 18, 17 ; place text box down tile in lower right corner of dialogue text box
 	call ScrollTextUpOneLine
 	call ScrollTextUpOneLine
 	pop hl

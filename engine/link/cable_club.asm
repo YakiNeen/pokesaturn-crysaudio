@@ -938,8 +938,8 @@ CableClub_TextBoxBorder:
 	ld [hli], a
 	inc a ; border top horizontal line tile
 	call CableClub_DrawHorizontalLine
-	inc a ; border upper right corner tile
-	ld [hl], a
+	inc a
+	ld [hl], $76 ; border upper right corner tile
 	pop hl
 	ld de, 20
 	add hl, de
@@ -957,7 +957,7 @@ CableClub_TextBoxBorder:
 	jr nz, .loop
 	ld a, $7c ; border lower left corner tile
 	ld [hli], a
-	ld a, $76 ; border bottom horizontal line tile
+	ld a, $7a ; border bottom horizontal line tile
 	call CableClub_DrawHorizontalLine
 	ld [hl], $7d ; border lower right corner tile
 	ret
