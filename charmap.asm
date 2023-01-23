@@ -48,8 +48,8 @@
 	charmap "‘",         $70 ; opening single quote
 	charmap "’",         $71 ; closing single quote
 	charmap "“",         $72 ; opening quote
-	charmap "”",         $73 ; closing quote
-	charmap "·",         $74 ; middle dot, unused
+	charmap "<ID>",      $73
+	charmap "№",         $74
 	charmap "…",         $75 ; ellipsis
 	charmap "ぁ",         $76 ; hiragana small a, unused
 	charmap "ぇ",         $77 ; hiragana small e, unused
@@ -70,8 +70,6 @@
 	charmap "<to>",      $70 ; narrow "to"
 
 	charmap "<BOLD_P>",  $72
-	charmap "<ID>",      $73
-	charmap "№",         $74
 
 ; Actual characters (from other graphics files)
 
@@ -84,7 +82,7 @@
 	charmap "▲",         $ed ; gfx/town_map/up_arrow.1bpp
 
 	; needed for PrintAlphabet (see engine/menus/naming_screen.asm)
-	charmap "<ED>",      $f0 ; gfx/font/ED.1bpp
+	charmap "<ED>",      $c4 ; gfx/font/nickname_screen.1bpp
 
 ; Actual characters (from gfx/font/font.png)
 

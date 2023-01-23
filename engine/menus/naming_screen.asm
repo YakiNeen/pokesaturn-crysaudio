@@ -91,7 +91,7 @@ DisplayNamingScreen:
 	ld b, SET_PAL_GENERIC
 	call RunPaletteCommand
 	call LoadHpBarAndStatusTilePatterns
-	call LoadEDTile
+	call LoadNicknameTiles
 	farcall LoadMonPartySpriteGfx
 	hlcoord 0, 4
 	ld b, 9
@@ -310,17 +310,15 @@ DisplayNamingScreen:
 	ld [wTopMenuItemX], a
 	jp EraseMenuCursor
 
-LoadEDTile:
-	ld de, ED_Tile
-	ld hl, vFont tile $70
-	ld bc, (ED_TileEnd - ED_Tile) / $8
-	; to fix the graphical bug on poor emulators
-	;lb bc, BANK(ED_Tile), (ED_TileEnd - ED_Tile) / $8
+LoadNicknameTiles:
+	ld de, Nickname_Tiles
+	ld hl, vFont tile $42
+	ld bc, (Nickname_TilesEnd - Nickname_Tiles) / $8
 	jp CopyVideoDataDouble
 
-ED_Tile:
-	INCBIN "gfx/font/ED.1bpp"
-ED_TileEnd:
+Nickname_Tiles:
+	INCBIN "gfx/font/nickname_screen.1bpp"
+Nickname_TilesEnd:
 
 PrintAlphabet:
 	xor a
@@ -373,7 +371,7 @@ PrintNicknameAndUnderscores:
 .pokemon1
 	ld b, 10 ; pokemon max name length
 .playerOrRival1
-	ld a, $76 ; underscore tile id
+	ld a, $c2 ; underscore tile id
 .placeUnderscoreLoop
 	ld [hli], a
 	dec b
@@ -405,7 +403,7 @@ PrintNicknameAndUnderscores:
 	ld b, $0
 	hlcoord 10, 3
 	add hl, bc
-	ld [hl], $77 ; raised underscore tile id
+	ld [hl], $c3 ; raised underscore tile id
 	ret
 
 ; calculates the length of the string at wStringBuffer and stores it in c
