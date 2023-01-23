@@ -125,9 +125,9 @@ MainMenu:
 	jp SpecialEnterMap
 
 InitOptions:
-	ld a, TEXT_DELAY_FAST
+	ld a, 1
 	ld [wLetterPrintingDelayFlags], a
-	ld a, TEXT_DELAY_MEDIUM
+	ld a, 1 ; Default Text Speed
 	ld [wOptions], a
 	ret
 
