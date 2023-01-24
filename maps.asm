@@ -775,8 +775,6 @@ INCLUDE "data/maps/headers/Route18.asm"
 INCLUDE "data/maps/objects/Route18.asm"
 Route18_Blocks: INCBIN "maps/Route18.blk"
 
-	INCBIN "maps/UnusedPokecenterCopy.blk"
-
 
 SECTION "Maps 14", ROMX
 
@@ -840,7 +838,6 @@ LavenderPokecenter_Blocks:
 PewterPokecenter_Blocks: INCBIN "maps/PewterPokecenter.blk"
 
 UndergroundPathRoute7_Blocks:
-UndergroundPathRoute7Copy_Blocks:
 UndergroundPathRoute6_Blocks:
 UndergroundPathRoute5_Blocks: INCBIN "maps/UndergroundPathRoute5.blk"
 
@@ -958,10 +955,6 @@ INCLUDE "data/maps/headers/UndergroundPathRoute7.asm"
 INCLUDE "scripts/UndergroundPathRoute7.asm"
 INCLUDE "data/maps/objects/UndergroundPathRoute7.asm"
 
-INCLUDE "data/maps/headers/UndergroundPathRoute7Copy.asm"
-INCLUDE "scripts/UndergroundPathRoute7Copy.asm"
-INCLUDE "data/maps/objects/UndergroundPathRoute7Copy.asm"
-
 INCLUDE "data/maps/headers/SilphCo9F.asm"
 INCLUDE "scripts/SilphCo9F.asm"
 INCLUDE "data/maps/objects/SilphCo9F.asm"
@@ -978,8 +971,6 @@ SECTION "Maps 17", ROMX
 ViridianForest_Blocks: INCBIN "maps/ViridianForest.blk"
 UndergroundPathNorthSouth_Blocks: INCBIN "maps/UndergroundPathNorthSouth.blk"
 UndergroundPathWestEast_Blocks: INCBIN "maps/UndergroundPathWestEast.blk"
-
-	INCBIN "maps/UnusedDiglettsCaveCopy.blk"
 
 SSAnneB1FRooms_Blocks:
 SSAnne2FRooms_Blocks: INCBIN "maps/SSAnne2FRooms.blk"
@@ -1013,8 +1004,6 @@ INCLUDE "data/maps/headers/PokemonTower6F.asm"
 INCLUDE "scripts/PokemonTower6F.asm"
 INCLUDE "data/maps/objects/PokemonTower6F.asm"
 PokemonTower6F_Blocks: INCBIN "maps/PokemonTower6F.blk"
-
-	INCBIN "maps/UnusedEmptyMap.blk"
 
 INCLUDE "data/maps/headers/PokemonTower7F.asm"
 INCLUDE "scripts/PokemonTower7F.asm"
