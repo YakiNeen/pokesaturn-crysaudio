@@ -22,7 +22,8 @@ Museum1FScript0:
 	cp 10
 	ret nz
 .asm_5c120
-	xor a
+	ld a, PLAYER_DIR_RIGHT
+	ld [wPlayerMovingDirection], a
 	ldh [hJoyHeld], a
 	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
