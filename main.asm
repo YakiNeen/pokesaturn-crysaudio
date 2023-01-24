@@ -359,3 +359,4 @@ SECTION "Novinho Rapaz", ROMX
 INCLUDE "engine/pokemon/shiny.asm"
 INCLUDE "engine/pokemon/mon_gender.asm" 
 INCLUDE "engine/menus/item_descriptions.asm"
+INCLUDE "engine/overworld/field_moves.asm"
