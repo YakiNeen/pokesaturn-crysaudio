@@ -193,11 +193,6 @@ _ItemUseNotTimeText::
 	cont "time to use that! "
 	prompt
 
-_ItemUseNotYoursToUseText::
-	text "This isn't yours"
-	line "to use!"
-	prompt
-
 _ItemUseNoEffectText::
 	text "It won't have any"
 	line "effect."
