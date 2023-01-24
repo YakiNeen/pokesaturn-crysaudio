@@ -27,4 +27,5 @@
 	     CUT,          FLY,          SURF,         STRENGTH,     FLASH
 	; end
 
-	db %11111111 ; padding
+	db BANK(MewPicFront)
+	assert BANK(MewPicFront) == BANK(MewPicBack)
