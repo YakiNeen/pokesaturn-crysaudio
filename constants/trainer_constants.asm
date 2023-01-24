@@ -13,6 +13,7 @@ ENDM
 ; - TrainerPicAndMoneyPointers (see data/trainers/pic_pointers_money.asm)
 ; - TrainerAIPointers (see data/trainers/ai_pointers.asm)
 ; - TrainerClassMoveChoiceModifications (see data/trainers/move_choices.asm)
+; - TrainerClassDVs (see data/trainers/trainer_dvs.asm)
 	const_def
 	trainer_const NOBODY         ; $00
 	trainer_const YOUNGSTER      ; $01

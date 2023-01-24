@@ -91,7 +91,6 @@ DisplayNamingScreen:
 	call UpdateSprites
 	ld b, SET_PAL_GENERIC
 	call RunPaletteCommand
-	call LoadHpBarAndStatusTilePatterns
 	call LoadNicknameTiles
 	farcall LoadMonPartySpriteGfx
 	hlcoord 0, 4

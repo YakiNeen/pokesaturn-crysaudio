@@ -17,7 +17,7 @@ LoadPartyPokeballGfx:
 	jp CopyVideoData
 
 SetupOwnPartyPokeballs:
-	call PlacePlayerHUDTiles
+	call PlayerPartyUpdated
 	ld hl, wPartyMon1
 	ld de, wPartyCount
 	call SetupPokeballs
@@ -118,6 +118,7 @@ WritePokeballOAMData:
 
 PlacePlayerHUDTiles:
 	ld hl, PlayerBattleHUDGraphicsTiles
+PartyUpdateDone:
 	ld de, wHUDGraphicsTiles
 	ld bc, $3
 	call CopyData
@@ -127,8 +128,8 @@ PlacePlayerHUDTiles:
 
 PlayerBattleHUDGraphicsTiles:
 ; The tile numbers for specific parts of the battle display for the player's pokemon
-	db $73 ; unused ($73 is hardcoded into the routine that uses these bytes)
-	db $77 ; lower-right corner tile of the HUD
+	db $73 ; upper-right tile of the HUD
+	db $75 ; lower-right corner tile of the HUD
 	db $6F ; lower-left triangle tile of the HUD
 
 PlaceEnemyHUDTiles:
@@ -137,17 +138,19 @@ PlaceEnemyHUDTiles:
 	ld bc, $3
 	call CopyData
 	hlcoord 1, 2
-	ld de, $1
+	jp EnemyHealthBarUpdated
 	jr PlaceHUDTiles
 
 EnemyBattleHUDGraphicsTiles:
 ; The tile numbers for specific parts of the battle display for the enemy
-	db $73 ; unused ($73 is hardcoded in the routine that uses these bytes)
+	db $78 ; upper-left tile of the HUD
 	db $74 ; lower-left corner tile of the HUD
-	db $78 ; lower-right triangle tile of the HUD
+	db $77 ; lower-right triangle tile of the HUD
 
 PlaceHUDTiles:
-	ld [hl], $73
+	ld a, [wHUDGraphicsTiles + 0]
+	ld [hl], a
+HealthBarUpdateDone:
 	ld bc, SCREEN_WIDTH
 	add hl, bc
 	ld a, [wHUDGraphicsTiles + 1] ; leftmost tile
@@ -185,6 +188,41 @@ SetupPlayerAndEnemyPokeballs:
 	ld [hl], $68
 	ld hl, wShadowOAMSprite06
 	jp WritePokeballOAMData
+
+PlayerPartyUpdated:
+	ld hl, PartyTileMap
+	jp PartyUpdateDone
+
+PartyTileMap:
+	db $73, $70, $6F
+
+EnemyHealthBarUpdated:
+	ld [hl], $78
+	ld a, [wIsInBattle]
+	dec a
+	jr  nz, .noBattle
+	push hl
+	ld a, [wEnemyMonSpecies2]
+	ld [wd11e], a
+	ld hl, IndexToPokedex
+	ld b, BANK(IndexToPokedex)
+	call Bankswitch
+	ld a, [wd11e]
+	dec a
+	ld c, a
+	ld b, $2
+	ld hl, wPokedexOwned
+	predef FlagActionPredef
+	ld a, c
+	and a
+	jr z, .notOwned
+	hlcoord 1, 1
+	ld [hl], "<PEGADO>" ; caught pokeball tile
+.notOwned
+	pop hl
+.noBattle
+	ld de, $0001
+	jp HealthBarUpdateDone
 
 ; four tiles: pokeball, black pokeball (status ailment), crossed out pokeball (fainted) and pokeball slot (no mon)
 PokeballTileGraphics::

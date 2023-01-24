@@ -66,10 +66,6 @@ DEF SLP_MASK EQU %111 ; 0-7 turns
 
 DEF MAX_STAT_VALUE EQU 999
 
-; trainer dvs
-DEF ATKDEFDV_TRAINER EQU $98
-DEF SPDSPCDV_TRAINER EQU $88
-
 ; wPlayerBattleStatus1 or wEnemyBattleStatus1 bit flags
 	const_def
 	const STORING_ENERGY           ; 0 ; Bide

@@ -86,83 +86,107 @@ StatusScreen:
 	call ClearScreen
 	call UpdateSprites
 	call LoadHpBarAndStatusTilePatterns
-	ld de, BattleHudTiles1  ; source
-	ld hl, vChars2 tile $6d ; dest
-	lb bc, BANK(BattleHudTiles1), 3
-	call CopyVideoDataDouble ; ·│ :L and halfarrow line end
-	ld de, BattleHudTiles2
-	ld hl, vChars2 tile $78
-	lb bc, BANK(BattleHudTiles2), 1
-	call CopyVideoDataDouble ; │
-	ld de, BattleHudTiles3
-	ld hl, vChars2 tile $76
-	lb bc, BANK(BattleHudTiles3), 2
-	call CopyVideoDataDouble ; ─ ┘
 	ldh a, [hTileAnimations]
 	push af
 	xor a
 	ldh [hTileAnimations], a
-	hlcoord 19, 1
-	lb bc, 6, 10
-	call DrawLineBox ; Draws the box around name, HP and status
-	ld de, -6
-	add hl, de
-	ld [hl], "."
-	dec hl
+	hlcoord 8, 0
 	ld [hl], "№"
-	hlcoord 19, 9
-	lb bc, 8, 6
-	call DrawLineBox ; Draws the box around types, ID No. and OT
-	hlcoord 10, 9
-	ld de, Type1Text
-	call PlaceString ; "TYPE1/"
-	hlcoord 11, 3
-	predef DrawHP
+	inc hl
+	ld [hl], "."
+	hlcoord 8, 4
+	ld de, IDNoText
+	call PlaceString ; "ID№/" "OT/"
+	hlcoord 0, 7
+	ld a, $75 ; horizontal dash tile
+	ld c, SCREEN_WIDTH
+.dashes
+	ld [hli], a
+	dec c
+	jr nz, .dashes
+	hlcoord 1, 8
+	predef DrawHP2
 	ld hl, wStatusScreenHPBarColor
 	call GetHealthBarColor
+	ld de, wLoadedMonDVs
+	farcall IsMonShiny
+	ld hl, wShinyMonFlag	
+	jr nz, .shiny
+	res 0, [hl]
+	jr .setPal
+.shiny
+	set 0, [hl]
+.setPal
 	ld b, SET_PAL_STATUS_SCREEN
 	call RunPaletteCommand
-	hlcoord 16, 6
+	hlcoord 7, 11
 	ld de, wLoadedMonStatus
 	call PrintStatusCondition
 	jr nz, .StatusWritten
-	hlcoord 16, 6
+	hlcoord 7, 11
 	ld de, OKText
 	call PlaceString ; "OK"
 .StatusWritten
-	hlcoord 9, 6
+	hlcoord 0, 11
 	ld de, StatusText
 	call PlaceString ; "STATUS/"
-	hlcoord 14, 2
+	hlcoord 14, 0
 	call PrintLevel ; Pokémon level
 	ld a, [wMonHIndex]
 	ld [wd11e], a
-	ld [wd0b5], a
 	predef IndexToPokedex
-	hlcoord 3, 7
+	hlcoord 10, 0
 	ld de, wd11e
 	lb bc, LEADING_ZEROES | 1, 3
 	call PrintNumber ; Pokémon no.
-	hlcoord 11, 10
-	predef PrintMonType
 	ld hl, NamePointers2
 	call .GetStringPointer
 	ld d, h
 	ld e, l
-	hlcoord 9, 1
+	hlcoord 8, 2
 	call PlaceString ; Pokémon name
 	ld hl, OTPointers
 	call .GetStringPointer
 	ld d, h
 	ld e, l
-	hlcoord 12, 16
+	hlcoord 11, 6
 	call PlaceString ; OT
-	hlcoord 12, 14
+	hlcoord 11, 4
 	ld de, wLoadedMonOTID
 	lb bc, LEADING_ZEROES | 2, 5
 	call PrintNumber ; ID Number
 	ld d, $0
 	call PrintStatsBox
+	call PrintMonGender_StatusScreen
+	call PrintMonShiny_StatusScreen
+	hlcoord 0, 13
+	ld de, StatusScreenExpText
+	call PlaceString ; "EXP POINTS" "LEVEL UP"
+	ld a, [wLoadedMonLevel]
+	push af
+	cp MAX_LEVEL
+	jr z, .Level100
+	inc a
+	ld [wLoadedMonLevel], a ; Increase temporarily if not 100
+.Level100
+	hlcoord 5, 16
+	ld [hl], $6F ; 1-tile "to"
+	hlcoord 6, 16
+	ld [hl], $70
+	inc hl
+	call PrintLevel
+	pop af
+	ld [wLoadedMonLevel], a
+	call PrintEXPBar_StatusScreen
+	ld de, wLoadedMonExp
+	coord hl, 2, 14
+	lb bc, 3, 7
+	call PrintNumber ; exp
+	call CalcExpToLevelUp
+	ld de, wLoadedMonExp
+	hlcoord 0, 16
+	lb bc, 3, 5
+	call PrintNumber ; exp needed to level up
 	call Delay3
 	call GBPalNormal
 	hlcoord 1, 0
@@ -201,21 +225,12 @@ NamePointers2:
 	dw wBoxMonNicks
 	dw wDayCareMonName
 
-Type1Text:
-	db   "TYPE1/"
-	next ""
-	; fallthrough
-Type2Text:
-	db   "TYPE2/"
-	next ""
-	; fallthrough
+TypesText:
+	db   "TYPE/@"
+
 IDNoText:
-	db   "<ID>№/"
-	next ""
-	; fallthrough
-OTText:
-	db   "OT/"
-	next "@"
+	db   "<ID>№."
+	next "OT/@"
 
 StatusText:
 	db "STATUS/@"
@@ -223,33 +238,58 @@ StatusText:
 OKText:
 	db "OK@"
 
-; Draws a line starting from hl high b and wide c
-DrawLineBox:
-	ld de, SCREEN_WIDTH ; New line
-.PrintVerticalLine
-	ld [hl], $78 ; │
-	add hl, de
-	dec b
-	jr nz, .PrintVerticalLine
-	ld [hl], $77 ; ┘
-	dec hl
-.PrintHorizLine
-	ld [hl], $76 ; ─
-	dec hl
-	dec c
-	jr nz, .PrintHorizLine
-	ld [hl], $6f ; ← (halfarrow ending)
+PrintMonGender_StatusScreen:
+	ld a, [wLoadedMonSpecies]
+	ld [wGenderTemp], a
+	ld de, wLoadedMonDVs
+	farcall GetMonGender
+	ld a, [wGenderTemp]
+	and a
+	ret z
+	dec a
+	ld a, "♂"
+	jr z, .ok
+	ld a, "♀"
+.ok
+	hlcoord 18, 0
+	ld [hl], a
+	ret
+
+PrintMonShiny_StatusScreen:
+	ld de, wLoadedMonDVs
+	farcall IsMonShiny
+	ret z
+	hlcoord 19, 0
+	ld [hl], "<SHINY>"
+	ret
+
+PrintEXPBar_StatusScreen:
+	hlcoord 0, 17
+	ld [hl], $6D ; exp bar left end tile
+	hlcoord 9, 17
+	ld [hl], $76 ; exp bar right end tile
+	ld a, [wBattleMonLevel]
+	push af
+	ld a, [wLoadedMonLevel]
+	ld [wBattleMonLevel], a
+	push af
+	decoord 8, 17 ; right end
+	farcall PrintEXPBar
+	pop af
+	ld [wLoadedMonLevel], a
+	pop af
+	ld [wBattleMonLevel], a
 	ret
 
 PrintStatsBox:
 	ld a, d
 	and a ; a is 0 from the status screen
 	jr nz, .DifferentBox
-	hlcoord 0, 8
+	hlcoord 10, 8
 	ld b, 8
 	ld c, 8
 	call TextBoxBorder ; Draws the box
-	hlcoord 1, 9 ; Start printing stats from here
+	hlcoord 11, 9 ; Start printing stats from here
 	ld bc, $19 ; Number offset
 	jr .PrintStats
 .DifferentBox
@@ -304,11 +344,12 @@ StatusScreen2:
 	ld bc, NUM_MOVES
 	call CopyData
 	callfar FormatMovesString
-	hlcoord 9, 2
+	hlcoord 8, 2
 	lb bc, 5, 10
 	call ClearScreenArea ; Clear under name
-	hlcoord 19, 3
-	ld [hl], $78
+	hlcoord 8, 4
+	ld de, TypesText
+	call PlaceString ; "TYPES/"
 	hlcoord 0, 8
 	ld b, 8
 	ld c, 18
@@ -384,41 +425,14 @@ StatusScreen2:
 	cp $4
 	jr nz, .PrintPP
 .PPDone
-	hlcoord 9, 3
-	ld de, StatusScreenExpText
-	call PlaceString
-	ld a, [wLoadedMonLevel]
-	push af
-	cp MAX_LEVEL
-	jr z, .Level100
-	inc a
-	ld [wLoadedMonLevel], a ; Increase temporarily if not 100
-.Level100
-	hlcoord 14, 6
-	ld [hl], "<to>"
-	inc hl
-	inc hl
-	call PrintLevel
-	pop af
-	ld [wLoadedMonLevel], a
-	ld de, wLoadedMonExp
-	hlcoord 12, 4
-	lb bc, 3, 7
-	call PrintNumber ; exp
-	call CalcExpToLevelUp
-	ld de, wLoadedMonExp
-	hlcoord 7, 6
-	lb bc, 3, 7
-	call PrintNumber ; exp needed to level up
-	hlcoord 9, 0
-	call StatusScreen_ClearName
-	hlcoord 9, 1
-	call StatusScreen_ClearName
 	ld a, [wMonHIndex]
+	ld [wd0b5], a
 	ld [wd11e], a
 	call GetMonName
-	hlcoord 9, 1
+	hlcoord 8, 2
 	call PlaceString
+	hlcoord 9, 5
+	predef PrintMonType
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
 	call Delay3

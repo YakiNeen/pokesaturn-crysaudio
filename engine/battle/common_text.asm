@@ -6,8 +6,15 @@ PrintBeginningBattleText:
 	cp POKEMON_TOWER_3F
 	jr c, .notPokemonTower
 	cp POKEMON_TOWER_7F + 1
-	jr c, .pokemonTower
+	jp c, .pokemonTower
 .notPokemonTower
+	ld de, wEnemyMonDVs
+	farcall IsMonShiny
+	jr z, .noFlash
+	ld hl, wShinyMonFlag
+	set 1, [hl]
+	farcall PlayShinySparkleAnimation
+.noFlash
 	ld a, [wEnemyMonSpecies2]
 	call PlayCry
 	ld hl, WildMonAppearedText

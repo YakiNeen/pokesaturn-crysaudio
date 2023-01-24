@@ -202,6 +202,8 @@ ENDU
 SECTION "Overworld Map", WRAM0
 
 UNION
+wGenderTemp::
+wTempDVs::
 wOverworldMap:: ds 1300
 wOverworldMapEnd::
 
@@ -414,7 +416,11 @@ wAnimationType:: db
 wAnimPalette:: db
 
 NEXTU
-	ds 60
+
+wShinyMonFlag::
+; Bit 0 is set if the mon should be shiny
+; Bit 1 is set for enemy mon animation, reset for player mon animation
+
 ; temporary buffer when swapping party mon data
 wSwitchPartyMonTempBuffer:: ds 44 ; party_struct size
 
@@ -1844,7 +1850,10 @@ wSpriteSetID:: db
 
 wObjectDataPointerTemp:: dw
 
-	ds 2
+wNextEncounterLevel::
+	ds 1
+wNextEncounterSpecies::
+	ds 1
 
 ; the tile shown outside the boundaries of the map
 wMapBackgroundTile:: db
@@ -2359,6 +2368,12 @@ ENDR
 wBoxMonNicksEnd::
 
 wBoxDataEnd::
+
+wEXPBarPixelLength::  ds 1
+wEXPBarBaseEXP::      ds 3
+wEXPBarCurEXP::       ds 3
+wEXPBarNeededEXP::    ds 3
+wEXPBarKeepFullFlag:: ds 1
 
 
 SECTION "Stack", WRAM0
