@@ -64,9 +64,6 @@
 	charmap "₂",         $73
 	charmap "º",         $74
 
-	; needed for LoadTownMap_Fly (see engine/items/town_map.asm)
-	charmap "▲",         $ed ; gfx/town_map/up_arrow.1bpp
-
 	; needed for PrintAlphabet (see engine/menus/naming_screen.asm)
 	charmap "<ED>",      $c4 ; gfx/font/nickname_screen.1bpp
 

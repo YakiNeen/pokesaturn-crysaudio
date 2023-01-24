@@ -145,10 +145,6 @@ LoadTownMap_Fly::
 	ld hl, vSprites tile $04
 	lb bc, BANK(BirdSprite), 12
 	call CopyVideoData
-	ld de, TownMapUpArrow
-	ld hl, vChars1 tile $6d
-	lb bc, BANK(TownMapUpArrow), (TownMapUpArrowEnd - TownMapUpArrow) / $8
-	call CopyVideoDataDouble
 	call BuildFlyLocationsList
 	ld hl, wUpdateSpritesEnabled
 	ld a, [hl]
@@ -156,7 +152,7 @@ LoadTownMap_Fly::
 	ld [hl], $ff
 	push hl
 	hlcoord 0, 0
-	ld de, ToText
+	ld de, SetaText
 	call PlaceString
 	ld a, [wCurMap]
 	ld b, $0
@@ -181,7 +177,7 @@ LoadTownMap_Fly::
 	ld c, 15
 	call DelayFrames
 	hlcoord 18, 0
-	ld [hl], "▲"
+	ld [hl], $24
 	hlcoord 19, 0
 	ld [hl], "▼"
 	pop hl
@@ -245,8 +241,8 @@ LoadTownMap_Fly::
 	ld hl, wFlyLocationsList + NUM_CITY_MAPS
 	jr .pressedDown
 
-ToText:
-	db "To@"
+SetaText:
+	db $7f,$1c,"@"
 
 BuildFlyLocationsList:
 	ld hl, wFlyAnimUsingCoordList
@@ -272,10 +268,6 @@ BuildFlyLocationsList:
 	ld [hl], $ff
 	ret
 
-TownMapUpArrow:
-	INCBIN "gfx/town_map/up_arrow.1bpp"
-TownMapUpArrowEnd:
-
 LoadTownMap:
 	call GBPalWhiteOutWithDelay3
 	call ClearScreen
@@ -286,7 +278,7 @@ LoadTownMap:
 	call TextBoxBorder
 	call DisableLCD
 	ld hl, WorldMapTileGraphics
-	ld de, vChars2 tile $60
+	ld de, vTileset tile $10
 	ld bc, WorldMapTileGraphicsEnd - WorldMapTileGraphics
 	ld a, BANK(WorldMapTileGraphics)
 	call FarCopyData2
@@ -294,27 +286,12 @@ LoadTownMap:
 	ld de, vSprites tile $04
 	ld bc, MonNestIconEnd - MonNestIcon
 	ld a, BANK(MonNestIcon)
-	call FarCopyDataDouble
+	call FarCopyData2
 	hlcoord 0, 0
-	ld de, CompressedMap
-.nextTile
-	ld a, [de]
-	and a
-	jr z, .done
-	ld b, a
-	and $f
-	ld c, a
-	ld a, b
-	swap a
-	and $f
-	add $60
-.writeRunLoop
-	ld [hli], a
-	dec c
-	jr nz, .writeRunLoop
-	inc de
-	jr .nextTile
-.done
+	ld hl, TownMapTilemap
+	ld de, wTileMap
+	ld bc, TownMapTilemapEnd - TownMapTilemap
+	call CopyData
 	call EnableLCD
 	ld b, SET_PAL_TOWN_MAP
 	call RunPaletteCommand
@@ -326,8 +303,9 @@ LoadTownMap:
 	ld [wTownMapSpriteBlinkingEnabled], a
 	ret
 
-CompressedMap:
-	INCBIN "gfx/town_map/town_map.rle"
+TownMapTilemap:
+	INCBIN "gfx/town_map/town_map.tilemap"
+TownMapTilemapEnd:
 
 ExitTownMap:
 ; clear town map graphics data and load usual graphics data
@@ -400,7 +378,7 @@ DisplayWildLocations:
 ; if no OAM entries were written, print area unknown text
 	hlcoord 1, 7
 	ld b, 2
-	ld c, 15
+	ld c, 16
 	call TextBoxBorder
 	hlcoord 2, 9
 	ld de, AreaUnknownText
@@ -417,7 +395,7 @@ DisplayWildLocations:
 	jp CopyData
 
 AreaUnknownText:
-	db " AREA UNKNOWN@"
+	db "  AREA UNKNOWN@"
 
 TownMapCoordsToOAMCoords:
 ; in: lower nybble of a = x, upper nybble of a = y
@@ -589,7 +567,7 @@ INCLUDE "data/maps/town_map_entries.asm"
 INCLUDE "data/maps/names.asm"
 
 MonNestIcon:
-	INCBIN "gfx/town_map/mon_nest_icon.1bpp"
+	INCBIN "gfx/town_map/mon_nest_icon.2bpp"
 MonNestIconEnd:
 
 TownMapSpriteBlinkingAnimation::
