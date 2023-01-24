@@ -938,9 +938,7 @@ _CantEscapeText::
 	prompt
 
 _NoRunningText::
-	text "No! There's no"
-	line "running from a"
-	cont "trainer battle!"
+	text "Impossible to run."
 	prompt
 
 _GotAwayText::
