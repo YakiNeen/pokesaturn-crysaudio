@@ -109,7 +109,7 @@ ItemDescriptionPointers:
 	text_end
 	text_far _NuggetDescription
 	text_end
-	text_far _UnusedItemDescription
+	text_far _HeartStoneDescription
 	text_end
 	text_far _PokeDollDescription
 	text_end
