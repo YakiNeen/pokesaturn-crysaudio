@@ -3847,7 +3847,7 @@ PrintMoveFailureText:
 	ld a, [wCriticalHitOrOHKO]
 	cp $ff
 	jr nz, .gotTextToPrint
-	ld hl, UnaffectedText
+	ld hl, IsUnaffectedText
 .gotTextToPrint
 	push de
 	call PrintText
@@ -3895,10 +3895,6 @@ AttackMissedText:
 
 KeptGoingAndCrashedText:
 	text_far _KeptGoingAndCrashedText
-	text_end
-
-UnaffectedText:
-	text_far _UnaffectedText
 	text_end
 
 PrintDoesntAffectText:
