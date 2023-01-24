@@ -9,10 +9,6 @@ ExclamationText::
 	text_far _ExclamationText
 	text_end
 
-GroundRoseText::
-	text_far _GroundRoseText
-	text_end
-
 BoulderText::
 	text_far _BoulderText
 	text_asm
