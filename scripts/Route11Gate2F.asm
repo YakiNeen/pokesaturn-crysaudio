@@ -9,11 +9,16 @@ Route11Gate2F_TextPointers:
 
 Route11GateUpstairsText1:
 	text_asm
+	ld hl, Trader0Name
+	call SetCustomName
 	xor a ; TRADE_FOR_TERRY
 	ld [wWhichTrade], a
 	predef DoInGameTradeDialogue
 Route11GateUpstairsScriptEnd:
 	jp TextScriptEnd
+
+Trader0Name:
+	db "TURNER@"
 
 Route11GateUpstairsText2:
 	text_asm

@@ -11,3 +11,13 @@ CopyString::
 	cp "@"
 	jr nz, CopyString
 	ret
+
+SetCustomName::
+	ld de, wCurTrainerName
+.loop
+	ld a, [hli]
+	ld [de],a
+	inc de
+	cp "@"
+	ret z
+	jr .loop

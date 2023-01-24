@@ -100,10 +100,15 @@ Lab4Text_75dd5:
 
 Lab4Text2:
 	text_asm
+	ld hl, Trader3Name
+	call SetCustomName
 	ld a, TRADE_FOR_SAILOR
 	ld [wWhichTrade], a
 	predef DoInGameTradeDialogue
 	jp TextScriptEnd
+
+Trader3Name:
+	db "GARETT@"
 
 LoadFossilItemAndMonNameBank1D:
 	farjp LoadFossilItemAndMonName

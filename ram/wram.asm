@@ -2081,7 +2081,10 @@ wRoute18Gate1FCurScript:: db
 wGameProgressFlagsEnd::
 
 UNION
-	ds 128
+	ds 115
+
+wCurTrainerName::
+	ds 13
 NEXTU
 wChannel7:: channel_struct wChannel7
 wChannel8:: channel_struct wChannel8
