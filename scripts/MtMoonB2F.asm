@@ -60,6 +60,16 @@ MtMoon3Script0:
 	jp nz, MtMoon3Script_49d91
 	ld a, [wXCoord]
 	cp 13
+	ret nz
+	ld a, $1
+	ld [wcf0d], a
+	ld a, PLAYER_DIR_LEFT
+	ld [wPlayerMovingDirection], a
+	ld a, $1
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_RIGHT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
 	jp nz, MtMoon3Script_49d91
 	xor a
 	ldh [hJoyHeld], a
@@ -77,8 +87,12 @@ MtMoon3Script3:
 	cp $ff
 	jp z, MtMoon3Script_49d58
 	call UpdateSprites
-	call Delay3
+	ld a, $f0
+	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_MT_MOON_EXIT_SUPER_NERD
+	ld a, $1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
 	xor a
 	ld [wJoyIgnore], a
 	ld a, $0
