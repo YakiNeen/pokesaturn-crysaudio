@@ -323,6 +323,9 @@ VictreebelPicBack::    INCBIN "gfx/pokemon/back/victreebelb.pic"
 
 SECTION "Pics 7", ROMX
 
+MewPicFront:: INCBIN "gfx/pokemon/front/mew.pic"
+MewPicBack::  INCBIN "gfx/pokemon/back/mewb.pic"
+
 FossilKabutopsPic::   INCBIN "gfx/pokemon/front/fossilkabutops.pic"
 FossilAerodactylPic::  INCBIN "gfx/pokemon/front/fossilaerodactyl.pic"
 GhostPic::             INCBIN "gfx/battle/ghost.pic"
