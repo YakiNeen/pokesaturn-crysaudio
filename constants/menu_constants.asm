@@ -4,44 +4,26 @@ DEF PC_ITEM_CAPACITY  EQU 50
 ; text box IDs
 	const_def 1
 	const MESSAGE_BOX                       ; $01
-	const_skip                              ; $02
-	const MENU_TEMPLATE_03                  ; $03 unused
-	const FIELD_MOVE_MON_MENU               ; $04
-	const JP_MOCHIMONO_MENU_TEMPLATE        ; $05
-	const USE_INFO_TOSS_MENU_TEMPLATE       ; $06
-	const MENU_TEMPLATE_07                  ; $07 unused
-	const JP_SAVE_MESSAGE_MENU_TEMPLATE     ; $08
-	const JP_SPEED_OPTIONS_MENU_TEMPLATE    ; $09
-	const_skip                              ; $0a
-	const BATTLE_MENU_TEMPLATE              ; $0b
-	const SWITCH_STATS_CANCEL_MENU_TEMPLATE ; $0c
-	const LIST_MENU_BOX                     ; $0d
-	const BUY_SELL_QUIT_MENU_TEMPLATE       ; $0e
-	const MONEY_BOX_TEMPLATE                ; $0f
-	const MENU_TEMPLATE_10                  ; $10 unused
-	const MON_SPRITE_POPUP                  ; $11
-	const JP_AH_MENU_TEMPLATE               ; $12
-	const MONEY_BOX                         ; $13
-	const TWO_OPTION_MENU                   ; $14
-	const BUY_SELL_QUIT_MENU                ; $15
-	const_skip                              ; $16
-	const_skip                              ; $17
-	const_skip                              ; $18
-	const_skip                              ; $19
-	const JP_POKEDEX_MENU_TEMPLATE          ; $1a
-	const SAFARI_BATTLE_MENU_TEMPLATE       ; $1b
+	const FIELD_MOVE_MON_MENU               ; $02
+	const USE_INFO_TOSS_MENU_TEMPLATE       ; $03
+	const BATTLE_MENU_TEMPLATE              ; $04
+	const SWITCH_STATS_CANCEL_MENU_TEMPLATE ; $05
+	const LIST_MENU_BOX                     ; $06
+	const BUY_SELL_QUIT_MENU_TEMPLATE       ; $07
+	const MONEY_BOX_TEMPLATE                ; $08
+	const MON_SPRITE_POPUP                  ; $09
+	const MONEY_BOX                         ; $0a
+	const TWO_OPTION_MENU                   ; $0b
+	const BUY_SELL_QUIT_MENU                ; $0c
+	const SAFARI_BATTLE_MENU_TEMPLATE       ; $0d
 
 ; two option menu constants
 ; TwoOptionMenuStrings indexes (see data/yes_no_menu_strings.asm)
 	const_def
 	const YES_NO_MENU       ; 0
-	const NORTH_WEST_MENU   ; 1
-	const SOUTH_EAST_MENU   ; 2
-	const WIDE_YES_NO_MENU  ; 3
-	const NORTH_EAST_MENU   ; 4
-	const TRADE_CANCEL_MENU ; 5
-	const HEAL_CANCEL_MENU  ; 6
-	const NO_YES_MENU       ; 7
+	const TRADE_CANCEL_MENU ; 1
+	const HEAL_CANCEL_MENU  ; 2
+	const NO_YES_MENU       ; 3
 DEF NUM_TWO_OPTION_MENUS EQU const_value
 
 ; menu exit method constants for list menus and the buy/sell/quit menu
