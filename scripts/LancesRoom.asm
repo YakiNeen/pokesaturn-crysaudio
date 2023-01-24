@@ -61,6 +61,22 @@ LanceScript0:
 	ld a, [wCoordIndex]
 	cp $3  ; Is player standing next to Lance's sprite?
 	jr nc, .notStandingNextToLance
+	ld [wcf0d], a
+	ld a, [wYCoord]
+	cp 1
+	ret nz
+	ld a, [wXCoord]
+	cp 5
+	ret nz
+	ld a, $1
+	ld [wcf0d], a
+	ld a, PLAYER_DIR_RIGHT
+	ld [wPlayerMovingDirection], a
+	ld a, $1
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_LEFT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
 	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
 	jp DisplayTextID
