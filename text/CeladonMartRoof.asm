@@ -25,8 +25,7 @@ _CeladonMartRoofText_484fe::
 	text_start
 
 	para "@"
-	text_ram wStringBuffer
-	text " contains"
+	text "TM13 contains"
 	line "ICE BEAM!"
 
 	para "It can freeze the"
@@ -55,8 +54,7 @@ _CeladonMartRoofText_4850f::
 	text_start
 
 	para "@"
-	text_ram wStringBuffer
-	text " contains"
+	text "TM48 contains"
 	line "ROCK SLIDE!"
 
 	para "It can spook the"
