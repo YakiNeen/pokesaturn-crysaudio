@@ -31,6 +31,16 @@ Route24Script0:
 	ldh [hJoyHeld], a
 	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
+	ld [wcf0d], a
+	ld a, PLAYER_DIR_RIGHT
+	ld [wPlayerMovingDirection], a
+	ld a, $1
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_LEFT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+	ld a, $1
+	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	CheckAndResetEvent EVENT_NUGGET_REWARD_AVAILABLE
 	ret z
@@ -74,6 +84,13 @@ Route24Script3:
 	ld a, $0
 	ld [wRoute24CurScript], a
 	ld [wCurMapScript], a
+	call GBFadeOutToBlack
+	ld a, HS_NUGGET_BRIDGE_GUY
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
 	ret
 
 Route24_TextPointers:
