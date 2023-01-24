@@ -1270,6 +1270,10 @@ _PlayerMon2Text::
 	text " @"
 	text_end
 
+_NaoSeiManoText::
+	text "o quê?@"
+	text_end
+
 _EnoughText::
 	text "enough!@"
 	text_end

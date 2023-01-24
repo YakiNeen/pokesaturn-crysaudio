@@ -191,6 +191,7 @@ PlayerMon2Text:
 	ld b, [hl]
 	ld a, [de]
 	sbc b
+	jr c, .gainedHP ; if we underflow, print default text
 	ldh [hMultiplicand + 1], a
 	ld a, 25
 	ldh [hMultiplier], a
@@ -225,6 +226,16 @@ PlayerMon2Text:
 	ret c
 	ld hl, GoodText ; HP went down 70% or more
 	ret
+.gainedHP
+	pop bc
+	pop de
+	ld hl, NaoSeiManoText
+	ret
+
+NaoSeiManoText:
+	text_far _NaoSeiManoText
+	text_asm
+	jr PrintComeBackText
 
 EnoughText:
 	text_far _EnoughText
