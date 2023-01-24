@@ -483,85 +483,95 @@ DrawTrainerInfo:
 	lb bc, BANK(RedPicFront), $01
 	predef DisplayPicCenteredOrUpperRight
 	call DisableLCD
-	hlcoord 0, 2
-	ld a, " "
-	call TrainerInfo_DrawVerticalLine
-	hlcoord 1, 2
-	call TrainerInfo_DrawVerticalLine
-	ld hl, vChars2 tile $07
-	ld de, vChars2 tile $00
-	ld bc, $1c tiles
-	call CopyData
-	ld hl, TrainerInfoTextBoxTileGraphics ; trainer info text box tile patterns
-	ld de, vChars2 tile $77
-	ld bc, 8 tiles
-	push bc
+	ld a, $c8 ; border tile
+	coord hl, 0, 0
+	ld [hl], a
+	coord hl, 19, 17
+	ld [hl], a
+	coord hl, 19, 0
+	ld de, SCREEN_WIDTH - 1
+	ld c, SCREEN_HEIGHT - 1
+.sides_loop
+	ld [hli], a
+	ld [hl], a
+	add hl, de
+	dec c
+	jr nz, .sides_loop
+	coord hl, 6, 0
+	ld c, 13
+	call TrainerInfo_DrawHorizontalLine
+	coord hl, 6, 10
+	ld c, 13
+	call TrainerInfo_DrawHorizontalLine
+	coord hl, 1, 17
+	ld c, 18
+	call TrainerInfo_DrawHorizontalLine
+	ld a, $72
+	coord hl, 1, 3
+	ld c, 13
+	call TrainerInfo_DrawHorizontalLine
+	ld [hl], $73 ; stripe right end tile
+	coord hl, 18, 1
+	ld [hl], $71 ; top right corner tile
+	coord hl, 1, 9
+	ld [hl], $70 ; bottom left corner tile
+	coord hl, 18, 11
+	ld [hl], $71 ; top right corner tile
+	coord hl, 1, 16
+	ld [hl], $70 ; bottom left corner tile
+	coord hl, 1, 0
+	ld de, TrainerInfo_NameHeadingText
+	call PlaceString
+	coord hl, 1, 10
+	ld de, TrainerInfo_BadgeHeadingText
+	call PlaceString
+	ld hl, TrainerInfoTextBoxTileGraphics + $0010 ; trainer card tile patterns
+	ld de, vChars2 + $700
+	ld bc, $00F0
 	call TrainerInfo_FarCopyData
-	ld hl, CircleTile
-	ld de, vChars2 tile $76
-	ld bc, 1 tiles
-	call TrainerInfo_FarCopyData
-	pop bc
 	ld hl, BadgeNumbersTileGraphics  ; badge number tile patterns
-	ld de, vChars1 tile $58
+	ld de, vChars1 + $400
+	ld bc, $0080
 	call TrainerInfo_FarCopyData
 	ld hl, GymLeaderFaceAndBadgeTileGraphics  ; gym leader face and badge tile patterns
-	ld de, vChars2 tile $20
-	ld bc, 8 * 8 tiles
-	ld a, BANK(GymLeaderFaceAndBadgeTileGraphics)
+	ld de, vChars2 + $300 ; $310
+	ld bc, $0400
+	ld a, $03
 	call FarCopyData2
 	ld hl, TextBoxGraphics
 	ld de, 0 tiles
 	add hl, de ; hl = colon tile pattern
-	ld de, vChars1 tile $56
+	ld de, vChars1 tile $49
 	ld bc, 1 tiles
 	ld a, BANK(TextBoxGraphics)
 	push bc
 	call FarCopyData2
 	pop bc
-	ld hl, TrainerInfoTextBoxTileGraphics tile 8  ; background tile pattern
-	ld de, vChars1 tile $57
+	ld hl, TrainerInfoTextBoxTileGraphics ; background tile pattern
+	ld de, vChars1 + $480
+	ld bc, $0010
+	ld a, $04
 	call TrainerInfo_FarCopyData
 	call EnableLCD
-	ld hl, wTrainerInfoTextBoxWidthPlus1
-	ld a, 18 + 1
-	ld [hli], a
-	dec a
-	ld [hli], a
-	ld [hl], 1
-	hlcoord 0, 0
-	call TrainerInfo_DrawTextBox
-	ld hl, wTrainerInfoTextBoxWidthPlus1
-	ld a, 16 + 1
-	ld [hli], a
-	dec a
-	ld [hli], a
-	ld [hl], 3
-	hlcoord 1, 10
-	call TrainerInfo_DrawTextBox
-	hlcoord 0, 10
-	ld a, $d7
-	call TrainerInfo_DrawVerticalLine
-	hlcoord 19, 10
-	call TrainerInfo_DrawVerticalLine
-	hlcoord 6, 9
-	ld de, TrainerInfo_BadgesText
-	call PlaceString
-	hlcoord 2, 2
+	coord hl, 2, 2
 	ld de, TrainerInfo_NameMoneyTimeText
 	call PlaceString
-	hlcoord 7, 2
+	coord hl, 7, 2
 	ld de, wPlayerName
 	call PlaceString
-	hlcoord 8, 4
+	coord hl, 5, 4
+	ld de, wPlayerID
+	lb bc, LEADING_ZEROES | 2, 5
+	call PrintNumber ; ID number
+	coord hl, 8, 6
 	ld de, wPlayerMoney
 	ld c, $e3
 	call PrintBCDNumber
-	hlcoord 9, 6
+	coord hl, 9, 8
 	ld de, wPlayTimeHours ; hours
 	lb bc, LEFT_ALIGN | 1, 3
 	call PrintNumber
-	ld [hl], $d6 ; colon tile ID
+	ld [hl], $c9
 	inc hl
 	ld de, wPlayTimeMinutes ; minutes
 	lb bc, LEADING_ZEROES | 1, 2
@@ -573,70 +583,23 @@ TrainerInfo_FarCopyData:
 
 TrainerInfo_NameMoneyTimeText:
 	db   "NAME/"
+	next $74,$75,$f2 ; ID No
 	next "MONEY/"
 	next "TIME/@"
 
-; $76 is a circle tile
-TrainerInfo_BadgesText:
-	db $76,"BADGES",$76,"@"
+TrainerInfo_NameHeadingText:
+	db $76,$77,$78,$79,$7A,"@"
+TrainerInfo_BadgeHeadingText:
+	db $76,$7B,$7C,$7D,$7E,"@"
 
-; draws a text box on the trainer info screen
-; height is always 6
+; draws a horizontal line
 ; INPUT:
-; hl = destination address
-; [wTrainerInfoTextBoxWidthPlus1] = width
-; [wTrainerInfoTextBoxWidth] = width - 1
-; [wTrainerInfoTextBoxNextRowOffset] = distance from the end of a text box row to the start of the next
-TrainerInfo_DrawTextBox:
-	ld a, $79 ; upper left corner tile ID
-	lb de, $7a, $77 ; top edge and upper right corner tile ID's
-	call TrainerInfo_DrawHorizontalEdge ; draw top edge
-	call TrainerInfo_NextTextBoxRow
-	ld a, [wTrainerInfoTextBoxWidthPlus1]
-	ld e, a
-	ld d, 0
-	ld c, 6 ; height of the text box
-.loop
-	ld [hl], $7c ; left edge tile ID
-	add hl, de
-	ld [hl], $78 ; right edge tile ID
-	call TrainerInfo_NextTextBoxRow
-	dec c
-	jr nz, .loop
-	ld a, $7d ; lower left corner tile ID
-	lb de, $7b, $7e ; bottom edge and lower right corner tile ID's
-
-TrainerInfo_DrawHorizontalEdge:
-	ld [hli], a ; place left corner tile
-	ld a, [wTrainerInfoTextBoxWidth]
-	ld c, a
-	ld a, d
-.loop
-	ld [hli], a ; place edge tile
-	dec c
-	jr nz, .loop
-	ld a, e
-	ld [hl], a ; place right corner tile
-	ret
-
-TrainerInfo_NextTextBoxRow:
-	ld a, [wTrainerInfoTextBoxNextRowOffset] ; distance to the start of the next row
-.loop
-	inc hl
-	dec a
-	jr nz, .loop
-	ret
-
-; draws a vertical line
-; INPUT:
-; hl = address of top tile in the line
+; hl = address of left tile in the line
 ; a = tile ID
-TrainerInfo_DrawVerticalLine:
-	ld de, SCREEN_WIDTH
-	ld c, 8
+; c = length
+TrainerInfo_DrawHorizontalLine:
 .loop
-	ld [hl], a
-	add hl, de
+	ld [hli], a
 	dec c
 	jr nz, .loop
 	ret

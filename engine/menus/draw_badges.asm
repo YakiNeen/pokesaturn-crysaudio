@@ -36,7 +36,7 @@ DrawBadges:
 
 ; Draw two rows of badges.
 	ld hl, wBadgeNumberTile
-	ld a, $d8 ; [1]
+	ld a, $c0 ; [1]
 	ld [hli], a
 
 	hlcoord 2, 11
@@ -100,7 +100,7 @@ DrawBadges:
 	ret
 
 .FaceBadgeTiles
-	db $20, $28, $30, $38, $40, $48, $50, $58
+	db $30, $38, $40, $48, $50, $58, $60, $68
 
 GymLeaderFaceAndBadgeTileGraphics:
 	INCBIN "gfx/trainer_card/badges.2bpp"

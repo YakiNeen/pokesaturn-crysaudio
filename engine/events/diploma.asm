@@ -62,7 +62,7 @@ ENDC
 	jr nz, .adjustPlayerGfxLoop
 
 	call EnableLCD
-	farcall LoadTrainerInfoTextBoxTiles
+	call LoadDiplomaTiles
 	ld b, SET_PAL_GENERIC
 	call RunPaletteCommand
 	call Delay3
@@ -77,17 +77,14 @@ ENDC
 	call Delay3
 	jp GBPalNormal
 
-UnusedPlayerNameLengthFunc:
-; Unused function that does a calculation involving the length of the player's
-; name.
-	ld hl, wPlayerName
-	lb bc, $ff, $00
-.loop
-	ld a, [hli]
-	cp "@"
-	ret z
-	dec c
-	jr .loop
+LoadDiplomaTiles:
+	ld de, DiplomaGraphics
+	ld hl, vChars2 tile $76
+	lb bc, BANK(DiplomaGraphics), (DiplomaGraphicsEnd - DiplomaGraphics) / $10
+	jp CopyVideoData
+
+DiplomaGraphics: INCBIN "gfx/trainer_card/diploma.2bpp"
+DiplomaGraphicsEnd:
 
 MACRO diploma_text
 	dw \3
