@@ -24,8 +24,8 @@ SafariZoneGate_ScriptPointers:
 	ld [wJoyIgnore], a
 	xor a
 	ldh [hJoyHeld], a
-	ld a, SPRITE_FACING_RIGHT
-	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, PLAYER_DIR_RIGHT
+	ld [wPlayerMovingDirection], a
 	ld a, [wCoordIndex]
 	cp $1
 	jr z, .asm_7520f
