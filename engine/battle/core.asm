@@ -3015,7 +3015,7 @@ SelectEnemyMove:
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-	jr .done
+	jp .done
 .noLinkBattle
 	ld a, [wEnemyBattleStatus2]
 	and (1 << NEEDS_TO_RECHARGE) | (1 << USING_RAGE) ; need to recharge or using rage
@@ -3051,6 +3051,10 @@ SelectEnemyMove:
 	jr z, .chooseRandomMove ; wild encounter
 	callfar AIEnemyTrainerChooseMoves
 .chooseRandomMove
+	push de
+	xor a
+	ld d, a
+.chooseRandomMoveAgain
 	push hl
 	call BattleRandom
 	ld b, 1 ; 25% chance to select move 1
@@ -3067,18 +3071,31 @@ SelectEnemyMove:
 	inc hl
 	inc b ; 25% chance to select move 4
 .moveChosen
-	ld a, b
-	dec a
-	ld [wEnemyMoveListIndex], a
-	ld a, [wEnemyDisabledMove]
-	swap a
-	and $f
-	cp b
-	ld a, [hl]
-	pop hl
-	jr z, .chooseRandomMove ; move disabled, try again
+	ld a, d
+	cp $0f
+	jr nz, .notStruggle
+	ld a, STRUGGLE
 	and a
-	jr z, .chooseRandomMove ; move non-existant, try again
+	jp .moveGrabbed
+.notStruggle
+	ld a, b
+	ld e, a
+	ld a, h
+	ld [wUnusedCF8D], a
+	ld a, l
+	ld [wUnusedCF8D + 1], a
+	farcall ChooseMovePPTrack
+	ld a, [wUnusedCF8D]
+	ld h, a
+	ld a, [wUnusedCF8D + 1]
+	ld l, a
+	ld a, e
+	and a
+	ld a, [hl]
+.moveGrabbed
+	pop hl
+	jr z, .chooseRandomMoveAgain
+	pop de
 .done
 	ld [wEnemySelectedMove], a
 	ret
@@ -6238,9 +6255,7 @@ LoadEnemyMonData:
 	ld [wLearningMovesFromDayCare], a
 	predef WriteMonMoves ; get moves based on current level
 .loadMovePPs
-	ld hl, wEnemyMonMoves
-	ld de, wEnemyMonPP - 1
-	predef LoadMovePPs
+	farcall AdvancedLoadPP
 	ld hl, wMonHBaseStats
 	ld de, wEnemyMonBaseStats
 	ld b, NUM_STATS

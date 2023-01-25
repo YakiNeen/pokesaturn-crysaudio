@@ -599,6 +599,19 @@ SwitchEnemyMon:
 	ld bc, 4
 	call CopyData
 
+	ld a, [wEnemyBattleStatus3]
+	bit 3, a
+	jr nz, .skiptransformed
+	ld a, [wEnemyMonPartyPos]
+	ld hl, wEnemyMon1PP
+	ld bc, wEnemyMon2 - wEnemyMon1
+	call AddNTimes
+	ld d, h
+	ld e, l
+	ld hl, wEnemyMonPP
+	ld bc, 4
+	call CopyData
+.skiptransformed
 	ld hl, AIBattleWithdrawText
 	call PrintText
 
