@@ -14,8 +14,11 @@ GetName::
 ; [wPredefBank] = bank of list
 ;
 ; returns pointer to name in de
+	ld a, [wNameListType]
+	cp ITEM_NAME
 	ld a, [wd0b5]
 	ld [wd11e], a
+	jr nz, .notMachine
 
 	; TM names are separate from item names.
 	push bc

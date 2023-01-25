@@ -121,6 +121,7 @@ TryDoWildEncounter:
 	ld [wcf91], a
 	ld [wEnemyMonSpecies2], a
 	xor a
+	ld [wIsTrainerBattle], a
 	ret
 
 INCLUDE "data/wild/probabilities.asm"

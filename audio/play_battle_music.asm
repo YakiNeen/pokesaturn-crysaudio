@@ -13,9 +13,10 @@ PlayBattleMusic::
 	ld a, MUSIC_GYM_LEADER_BATTLE
 	jr .playSong
 .notGymLeaderBattle
+	ld a, [wIsTrainerBattle]
+	and a
+	jr z, .wildBattle
 	ld a, [wCurOpponent]
-	cp OPP_ID_OFFSET
-	jr c, .wildBattle
 	cp OPP_LORELEI
 	jr z, .Elite4Battle
 	cp OPP_BRUNO
