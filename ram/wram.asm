@@ -736,6 +736,7 @@ wSlotMachineWheel2TopTile:: db
 wSlotMachineWheel3BottomTile:: db
 wSlotMachineWheel3MiddleTile:: db
 wSlotMachineWheel3TopTile:: db
+wStartBattleLevels:: ; ds PARTY_LENGTH which is 6 bytes
 wPayoutCoins:: dw
 ; These flags are set randomly and control when the wheels stop.
 ; bit 6: allow the player to win in general
