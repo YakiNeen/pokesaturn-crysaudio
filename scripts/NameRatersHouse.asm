@@ -63,6 +63,7 @@ NameRaterText1:
 	call NameRaterScript_1da20
 	ld hl, NameRaterText_1dad1
 	jr c, .asm_1daa8
+	call ReloadTilesetTilePatterns
 	ld hl, NameRaterText_1dabd
 	call NameRaterScript_1da15
 	jr nz, .asm_1daae
