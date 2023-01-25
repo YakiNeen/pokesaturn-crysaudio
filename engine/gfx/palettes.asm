@@ -289,8 +289,8 @@ BadgeBlkDataLengths:
 
 DeterminePaletteID:
 	bit TRANSFORMED, a ; a is battle status 3
-	ld a, PAL_GREYMON  ; if the mon has used Transform, use Ditto's palette
-	ret nz
+	ld a, DEX_DITTO  ; if the mon has used Transform, use Ditto's palette
+	jr nz, DeterminePaletteIDOutOfBattle.skipDexNumConversion
 	ld a, [hl]
 DeterminePaletteIDOutOfBattle:
 	ld [wd11e], a
