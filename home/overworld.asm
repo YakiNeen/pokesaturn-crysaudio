@@ -870,14 +870,46 @@ LoadPlayerSpriteGraphics::
 	jp LoadWalkingPlayerSpriteGraphics
 
 IsBikeRidingAllowed::
-; The bike can be used on Route 23 and Indigo Plateau,
+; The bike can be used on Route 1F Gates & Cerulean's Trashed House,
 ; or maps with tilesets in BikeRidingTilesets.
 ; Return carry if biking is allowed.
 
 	ld a, [wCurMap]
-	cp ROUTE_23
+	cp VIRIDIAN_FOREST_NORTH_GATE
 	jr z, .allowed
-	cp INDIGO_PLATEAU
+	cp VIRIDIAN_FOREST_SOUTH_GATE
+	jr z, .allowed
+	cp ROUTE_2_GATE
+	jr z, .allowed
+	cp CERULEAN_TRASHED_HOUSE
+	jr z, .allowed
+	cp ROUTE_5_GATE
+	jr z, .allowed
+	cp UNDERGROUND_PATH_ROUTE_5
+	jr z, .allowed
+	cp ROUTE_6_GATE
+	jr z, .allowed
+	cp UNDERGROUND_PATH_ROUTE_6
+	jr z, .allowed
+	cp ROUTE_7_GATE
+	jr z, .allowed
+	cp UNDERGROUND_PATH_ROUTE_7
+	jr z, .allowed
+	cp ROUTE_8_GATE
+	jr z, .allowed
+	cp UNDERGROUND_PATH_ROUTE_8
+	jr z, .allowed
+	cp ROUTE_11_GATE_1F
+	jr z, .allowed	
+	cp ROUTE_12_GATE_1F
+	jr z, .allowed
+	cp ROUTE_15_GATE_1F
+	jr z, .allowed
+	cp ROUTE_16_GATE_1F
+	jr z, .allowed
+	cp ROUTE_18_GATE_1F
+	jr z, .allowed
+	cp ROUTE_22_GATE
 	jr z, .allowed
 
 	ld a, [wCurMapTileset]
