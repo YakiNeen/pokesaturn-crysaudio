@@ -24,6 +24,8 @@ PlayDefaultMusicCommon::
 	jr z, .walking
 	cp $2
 	jr z, .surfing
+	call CheckForNoBikingMusicMap
+	jr c, .next3
 	ld a, MUSIC_BIKE_RIDING
 	jr .next
 
@@ -73,6 +75,25 @@ PlayDefaultMusicCommon::
 	call PlayMusic
 .next5
 
+	ret
+
+CheckForNoBikingMusicMap::
+; maps without music change upon getting on bike
+	ld a, [wCurMap]
+	cp ROUTE_23
+	jr z, .found
+	cp VICTORY_ROAD_1F
+	jr z, .found
+	cp VICTORY_ROAD_2F
+	jr z, .found
+	cp VICTORY_ROAD_3F
+	jr z, .found
+	cp INDIGO_PLATEAU
+	jr z, .found
+	and a
+	ret
+.found
+	scf
 	ret
 
 ;UpdateMusic6Times::
