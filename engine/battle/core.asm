@@ -6384,11 +6384,6 @@ LoadPlayerBackPic:
 	hlcoord 1, 5
 	predef_jump CopyUncompressedPicToTilemap
 
-; does nothing since no stats are ever selected (barring glitches)
-DoubleOrHalveSelectedStats:
-	callfar DoubleSelectedStats
-	jpfar HalveSelectedStats
-
 ScrollTrainerPicAfterBattle:
 	jpfar _ScrollTrainerPicAfterBattle
 
