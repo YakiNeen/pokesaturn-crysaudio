@@ -74,6 +74,7 @@ ENDC
 	res 6, [hl]
 	call GBPalWhiteOutWithDelay3
 	call RestoreScreenTilesAndReloadTilePatterns
+	call ReloadTilesetTilePatterns
 	call Delay3
 	jp GBPalNormal
 
