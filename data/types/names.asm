@@ -8,6 +8,7 @@ TypeNames:
 	dw .Ground
 	dw .Rock
 	dw .Dark
+	dw .NoType
 	dw .Bug
 	dw .Ghost
 
@@ -40,6 +41,7 @@ ENDR
 .Ground:   db "GROUND@"
 .Rock:     db "ROCK@"
 .Dark:     db "DARK@"
+.NoType:   db "TYPELESS@"
 .Bug:      db "BUG@"
 .Ghost:    db "GHOST@"
 .Dragon:   db "DRAGON@"
