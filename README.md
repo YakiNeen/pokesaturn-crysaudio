@@ -14,11 +14,12 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 
 ## See P.R.E.T's Community:
 
-- [**Wiki**](https://github.com/pret/pokered/wiki) (includes [tutorials](https://github.com/pret/pokered/wiki/Tutorials))
+- [**Wiki**](https://github.com/pret/pokered/wiki) (includes [Tutorials](https://github.com/pret/pokered/wiki/Tutorials), [Bugs and Glitches](https://github.com/pret/pokered/wiki/Bugs-and-Glitches) & [Design Flaws](https://github.com/pret/pokered/wiki/Design-Flaws))
 - **Discord:** [pret](https://discord.gg/d5dubZ3)
 
 Other disassembly projects:
 
+- [**Pokémon Red/Blue**](https://github.com/pret/pokered)
 - [**Pokémon Yellow**](https://github.com/pret/pokeyellow)
 - [**Pokémon Gold/Silver**](https://github.com/pret/pokegold)
 - [**Pokémon Crystal**](https://github.com/pret/pokecrystal)
