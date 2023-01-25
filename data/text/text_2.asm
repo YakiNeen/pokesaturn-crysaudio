@@ -590,6 +590,10 @@ _Route15UpstairsBinocularsText::
 	cont "toward the sea."
 	done
 
+_CantSeeText::
+	text "Huh? Can't see!"
+	done
+
 _AerodactylFossilText::
 	text "AERODACTYL Fossil"
 	line "A primitive and"

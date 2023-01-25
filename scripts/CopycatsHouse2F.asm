@@ -83,20 +83,5 @@ CopycatsHouse2FText6:
 	text_end
 
 CopycatsHouse2FText7:
-	text_asm
-	ld a, [wSpritePlayerStateData1FacingDirection]
-	cp SPRITE_FACING_UP
-	ld hl, CopycatsHouse2FText_5cd1c
-	jr nz, .notUp
-	ld hl, CopycatsHouse2FText_5cd17
-.notUp
-	call PrintText
-	jp TextScriptEnd
-
-CopycatsHouse2FText_5cd17:
 	text_far _CopycatsHouse2FText_5cd17
-	text_end
-
-CopycatsHouse2FText_5cd1c:
-	text_far _CopycatsHouse2FText_5cd1c
 	text_end

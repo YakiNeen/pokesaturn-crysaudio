@@ -94,7 +94,3 @@ _CopycatsHouse2FText_5cd17::
 	cont "Favorite #MON:"
 	cont "CLEFAIRY!"
 	done
-
-_CopycatsHouse2FText_5cd1c::
-	text "Huh? Can't see!"
-	done
