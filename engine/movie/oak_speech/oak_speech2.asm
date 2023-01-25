@@ -20,7 +20,6 @@ ChoosePlayerName:
 	jr z, .customName
 	call ClearScreen
 	call Delay3
-	call LoadFontTilePatterns
 	ld de, RedPicFront
 	ld b, BANK(RedPicFront)
 	call IntroDisplayPicCenteredOrUpperRight
@@ -54,7 +53,6 @@ ChooseRivalName:
 	jr z, .customName
 	call ClearScreen
 	call Delay3
-	call LoadFontTilePatterns
 	ld de, Rival1Pic
 	ld b, $13
 	call IntroDisplayPicCenteredOrUpperRight
