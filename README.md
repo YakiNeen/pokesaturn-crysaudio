@@ -1,48 +1,30 @@
-# Pokémon Red and Blue [![Build Status][ci-badge]][ci]
+# Pokémon Saturn & Pokémon Mars
 
-This is a disassembly of Pokémon Red and Blue.
+Based in [pokered-crysaudio](https://github.com/dannye/pokered-crysaudio).
 
 It builds the following ROMs:
 
-- Pokemon Red (UE) [S][!].gb `sha1: ea9bcae617fdf159b045185467ae58b2e4a48b9a`
-- Pokemon Blue (UE) [S][!].gb `sha1: d7037c83e1ae5b39bde3c30787637ba1d4c48ce2`
-- BLUEMONS.GB (debug build) `sha1: 5b1456177671b79b263c614ea0e7cc9ac542e9c4`
-- dmgapae0.e69.patch `sha1: 0fb5f743696adfe1dbb2e062111f08f9bc5a293a`
-- dmgapee0.e68.patch `sha1: ed4be94dc29c64271942c87f2157bca9ca1019c7`
+- pokesaturn.gbc `MONS SATURN`
+- pokemars.gbc `MONS MARS`
+- pokesaturn_debug.gbc (debug build) `SATURN DEBUG`
+- pokemars_debug.gbc (debug build) `MARS DEBUG`
 
 To set up the repository, see [**INSTALL.md**](INSTALL.md).
 
 
-## See also
+## See P.R.E.T's Community:
 
-- [**Wiki**][wiki] (includes [tutorials][tutorials])
-- [**Symbols**][symbols]
-- **Discord:** [pret][discord]
-- **IRC:** [libera#pret][irc]
+- [**Wiki**](https://github.com/pret/pokered/wiki) (includes [Tutorials](https://github.com/pret/pokered/wiki/Tutorials), [Bugs and Glitches](https://github.com/pret/pokered/wiki/Bugs-and-Glitches) & [Design Flaws](https://github.com/pret/pokered/wiki/Design-Flaws))
+- **Discord:** [pret](https://discord.gg/d5dubZ3)
 
 Other disassembly projects:
 
-- [**Pokémon Yellow**][pokeyellow]
-- [**Pokémon Gold/Silver**][pokegold]
-- [**Pokémon Crystal**][pokecrystal]
-- [**Pokémon Pinball**][pokepinball]
-- [**Pokémon TCG**][poketcg]
-- [**Pokémon Ruby**][pokeruby]
-- [**Pokémon FireRed**][pokefirered]
-- [**Pokémon Emerald**][pokeemerald]
-
-[pokeyellow]: https://github.com/pret/pokeyellow
-[pokegold]: https://github.com/pret/pokegold
-[pokecrystal]: https://github.com/pret/pokecrystal
-[pokepinball]: https://github.com/pret/pokepinball
-[poketcg]: https://github.com/pret/poketcg
-[pokeruby]: https://github.com/pret/pokeruby
-[pokefirered]: https://github.com/pret/pokefirered
-[pokeemerald]: https://github.com/pret/pokeemerald
-[wiki]: https://github.com/pret/pokered/wiki
-[tutorials]: https://github.com/pret/pokered/wiki/Tutorials
-[symbols]: https://github.com/pret/pokered/tree/symbols
-[discord]: https://discord.gg/d5dubZ3
-[irc]: https://web.libera.chat/?#pret
-[ci]: https://github.com/pret/pokered/actions
-[ci-badge]: https://github.com/pret/pokered/actions/workflows/main.yml/badge.svg
+- [**Pokémon Red/Blue**](https://github.com/pret/pokered)
+- [**Pokémon Yellow**](https://github.com/pret/pokeyellow)
+- [**Pokémon Gold/Silver**](https://github.com/pret/pokegold)
+- [**Pokémon Crystal**](https://github.com/pret/pokecrystal)
+- [**Pokémon Pinball**](https://github.com/pret/pokepinball)
+- [**Pokémon TCG**](https://github.com/pret/poketcg)
+- [**Pokémon Ruby/Sapphire**](https://github.com/pret/pokeruby)
+- [**Pokémon FireRed/LeafGreen**](https://github.com/pret/pokefirered)
+- [**Pokémon Emerald**](https://github.com/pret/pokeemerald)
