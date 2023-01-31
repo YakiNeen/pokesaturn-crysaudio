@@ -7,7 +7,12 @@
 	db 27 ; catch rate
 	db 144 ; base exp
 
-	INCBIN "gfx/pokemon/front/dragonair.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/148.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/148.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw DragonairPicFront, DragonairPicBack
 
 	db WRAP, LEER, THUNDER_WAVE, NO_MOVE ; level 1 learnset

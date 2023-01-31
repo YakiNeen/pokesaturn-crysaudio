@@ -7,7 +7,12 @@
 	db 60 ; catch rate
 	db 192 ; base exp
 
-	INCBIN "gfx/pokemon/front/rapidash.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/078.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/078.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw RapidashPicFront, RapidashPicBack
 
 	db EMBER, TAIL_WHIP, STOMP, GROWL ; level 1 learnset

@@ -7,7 +7,12 @@
 	db 225 ; catch rate
 	db 115 ; base exp
 
-	INCBIN "gfx/pokemon/front/krabby.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/098.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/098.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw KrabbyPicFront, KrabbyPicBack
 
 	db BUBBLE, LEER, NO_MOVE, NO_MOVE ; level 1 learnset

@@ -7,7 +7,12 @@
 	db 190 ; catch rate
 	db 80 ; base exp
 
-	INCBIN "gfx/pokemon/front/psyduck.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/054.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/054.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw PsyduckPicFront, PsyduckPicBack
 
 	db SCRATCH, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset

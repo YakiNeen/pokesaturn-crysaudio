@@ -7,7 +7,12 @@
 	db 90 ; catch rate
 	db 116 ; base exp
 
-	INCBIN "gfx/pokemon/front/raticate.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/020.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/020.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw RaticatePicFront, RaticatePicBack
 
 	db TACKLE, TAIL_WHIP, QUICK_ATTACK, NO_MOVE ; level 1 learnset

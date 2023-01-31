@@ -7,7 +7,12 @@
 	db 45 ; catch rate
 	db 197 ; base exp
 
-	INCBIN "gfx/pokemon/front/jolteon.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/135.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/135.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw JolteonPicFront, JolteonPicBack
 
 	db TACKLE, TAIL_WHIP, QUICK_ATTACK, THUNDERSHOCK ; level 1 learnset

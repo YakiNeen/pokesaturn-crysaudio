@@ -7,7 +7,12 @@
 	db 45 ; catch rate
 	db 200 ; base exp
 
-	INCBIN "gfx/pokemon/front/pinsir.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/127.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/127.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw PinsirPicFront, PinsirPicBack
 
 	db VICEGRIP, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset

@@ -7,7 +7,12 @@
 	db 45 ; catch rate
 	db 201 ; base exp
 
-	INCBIN "gfx/pokemon/front/kabutops.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/141.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/141.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw KabutopsPicFront, KabutopsPicBack
 
 	db SCRATCH, HARDEN, ABSORB, NO_MOVE ; level 1 learnset

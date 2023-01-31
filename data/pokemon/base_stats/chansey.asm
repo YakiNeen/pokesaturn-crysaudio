@@ -7,7 +7,12 @@
 	db 30 ; catch rate
 	db 255 ; base exp
 
-	INCBIN "gfx/pokemon/front/chansey.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/113.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/113.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw ChanseyPicFront, ChanseyPicBack
 
 	db POUND, TAIL_WHIP, NO_MOVE, NO_MOVE ; level 1 learnset

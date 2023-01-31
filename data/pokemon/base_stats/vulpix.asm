@@ -7,7 +7,12 @@
 	db 190 ; catch rate
 	db 63 ; base exp
 
-	INCBIN "gfx/pokemon/front/vulpix.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/037.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/037.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw VulpixPicFront, VulpixPicBack
 
 	db EMBER, TAIL_WHIP, NO_MOVE, NO_MOVE ; level 1 learnset

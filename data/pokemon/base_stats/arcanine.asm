@@ -7,7 +7,12 @@
 	db 75 ; catch rate
 	db 213 ; base exp
 
-	INCBIN "gfx/pokemon/front/arcanine.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/059.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/059.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw ArcaninePicFront, ArcaninePicBack
 
 	db ROAR, EMBER, LEER, TAKE_DOWN ; level 1 learnset

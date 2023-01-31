@@ -7,7 +7,12 @@
 	db 45 ; catch rate
 	db 143 ; base exp
 
-	INCBIN "gfx/pokemon/front/wartortle.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/008.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/008.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw WartortlePicFront, WartortlePicBack
 
 	db TACKLE, TAIL_WHIP, BUBBLE, NO_MOVE ; level 1 learnset

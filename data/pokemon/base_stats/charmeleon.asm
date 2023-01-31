@@ -7,7 +7,12 @@
 	db 45 ; catch rate
 	db 142 ; base exp
 
-	INCBIN "gfx/pokemon/front/charmeleon.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/005.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/005.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw CharmeleonPicFront, CharmeleonPicBack
 
 	db SCRATCH, GROWL, EMBER, NO_MOVE ; level 1 learnset

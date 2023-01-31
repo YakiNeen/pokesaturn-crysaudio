@@ -7,7 +7,12 @@
 	db 60 ; catch rate
 	db 170 ; base exp
 
-	INCBIN "gfx/pokemon/front/seaking.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/119.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/119.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw SeakingPicFront, SeakingPicBack
 
 	db PECK, TAIL_WHIP, SUPERSONIC, NO_MOVE ; level 1 learnset

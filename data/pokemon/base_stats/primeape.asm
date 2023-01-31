@@ -7,7 +7,12 @@
 	db 75 ; catch rate
 	db 149 ; base exp
 
-	INCBIN "gfx/pokemon/front/primeape.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/057.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/057.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw PrimeapePicFront, PrimeapePicBack
 
 	db SCRATCH, LEER, LOW_KICK, KARATE_CHOP ; level 1 learnset

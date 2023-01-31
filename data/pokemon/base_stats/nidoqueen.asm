@@ -7,7 +7,12 @@
 	db 45 ; catch rate
 	db 194 ; base exp
 
-	INCBIN "gfx/pokemon/front/nidoqueen.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/031.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/031.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw NidoqueenPicFront, NidoqueenPicBack
 
 	db TACKLE, SCRATCH, TAIL_WHIP, BODY_SLAM ; level 1 learnset

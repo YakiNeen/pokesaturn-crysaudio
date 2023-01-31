@@ -7,7 +7,12 @@
 	db 45 ; catch rate
 	db 175 ; base exp
 
-	INCBIN "gfx/pokemon/front/kangaskhan.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/115.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/115.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw KangaskhanPicFront, KangaskhanPicBack
 
 	db COMET_PUNCH, RAGE, NO_MOVE, NO_MOVE ; level 1 learnset

@@ -83,19 +83,19 @@ DEF HOF_TEAM_CAPACITY EQU 50
 	const EV_ITEM  ; 2
 	const EV_TRADE ; 3
 
-DEF MAX_EVOLUTIONS EQU 3
+DEF MAX_EVOLUTIONS EQU 4
 DEF EVOLUTION_SIZE EQU 4
 
 
 ; wMonHGrowthRate values
 ; GrowthRateTable indexes (see data/growth_rates.asm)
 	const_def
-	const GROWTH_MEDIUM_FAST
-	const GROWTH_SLIGHTLY_FAST
-	const GROWTH_SLIGHTLY_SLOW
-	const GROWTH_MEDIUM_SLOW
-	const GROWTH_FAST
-	const GROWTH_SLOW
+	const GROWTH_MEDIUM_FAST   ; 0
+	const GROWTH_SLIGHTLY_FAST ; 1
+	const GROWTH_SLIGHTLY_SLOW ; 2
+	const GROWTH_MEDIUM_SLOW   ; 3
+	const GROWTH_FAST          ; 4
+	const GROWTH_SLOW          ; 5
 DEF NUM_GROWTH_RATES EQU const_value
 
 ; wild data (see data/wild/maps/*.asm)

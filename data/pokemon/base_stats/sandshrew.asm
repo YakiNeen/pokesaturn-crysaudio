@@ -7,7 +7,12 @@
 	db 255 ; catch rate
 	db 93 ; base exp
 
-	INCBIN "gfx/pokemon/front/sandshrew.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/027.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/027.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw SandshrewPicFront, SandshrewPicBack
 
 	db SCRATCH, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset

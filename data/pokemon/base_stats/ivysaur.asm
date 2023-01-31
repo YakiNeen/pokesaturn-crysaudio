@@ -7,7 +7,12 @@
 	db 45 ; catch rate
 	db 141 ; base exp
 
-	INCBIN "gfx/pokemon/front/ivysaur.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/002.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/002.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw IvysaurPicFront, IvysaurPicBack
 
 	db TACKLE, GROWL, LEECH_SEED, NO_MOVE ; level 1 learnset

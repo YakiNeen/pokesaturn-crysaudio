@@ -7,7 +7,12 @@
 	db 25 ; catch rate
 	db 129 ; base exp
 
-	INCBIN "gfx/pokemon/front/clefable.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/036.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/036.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw ClefablePicFront, ClefablePicBack
 
 	db SING, DOUBLESLAP, MINIMIZE, METRONOME ; level 1 learnset

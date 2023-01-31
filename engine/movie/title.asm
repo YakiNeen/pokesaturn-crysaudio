@@ -119,10 +119,10 @@ ENDC
 	call EnableLCD
 
 IF DEF(_SATURN)
-	ld a, STARTER1 ; which Pokemon to show first on the title screen
+	ld a, CLEFABLE ; which Pokemon to show first on the title screen
 ENDC
 IF DEF(_MARS)
-	ld a, STARTER2 ; which Pokemon to show first on the title screen
+	ld a, GENGAR ; which Pokemon to show first on the title screen
 ENDC
 	ld [wTitleMonSpecies], a
 	call LoadTitleMonSprite

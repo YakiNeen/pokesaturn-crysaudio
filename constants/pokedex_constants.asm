@@ -155,5 +155,54 @@
 	const DEX_DRAGONITE  ; 149
 	const DEX_MEWTWO     ; 150
 	const DEX_MEW        ; 151
+	const DEX_LEAFEON    ; 152
+	const DEX_CHIKORITA  ; 153
+	const DEX_BAYLEEF    ; 154
+	const DEX_MEGANIUM   ; 155
+	const DEX_HOOTHOOT   ; 156
+	const DEX_NOCTOWL    ; 157
+	const DEX_LEDYBA     ; 158
+	const DEX_LEDIAN     ; 159
+	const DEX_SPINARAK   ; 160
+	const DEX_ARIADOS    ; 161
+	const DEX_CROBAT     ; 162
+	const DEX_TOGEPI     ; 163
+	const DEX_NATU       ; 164
+	const DEX_XATU       ; 165
+	const DEX_MAREEP     ; 166
+	const DEX_FLAAFFY    ; 167
+	const DEX_AMPHAROS   ; 168
+	const DEX_BELLOSSOM  ; 169
+	const DEX_MARILL     ; 170
+	const DEX_AZUMARILL  ; 171
+	const DEX_AIPOM      ; 172
+	const DEX_SUNFLORA   ; 173
+	const DEX_ESPEON     ; 174
+	const DEX_UMBREON    ; 175
+	const DEX_SLOWKING   ; 176
+	const DEX_STEELIX    ; 177
+	const DEX_SNUBBULL   ; 178
+	const DEX_QWILFISH   ; 179
+	const DEX_SCIZOR     ; 180
+	const DEX_REMORAID   ; 181
+	const DEX_OCTILLERY  ; 182
+	const DEX_SKARMORY   ; 183
+	const DEX_HOUNDOUR   ; 184
+	const DEX_HOUNDOOM   ; 185
+	const DEX_PHANPY     ; 186
+	const DEX_DONPHAN    ; 187
+	const DEX_SMEARGLE   ; 188
+	const DEX_MILTANK    ; 189
+	const DEX_HO_OH      ; 190
+	const DEX_CHINCHOU   ; 191
+	const DEX_CYNDAQUIL  ; 192
+	const DEX_QUILAVA    ; 193
+	const DEX_TYPHLOSION ; 194
+	const DEX_TOTODILE   ; 195
+	const DEX_CROCONAW   ; 196
+	const DEX_FERALIGATR ; 197
+	const DEX_SENTRET    ; 198
+	const DEX_FURRET     ; 199
+	const DEX_SUDOWOODO  ; 200
 
 DEF NUM_POKEMON EQU const_value - 1

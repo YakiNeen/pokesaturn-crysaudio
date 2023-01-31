@@ -7,7 +7,12 @@
 	db 190 ; catch rate
 	db 103 ; base exp
 
-	INCBIN "gfx/pokemon/front/voltorb.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/100.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/100.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw VoltorbPicFront, VoltorbPicBack
 
 	db TACKLE, SCREECH, NO_MOVE, NO_MOVE ; level 1 learnset

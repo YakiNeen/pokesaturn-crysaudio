@@ -7,7 +7,12 @@
 	db 60 ; catch rate
 	db 207 ; base exp
 
-	INCBIN "gfx/pokemon/front/starmie.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/121.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/121.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw StarmiePicFront, StarmiePicBack
 
 	db TACKLE, WATER_GUN, HARDEN, NO_MOVE ; level 1 learnset

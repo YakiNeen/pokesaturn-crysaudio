@@ -7,7 +7,12 @@
 	db 225 ; catch rate
 	db 111 ; base exp
 
-	INCBIN "gfx/pokemon/front/goldeen.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/118.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/118.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw GoldeenPicFront, GoldeenPicBack
 
 	db PECK, TAIL_WHIP, NO_MOVE, NO_MOVE ; level 1 learnset

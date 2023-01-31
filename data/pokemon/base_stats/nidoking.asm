@@ -7,7 +7,12 @@
 	db 45 ; catch rate
 	db 195 ; base exp
 
-	INCBIN "gfx/pokemon/front/nidoking.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/034.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/034.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw NidokingPicFront, NidokingPicBack
 
 	db TACKLE, HORN_ATTACK, POISON_STING, THRASH ; level 1 learnset

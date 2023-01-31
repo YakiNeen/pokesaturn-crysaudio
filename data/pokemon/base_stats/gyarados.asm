@@ -7,7 +7,12 @@
 	db 45 ; catch rate
 	db 214 ; base exp
 
-	INCBIN "gfx/pokemon/front/gyarados.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/130.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/130.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw GyaradosPicFront, GyaradosPicBack
 
 	db BITE, DRAGON_RAGE, LEER, HYDRO_PUMP ; level 1 learnset

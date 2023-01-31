@@ -7,7 +7,12 @@
 	db 255 ; catch rate
 	db 54 ; base exp
 
-	INCBIN "gfx/pokemon/front/zubat.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/041.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/041.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw ZubatPicFront, ZubatPicBack
 
 	db LEECH_LIFE, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset

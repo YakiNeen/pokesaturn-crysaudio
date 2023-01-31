@@ -7,7 +7,12 @@
 	db 75 ; catch rate
 	db 138 ; base exp
 
-	INCBIN "gfx/pokemon/front/venomoth.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/049.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/049.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw VenomothPicFront, VenomothPicBack
 
 	db TACKLE, DISABLE, SUPERSONIC, CONFUSION ; level 1 learnset

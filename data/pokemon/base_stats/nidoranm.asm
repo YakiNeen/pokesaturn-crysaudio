@@ -7,7 +7,12 @@
 	db 235 ; catch rate
 	db 60 ; base exp
 
-	INCBIN "gfx/pokemon/front/nidoranm.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/032.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/032.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw NidoranMPicFront, NidoranMPicBack
 
 	db LEER, TACKLE, NO_MOVE, NO_MOVE ; level 1 learnset

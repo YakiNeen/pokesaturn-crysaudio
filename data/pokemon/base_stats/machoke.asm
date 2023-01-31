@@ -7,7 +7,12 @@
 	db 90 ; catch rate
 	db 146 ; base exp
 
-	INCBIN "gfx/pokemon/front/machoke.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/067.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/067.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw MachokePicFront, MachokePicBack
 
 	db KARATE_CHOP, LOW_KICK, LEER, NO_MOVE ; level 1 learnset

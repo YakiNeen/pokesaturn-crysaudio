@@ -7,7 +7,12 @@
 	db 190 ; catch rate
 	db 97 ; base exp
 
-	INCBIN "gfx/pokemon/front/shellder.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/090.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/090.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw ShellderPicFront, ShellderPicBack
 
 	db TACKLE, WITHDRAW, NO_MOVE, NO_MOVE ; level 1 learnset

@@ -7,7 +7,12 @@
 	db 255 ; catch rate
 	db 55 ; base exp
 
-	INCBIN "gfx/pokemon/front/pidgey.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/016.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/016.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw PidgeyPicFront, PidgeyPicBack
 
 	db GUST, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset

@@ -7,7 +7,12 @@
 	db 60 ; catch rate
 	db 150 ; base exp
 
-	INCBIN "gfx/pokemon/front/electrode.pic", 0, 1 ; sprite dimensions
+IF DEF(_SATURN)
+	INCBIN "gfx/pokemon/front_saturn_1st_generation/101.pic", 0, 1 ; sprite dimensions
+ENDC
+IF DEF(_MARS)
+	INCBIN "gfx/pokemon/front_mars_1st_generation/101.pic", 0, 1 ; sprite dimensions
+ENDC
 	dw ElectrodePicFront, ElectrodePicBack
 
 	db TACKLE, SCREECH, SONICBOOM, NO_MOVE ; level 1 learnset
