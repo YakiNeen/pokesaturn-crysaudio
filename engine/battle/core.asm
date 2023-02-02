@@ -2932,7 +2932,7 @@ PrintMenuItem:
 	hlcoord 1, 10
 	ld de, DisabledText
 	call PlaceString
-	jr .moveDisabled
+	jp .moveDisabled
 .notDisabled
 	ld hl, wCurrentMenuItem
 	dec [hl]
@@ -2960,6 +2960,26 @@ PrintMenuItem:
 	ld a, [hl]
 	and $3f
 	ld [wcd6d], a
+	ld a, [wPlayerSelectedMove]
+	call PhysicalSpecialSplit
+	cp a, $02
+	jp z, .OtherTextShow
+	cp a, $01
+	jp nz, .PhysicalTextShow
+	hlcoord 6, 9
+	ld de, SpecialText
+	call PlaceString
+	jp .RestOfTheRoutineThing
+.PhysicalTextShow
+	hlcoord 6, 9
+	ld de, PhysicalText
+	call PlaceString
+	jr .RestOfTheRoutineThing
+.OtherTextShow
+	hlcoord 6, 9
+	ld de, OtherText
+	call PlaceString
+.RestOfTheRoutineThing
 ; print TYPE/<type> and <curPP>/<maxPP>
 	hlcoord 1, 9
 	ld de, TypeText
@@ -2993,6 +3013,15 @@ DisabledText:
 
 TypeText:
 	db "TYPE@"
+
+OtherText:
+	db "ST.@"
+
+PhysicalText:
+	db "PH.@"
+
+SpecialText:
+	db "SP.@"
 
 SelectEnemyMove:
 	ld a, [wLinkState]
@@ -4175,9 +4204,10 @@ GetDamageVarsForPlayerAttack:
 	and a
 	ld d, a ; d = move power
 	ret z ; return if move power is zero
-	ld a, [hl] ; a = [wPlayerMoveType]
-	cp SPECIAL ; types >= SPECIAL are all special
-	jr nc, .specialAttack
+	ld a, [wPlayerSelectedMove]
+	call PhysicalSpecialSplit
+	cp a, SPECIAL_ATQ
+	jr z, .specialAttack
 .physicalAttack
 	ld hl, wEnemyMonDefense
 	ld a, [hli]
@@ -4292,9 +4322,10 @@ GetDamageVarsForEnemyAttack:
 	ld d, a ; d = move power
 	and a
 	ret z ; return if move power is zero
-	ld a, [hl] ; a = [wEnemyMoveType]
-	cp SPECIAL ; types >= SPECIAL are all special
-	jr nc, .specialAttack
+	ld a, [wEnemySelectedMove]
+	call PhysicalSpecialSplit
+	cp a, SPECIAL_ATQ
+	jr z, .specialAttack
 .physicalAttack
 	ld hl, wBattleMonDefense
 	ld a, [hli]
@@ -4712,12 +4743,10 @@ HandleCounterMove:
 	ld a, [de]
 	and a
 	ret z ; miss if the opponent's last selected move's Base Power is 0.
-; check if the move the target last selected was Normal or Fighting type
-	inc de
-	ld a, [de]
-	and a ; normal type
-	jr z, .counterableType
-	cp FIGHTING
+; check if the move the target last selected was Physical
+	ld a, [hl]
+	call PhysicalSpecialSplit
+	cp a, PHYSICAL_ATQ
 	jr z, .counterableType
 ; if the move wasn't Normal or Fighting type, miss
 	xor a
@@ -7260,3 +7289,12 @@ LoadBackSpriteUnzoomed:
 	ld de, vBackPic
 	push de
 	jp LoadUncompressedBackSprite
+
+; Determine if a move is Physical, Special, or Status
+; INPUT: Move ID in register a
+; OUTPUT: Move Physical/Special/Status type in register a
+PhysicalSpecialSplit:
+	ld [wTempMoveID], a
+	farcall _PhysicalSpecialSplit
+	ld a, [wTempMoveID]
+	ret

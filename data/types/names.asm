@@ -1,5 +1,4 @@
 TypeNames:
-	table_width 2, TypeNames
 
 	dw .Normal
 	dw .Fighting
@@ -11,11 +10,6 @@ TypeNames:
 	dw .NoType
 	dw .Bug
 	dw .Ghost
-
-REPT UNUSED_TYPES_END - UNUSED_TYPES
-	dw .Normal
-ENDR
-
 	dw .Fire
 	dw .Water
 	dw .Grass
@@ -25,8 +19,6 @@ ENDR
 	dw .Dragon
 	dw .Steel
 	dw .Fairy
-
-	assert_table_length NUM_TYPES
 
 .Normal:   db "NORMAL@"
 .Fighting: db "FIGHTING@"

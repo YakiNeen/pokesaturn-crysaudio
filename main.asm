@@ -356,6 +356,7 @@ INCLUDE "engine/pokemon/mon_gender.asm"
 INCLUDE "engine/menus/item_descriptions.asm"
 INCLUDE "engine/overworld/field_moves.asm"
 INCLUDE "engine/battle/pp_count_ai.asm"
+INCLUDE "engine/battle/physical_special_split.asm"
 
 
 SECTION "Evos Movim", ROMX

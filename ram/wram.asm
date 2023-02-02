@@ -204,6 +204,7 @@ SECTION "Overworld Map", WRAM0
 UNION
 wGenderTemp::
 wTempDVs::
+wTempMoveID::
 wOverworldMap:: ds 1300
 wOverworldMapEnd::
 
