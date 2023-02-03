@@ -895,7 +895,21 @@ wRightGBMonSpecies:: db
 ; bit 6: tried pushing against boulder once (you need to push twice before it will move)
 wFlags_0xcd60:: db
 
-	ds 9
+wFreezeTurnsRemaining::
+	; during battle, this address is initialized when a player's mon is frozen or is sent out frozen
+	; each turn it remains frozen, this is decremented
+	; when this hits zero, player's mon thaws out
+	; Avoids a scenario where a battle will never end because player's mon is frozen and enemy infinitely uses non-damaging moves
+	ds 1
+
+wRageTurnsRemaining::
+	; during battle, this address is initialized when a player's mon uses Rage
+	; each time Rage continues, this is decremented
+	; when this hits zero, that is the player's last Rage turn.
+	; Avoids a scenario where a battle will never end because player's mon is stuck using Rage endlessly against a Pokemon immune to it
+	ds 1
+
+	ds 7
 
 ; This has overlapping related uses.
 ; When the player tries to use an item or use certain field moves, 0 is stored

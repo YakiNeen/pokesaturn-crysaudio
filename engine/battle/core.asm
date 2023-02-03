@@ -1748,6 +1748,11 @@ LoadEnemyMonFromParty:
 
 SendOutMon:
 	callfar PrintSendOutMonMessage
+	ld hl, wBattleMonStatus
+	ld a, MAX_FREEZE_TURNS
+	ld [wFreezeTurnsRemaining], a ; Reinit freeze turns
+	ld a, MAX_RAGE_TURNS
+	ld [wRageTurnsRemaining], a ; Reinit Rage turns
 	ld hl, wEnemyMonHP
 	ld a, [hli]
 	or [hl] ; is enemy mon HP zero?
@@ -3462,7 +3467,21 @@ CheckPlayerStatusConditions:
 .FrozenCheck
 	bit FRZ, [hl] ; frozen?
 	jr z, .HeldInPlaceCheck
+	push hl
+	ld hl, wd72e
+	bit 6, [hl]
+	jp nz, .isFrozen ; do not try to thaw while in a link battle
+	ld hl, wFreezeTurnsRemaining
+	dec [hl]
+	jr nz, .isFrozen
+	pop hl
+	res FRZ, [hl] ; remove FRZ
+	ld hl, ThawedOutText
+	jr .printMessage
+.isFrozen
+	pop hl
 	ld hl, IsFrozenText
+.printMessage
 	call PrintText
 	xor a
 	ld [wPlayerUsedMove], a
@@ -3668,13 +3687,18 @@ CheckPlayerStatusConditions:
 	ld [wPlayerNumAttacksLeft], a
 	ld hl, getPlayerAnimationType ; if it didn't, skip damage calculation (deal damage equal to last hit),
 	                ; DecrementPP and MoveHitTest
-	jp nz, .returnToHL
-	jp .returnToHL
+	jr .returnToHL
 
 .RageCheck
 	ld a, [wPlayerBattleStatus2]
 	bit USING_RAGE, a ; is mon using rage?
-	jp z, .checkPlayerStatusConditionsDone ; if we made it this far, mon can move normally this turn
+	jr z, .notUsingRage
+	ld hl, wRageTurnsRemaining
+	dec [hl]
+	jr nz, .usingRage ; Rage will continue
+	ld hl, wPlayerBattleStatus2
+	res USING_RAGE, [hl] ; Rage will subside
+.usingRage
 	ld a, RAGE
 	ld [wd11e], a
 	call GetMoveName
@@ -3682,11 +3706,14 @@ CheckPlayerStatusConditions:
 	xor a
 	ld [wPlayerMoveEffect], a
 	ld hl, PlayerCanExecuteMove
-	jp .returnToHL
 
 .returnToHL
 	xor a
 	ret
+
+.notUsingRage
+	ld a, MAX_RAGE_TURNS
+	ld [wRageTurnsRemaining], a ; Re-init Rage turns
 
 .checkPlayerStatusConditionsDone
 	ld a, $1
@@ -3703,6 +3730,10 @@ WokeUpText:
 
 IsFrozenText:
 	text_far _IsFrozenText
+	text_end
+
+ThawedOutText:
+	text_far _ThawedOutText
 	text_end
 
 FullyParalyzedText:

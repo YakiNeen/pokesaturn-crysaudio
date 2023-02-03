@@ -64,6 +64,9 @@ DEF SLP_MASK EQU %111 ; 0-7 turns
 	const FRZ ; 5
 	const PAR ; 6
 
+DEF MAX_FREEZE_TURNS EQU 25
+DEF MAX_RAGE_TURNS   EQU 25
+
 DEF MAX_STAT_VALUE EQU 999
 
 ; wPlayerBattleStatus1 or wEnemyBattleStatus1 bit flags
