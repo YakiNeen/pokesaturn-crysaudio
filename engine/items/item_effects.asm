@@ -158,9 +158,9 @@ ItemUseBall:
 
 .oldManBattle
 	ld hl, wGrassRate
-	ld de, wPlayerName
+	ld de, wCurTrainerName
 	ld bc, NAME_LENGTH
-	call CopyData ; save the player's name in the Wild Monster data (part of the Cinnabar Island Missingno. glitch)
+	call CopyData
 	jp .captured
 
 .notOldManBattle
