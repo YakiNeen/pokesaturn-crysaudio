@@ -3,16 +3,25 @@ GetQuantityOfItemInBag:
 ; Out: b = how many of that item are in the bag
 	call GetPredefRegisters
 	ld hl, wNumBagItems
-.loop
+	jr GetQuantityOfItem
+
+GetQuantityOfItemInBox:
+; In: b = item ID
+; Out: b = how many of that item are in the PC
+	call GetPredefRegisters
+	ld hl, wNumBoxItems
+	;fall through
+
+GetQuantityOfItem:
 	inc hl
 	ld a, [hli]
 	cp $ff
-	jr z, .notInBag
+	jr z, .notFound
 	cp b
-	jr nz, .loop
+	jr nz, GetQuantityOfItem
 	ld a, [hl]
 	ld b, a
 	ret
-.notInBag
+.notFound
 	ld b, 0
 	ret
