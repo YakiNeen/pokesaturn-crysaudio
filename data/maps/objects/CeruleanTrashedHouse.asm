@@ -11,6 +11,6 @@ CeruleanTrashedHouse_Object:
 
 	def_object_events
 	object_event  2,  1, SPRITE_FISHING_GURU, STAY, DOWN, 1 ; person
-	object_event  5,  6, SPRITE_GIRL, WALK, LEFT_RIGHT, 2 ; person
+	object_event  5,  6, SPRITE_PSYCHIC_F, WALK, LEFT_RIGHT, 2 ; person
 
 	def_warps_to CERULEAN_TRASHED_HOUSE

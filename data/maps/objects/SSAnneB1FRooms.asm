@@ -21,9 +21,9 @@ SSAnneB1FRooms_Object:
 	object_event 12,  3, SPRITE_SAILOR, STAY, LEFT, 3, OPP_SAILOR, 5
 	object_event 22,  2, SPRITE_SAILOR, STAY, DOWN, 4, OPP_SAILOR, 6
 	object_event  0,  2, SPRITE_SAILOR, STAY, RIGHT, 5, OPP_SAILOR, 7
-	object_event  0,  4, SPRITE_FISHER, STAY, RIGHT, 6, OPP_FISHER, 2
-	object_event 10, 13, SPRITE_SUPER_NERD, STAY, RIGHT, 7 ; person
-	object_event 11, 12, SPRITE_MONSTER, STAY, NONE, 8 ; person
+	object_event  0,  4, SPRITE_FISHER, STAY, RIGHT, 6, OPP_FISHERMAN, 2
+	object_event 10, 13, SPRITE_SUPER_NERD1, STAY, RIGHT, 7 ; person
+	object_event 11, 12, SPRITE_MACHOKE, STAY, NONE, 8 ; person
 	object_event 20,  2, SPRITE_POKE_BALL, STAY, NONE, 9, ETHER
 	object_event 10,  2, SPRITE_POKE_BALL, STAY, NONE, 10, TM_REST
 	object_event 12, 11, SPRITE_POKE_BALL, STAY, NONE, 11, MAX_POTION

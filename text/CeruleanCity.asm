@@ -137,20 +137,20 @@ _CeruleanCityText6::
 	done
 
 _CeruleanCityText_19730::
-	text "OK! SLOWBRO!"
-	line "Use SONICBOOM!"
-	cont "Come on, SLOWBRO"
+	text "OK! SNORLAX!"
+	line "Use HYPER BEAM!"
+	cont "Come on, SNORLAX"
 	cont "pay attention!"
 	done
 
 _CeruleanCityText_19735::
-	text "SLOWBRO punch!"
+	text "SNORLAX punch!"
 	line "No! You blew it"
 	cont "again!"
 	done
 
 _CeruleanCityText_1973a::
-	text "SLOWBRO, WITHDRAW!"
+	text "SNORLAX, HARDEN!"
 	line "No! That's wrong!"
 
 	para "It's so hard to"
@@ -163,22 +163,22 @@ _CeruleanCityText_1973a::
 	done
 
 _CeruleanCityText_1976f::
-	text "SLOWBRO took a"
+	text "SNORLAX took a"
 	line "snooze..."
 	done
 
 _CeruleanCityText_19774::
-	text "SLOWBRO is"
+	text "SNORLAX is"
 	line "loafing around..."
 	done
 
 _CeruleanCityText_19779::
-	text "SLOWBRO turned"
+	text "SNORLAX turned"
 	line "away..."
 	done
 
 _CeruleanCityText_1977e::
-	text "SLOWBRO"
+	text "SNORLAX"
 	line "ignored orders..."
 	done
 

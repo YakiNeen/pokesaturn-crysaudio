@@ -8,7 +8,7 @@ SSAnneBow_Object:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  2, SPRITE_SUPER_NERD, STAY, UP, 1 ; person
+	object_event  5,  2, SPRITE_SUPER_NERD3, STAY, UP, 1 ; person
 	object_event  4,  9, SPRITE_SAILOR, STAY, NONE, 2 ; person
 	object_event  7, 11, SPRITE_COOLTRAINER_M, STAY, NONE, 3 ; person
 	object_event  4,  4, SPRITE_SAILOR, STAY, DOWN, 4, OPP_SAILOR, 1

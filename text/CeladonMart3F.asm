@@ -37,23 +37,24 @@ _CeladonMart3Text2::
 	done
 
 _CeladonMart3Text3::
-	text "All right!"
+	text "JOHN: All right!"
 
-	para "My buddy's going"
-	line "to trade me his"
+	para "DIANA going"
+	line "to trade me her"
 	cont "KANGASKHAN for my"
-	cont "GRAVELER!"
+	cont "HAUNTER!"
 	done
 
 _CeladonMart3Text4::
-	text "Come on GRAVELER!"
+	text "DIANA: Come on"
+	line "HAUNTER!"
 
-	para "I love GRAVELER!"
+	para "I love HAUNTER!"
 	line "I collect them!"
 
 	para "Huh?"
 
-	para "GRAVELER turned"
+	para "HAUNTER turned"
 	line "into a different"
 	cont "#MON!"
 	done

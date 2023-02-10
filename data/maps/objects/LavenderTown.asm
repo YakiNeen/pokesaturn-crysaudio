@@ -20,6 +20,6 @@ LavenderTown_Object:
 	def_object_events
 	object_event 15,  9, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, 1 ; person
 	object_event  9, 10, SPRITE_COOLTRAINER_M, STAY, NONE, 2 ; person
-	object_event  8,  7, SPRITE_SUPER_NERD, WALK, LEFT_RIGHT, 3 ; person
+	object_event  8,  7, SPRITE_SUPER_NERD1, WALK, LEFT_RIGHT, 3 ; person
 
 	def_warps_to LAVENDER_TOWN

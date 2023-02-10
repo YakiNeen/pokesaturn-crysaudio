@@ -17,13 +17,13 @@ PlayBattleMusic::
 	and a
 	jr z, .wildBattle
 	ld a, [wCurOpponent]
-	cp OPP_LORELEI
+	cp OPP_ELITE_FOUR1
 	jr z, .Elite4Battle
-	cp OPP_BRUNO
+	cp OPP_ELITE_FOUR2
 	jr z, .Elite4Battle
-	cp OPP_AGATHA
+	cp OPP_ELITE_FOUR3
 	jr z, .Elite4Battle
-	cp OPP_LANCE
+	cp OPP_ELITE_FOUR4
 	jr z, .Elite4Battle
 	cp OPP_RIVAL3
 	jr nz, .normalTrainerBattle

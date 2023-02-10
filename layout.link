@@ -27,7 +27,6 @@ ROM0
 	"serial"
 	org $0060
 	"joypad"
-	; $0061
 	"High Home"
 	org $100
 	"Header"
@@ -37,18 +36,14 @@ ROMX $1
 	"bank1"
 ROMX $2
 	"Sound Effect Headers 1"
-;	"Music Headers 1"
 	"Sound Effects 1"
 	"Audio Engine 1"
-;	"Music 1"
 ROMX $3
 	"bank3"
 ROMX $4
-	"NPC Sprites 1"
 	"Font Graphics"
 	"Battle Engine 1"
 ROMX $5
-	"NPC Sprites 2"
 	"Battle Engine 2"
 ROMX $6
 	"Maps 1"
@@ -62,12 +57,7 @@ ROMX $7
 	"Hidden Objects 1"
 ROMX $8
 	"Sound Effect Headers 2"
-;	"Music Headers 2"
 	"Sound Effects 2"
-;	"Low Health Alarm (Audio Engine 2)"
-;	"Bill's PC"
-;	"Audio Engine 2"
-;	"Music 2"
 ROMX $9
 	"Pics 1"
 	"Battle Engine 3"
@@ -99,7 +89,7 @@ ROMX $12
 	"Screen Effects"
 	"Maps 8"
 ROMX $13
-	"Pics 6"
+	"Trainer Pics 1"
 	"Maps 9"
 	"Predefs"
 ROMX $14
@@ -147,10 +137,7 @@ ROMX $1E
 	"bank1E"
 ROMX $1F
 	"Sound Effect Headers 3"
-;	"Music Headers 3"
 	"Sound Effects 3"
-;	"Audio Engine 3"
-;	"Music 3"
 ROMX $20
 	"Text 1"
 ROMX $21
@@ -177,6 +164,14 @@ ROMX $2B
 	"Pokédex Text"
 ROMX $2C
 	"Move Names"
+ROMX $2D
+	"Trainer Pics 2"
+ROMX $2E
+	"NPC Sprites 1"
+ROMX $2F
+	"NPC Sprites 2"
+ROMX $30
+	"NPC Sprites 3"
 WRAM0
 	"Audio RAM"
 	org $c100

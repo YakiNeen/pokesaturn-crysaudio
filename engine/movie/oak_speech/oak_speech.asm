@@ -60,8 +60,8 @@ OakSpeech:
 	ld a, [wd732]
 	bit 1, a ; possibly a debug mode bit
 	jp nz, .debug
-	ld de, ProfOakPic
-	lb bc, BANK(ProfOakPic), $00
+	ld de, ProfessorPic
+	lb bc, BANK(ProfessorPic), $00
 	call IntroDisplayPicCenteredOrUpperRight
 	call FadeInIntroPic
 	ld hl, OakSpeechText1
@@ -117,9 +117,9 @@ OakSpeech:
 	ld [MBC1RomBank], a
 	ld c, 4
 	call DelayFrames
-	ld de, RedSprite
+	ld de, AaSprite
 	ld hl, vSprites
-	lb bc, BANK(RedSprite), $0C
+	lb bc, BANK(AaSprite), $0C
 	call CopyVideoData
 	ld de, ShrinkPic1
 	lb bc, BANK(ShrinkPic1), $00

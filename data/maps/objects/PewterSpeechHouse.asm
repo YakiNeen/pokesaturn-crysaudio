@@ -9,6 +9,6 @@ PewterSpeechHouse_Object:
 
 	def_object_events
 	object_event  2,  3, SPRITE_GAMBLER, STAY, RIGHT, 1 ; person
-	object_event  4,  5, SPRITE_YOUNGSTER, STAY, NONE, 2 ; person
+	object_event  4,  5, SPRITE_YOUNGSTER2, STAY, NONE, 2 ; person
 
 	def_warps_to PEWTER_SPEECH_HOUSE

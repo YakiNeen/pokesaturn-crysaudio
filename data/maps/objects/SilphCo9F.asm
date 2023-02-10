@@ -12,8 +12,8 @@ SilphCo9F_Object:
 
 	def_object_events
 	object_event  3, 14, SPRITE_NURSE, STAY, DOWN, 1 ; person
-	object_event  2,  4, SPRITE_ROCKET, STAY, UP, 2, OPP_ROCKET, 37
-	object_event 21, 13, SPRITE_SCIENTIST, STAY, DOWN, 3, OPP_SCIENTIST, 10
-	object_event 13, 16, SPRITE_ROCKET, STAY, UP, 4, OPP_ROCKET, 38
+	object_event  2,  4, SPRITE_EVIL_GRUNT_M, STAY, UP, 2, OPP_EVIL_GRUNT, 36
+	object_event 21, 13, SPRITE_SCIENTIST_M, STAY, DOWN, 3, OPP_SCIENTIST, 10
+	object_event 13, 16, SPRITE_EVIL_GRUNT_M, STAY, UP, 4, OPP_EVIL_GRUNT, 37
 
 	def_warps_to SILPH_CO_9F

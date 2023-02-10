@@ -11,14 +11,14 @@ SilphCo6F_Object:
 	def_bg_events
 
 	def_object_events
-	object_event 10,  6, SPRITE_SILPH_WORKER, STAY, NONE, 1 ; person
-	object_event 20,  6, SPRITE_SILPH_WORKER, STAY, NONE, 2 ; person
-	object_event 21,  6, SPRITE_ERIKA, STAY, DOWN, 3 ; person
-	object_event 11, 10, SPRITE_ERIKA, STAY, RIGHT, 4 ; person
-	object_event 18, 13, SPRITE_SILPH_WORKER, STAY, UP, 5 ; person
-	object_event 17,  3, SPRITE_ROCKET, STAY, RIGHT, 6, OPP_ROCKET, 30
-	object_event  7,  8, SPRITE_SCIENTIST, STAY, DOWN, 7, OPP_SCIENTIST, 7
-	object_event 14, 15, SPRITE_ROCKET, STAY, LEFT, 8, OPP_ROCKET, 31
+	object_event 10,  6, SPRITE_SATOSHI, STAY, NONE, 1 ; person
+	object_event 20,  6, SPRITE_SATOSHI, STAY, NONE, 2 ; person
+	object_event 21,  6, SPRITE_WOMAN, STAY, DOWN, 3 ; person
+	object_event 11, 10, SPRITE_WOMAN, STAY, RIGHT, 4 ; person
+	object_event 18, 13, SPRITE_SATOSHI, STAY, UP, 5 ; person
+	object_event 17,  3, SPRITE_EVIL_GRUNT_M, STAY, RIGHT, 6, OPP_EVIL_GRUNT, 29
+	object_event  7,  8, SPRITE_SCIENTIST_M, STAY, DOWN, 7, OPP_SCIENTIST, 7
+	object_event 14, 15, SPRITE_EVIL_GRUNT_M, STAY, LEFT, 8, OPP_EVIL_GRUNT, 30
 	object_event  3, 12, SPRITE_POKE_BALL, STAY, NONE, 9, HP_UP
 	object_event  2, 15, SPRITE_POKE_BALL, STAY, NONE, 10, X_ACCURACY
 

@@ -10,6 +10,6 @@ RedsHouse1F_Object:
 	bg_event  3,  1, 2 ; RedsHouse1FTVText
 
 	def_object_events
-	object_event  5,  4, SPRITE_MIDDLE_AGED_WOMAN, STAY, LEFT, 1
+	object_event  5,  4, SPRITE_POKEMANIAC_F, STAY, LEFT, 1
 
 	def_warps_to REDS_HOUSE_1F

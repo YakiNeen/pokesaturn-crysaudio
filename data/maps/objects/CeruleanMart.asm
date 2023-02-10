@@ -8,7 +8,7 @@ CeruleanMart_Object:
 	def_bg_events
 
 	def_object_events
-	object_event  0,  5, SPRITE_CLERK, STAY, RIGHT, 1 ; person
+	object_event  0,  5, SPRITE_BARMAN1, STAY, RIGHT, 1 ; person
 	object_event  3,  4, SPRITE_COOLTRAINER_M, WALK, UP_DOWN, 2 ; person
 	object_event  6,  2, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 3 ; person
 

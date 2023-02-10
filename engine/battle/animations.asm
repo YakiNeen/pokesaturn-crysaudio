@@ -1907,30 +1907,30 @@ AnimationSubstitute:
 	ldh a, [hWhoseTurn]
 	and a
 	jr z, .playerTurn
-	ld hl, MonsterSprite tile 0 ; facing down sprite
+	ld hl, RhydonSprite tile 0 ; facing down sprite
 	ld de, wTempPic + $120
 	call CopyMonsterSpriteData
-	ld hl, MonsterSprite tile 1
+	ld hl, RhydonSprite tile 1
 	ld de, wTempPic + $120 + $70
 	call CopyMonsterSpriteData
-	ld hl, MonsterSprite tile 2
+	ld hl, RhydonSprite tile 2
 	ld de, wTempPic + $120 + $10
 	call CopyMonsterSpriteData
-	ld hl, MonsterSprite tile 3
+	ld hl, RhydonSprite tile 3
 	ld de, wTempPic + $120 + $10 + $70
 	call CopyMonsterSpriteData
 	jr .next
 .playerTurn
-	ld hl, MonsterSprite tile 4 ; facing up sprite
+	ld hl, RhydonSprite tile 4 ; facing up sprite
 	ld de, wTempPic + $120 + $70
 	call CopyMonsterSpriteData
-	ld hl, MonsterSprite tile 5
+	ld hl, RhydonSprite tile 5
 	ld de, wTempPic + $120 + $e0
 	call CopyMonsterSpriteData
-	ld hl, MonsterSprite tile 6
+	ld hl, RhydonSprite tile 6
 	ld de, wTempPic + $120 + $80
 	call CopyMonsterSpriteData
-	ld hl, MonsterSprite tile 7
+	ld hl, RhydonSprite tile 7
 	ld de, wTempPic + $120 + $f0
 	call CopyMonsterSpriteData
 .next
@@ -1939,7 +1939,7 @@ AnimationSubstitute:
 
 CopyMonsterSpriteData:
 	ld bc, 1 tiles
-	ld a, BANK(MonsterSprite)
+	ld a, BANK(RhydonSprite)
 	jp FarCopyData2
 
 HideSubstituteShowMonAnim:
