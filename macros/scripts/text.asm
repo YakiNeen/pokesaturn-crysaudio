@@ -126,11 +126,18 @@ ENDM
 MACRO sound_dex_page_added
 	db TX_SOUND_DEX_PAGE_ADDED
 ENDM
-
-	const TX_SOUND_CRY_NIDORINA ; $14
-MACRO sound_cry_nidorina
-	db TX_SOUND_CRY_NIDORINA
+IF DEF(_SATURN)
+	const TX_SOUND_CRY_GROWLITHE ; $14
+MACRO sound_cry_growlithe
+	db TX_SOUND_CRY_GROWLITHE
 ENDM
+ENDC
+IF DEF(_MARS)
+	const TX_SOUND_CRY_MAREEP ; $14
+MACRO sound_cry_mareep
+	db TX_SOUND_CRY_MAREEP
+ENDM
+ENDC
 
 	const TX_SOUND_CRY_PIDGEOT ; $15
 MACRO sound_cry_pidgeot

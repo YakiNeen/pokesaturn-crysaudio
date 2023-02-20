@@ -1550,8 +1550,9 @@ _OakSpeechText1::
 	prompt
 
 _OakSpeechText2A::
-	text "This world is"
-	line "inhabited by"
+	text "As we know, this"
+	line "world is"
+	cont "inhabited by"
 	cont "creatures called"
 	cont "#MON!@"
 	text_end
@@ -1559,15 +1560,12 @@ _OakSpeechText2A::
 _OakSpeechText2B::
 	text_start
 
-	para "For some people,"
-	line "#MON are"
-	cont "pets. Others use"
-	cont "them for fights."
+	para "They can be"
+	line "friendly pets,"
 
-	para "Myself..."
-
-	para "I study #MON"
-	line "as a profession."
+	para "Eternal companions"
+	line "at home, or even"
+	cont "on long adventure"
 	prompt
 
 _IntroducePlayerText::
@@ -1576,13 +1574,11 @@ _IntroducePlayerText::
 	prompt
 
 _IntroduceRivalText::
-	text "This is my grand-"
-	line "son. He's been"
-	cont "your rival since"
-	cont "you were a baby."
+	text "Another boy will"
+	line "receive #MON"
+	cont "with you..."
 
-	para "...Erm, what is"
-	line "his name again?"
+	para "What's his name?"
 	prompt
 
 _OakSpeechText3::
@@ -1595,7 +1591,9 @@ _OakSpeechText3::
 	para "A world of dreams"
 	line "and adventures"
 	cont "with #MON"
-	cont "awaits! Let's go!"
+	cont "awaits!"
+
+	para "Let's go!"
 	done
 
 _DoYouWantToNicknameText::
@@ -1612,9 +1610,8 @@ _YourNameIsText::
 	prompt
 
 _HisNameIsText::
-	text "That's right! I"
-	line "remember now! His"
-	cont "name is <RIVAL>!"
+	text "<RIVAL>?"
+	line "Fine then."
 	prompt
 
 _WillBeTradedText::
@@ -1634,3 +1631,34 @@ _TextIDErrorText::
 _ContCharText::
 	text "<_CONT>@"
 	text_end
+
+_OakSpeechText4A::
+	text "They can live in"
+	line "the vast oceans@"
+	text_end
+
+_OakSpeechText4B::
+	text_start
+
+	para "Like that DEWGONG!"
+	prompt
+
+_OakSpeechText5A::
+	text "Some are high"
+	line "in the skies..."
+	cont "Like PIDGEOT!@"
+	text_end
+
+_OakSpeechText6::
+	text "Around the world,"
+	line "however, there"
+	cont "are still many"
+	cont "mysteries to be"
+	cont "solved about"
+	cont "#MON!"
+
+	para "That's why I want"
+	line "to know more"
+	cont "about that"
+	cont "creatures!"
+	prompt

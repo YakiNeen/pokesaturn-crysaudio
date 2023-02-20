@@ -68,7 +68,12 @@ OakSpeech:
 	call PrintText
 	call GBFadeOutToWhite
 	call ClearScreen
-	ld a, NIDORINO
+IF DEF(_SATURN)
+	ld a, GROWLITHE
+ENDC
+IF DEF(_MARS)
+	ld a, MAREEP
+ENDC
 	ld [wd0b5], a
 	ld [wcf91], a
 	call GetMonHeader
@@ -76,6 +81,36 @@ OakSpeech:
 	call LoadFlippedFrontSpriteByMonIndex
 	call MovePicLeft
 	ld hl, OakSpeechText2
+	call PrintText
+	call GBFadeOutToWhite
+	call ClearScreen
+	ld a, DEWGONG
+	ld [wd0b5], a
+	ld [wcf91], a
+	call GetMonHeader
+	hlcoord 6, 4
+	call LoadFlippedFrontSpriteByMonIndex
+	call MovePicLeft
+	ld hl, OakSpeechText4
+	call PrintText
+	call GBFadeOutToWhite
+	call ClearScreen
+	ld a, PIDGEOT
+	ld [wd0b5], a
+	ld [wcf91], a
+	call GetMonHeader
+	hlcoord 6, 4
+	call LoadFlippedFrontSpriteByMonIndex
+	call MovePicLeft
+	ld hl, OakSpeechText5
+	call PrintText
+	call GBFadeOutToWhite
+	call ClearScreen
+	ld de, ProfessorPic
+	lb bc, BANK(ProfessorPic), $00
+	call IntroDisplayPicCenteredOrUpperRight
+	call FadeInIntroPic
+	ld hl, OakSpeechText6
 	call PrintText
 	call GBFadeOutToWhite
 	call ClearScreen
@@ -162,7 +197,12 @@ OakSpeechText1:
 	text_end
 OakSpeechText2:
 	text_far _OakSpeechText2A
-	sound_cry_nidorina
+IF DEF(_SATURN)
+	sound_cry_growlithe
+ENDC
+IF DEF(_MARS)
+	sound_cry_mareep
+ENDC
 	text_far _OakSpeechText2B
 	text_end
 IntroducePlayerText:
@@ -173,6 +213,18 @@ IntroduceRivalText:
 	text_end
 OakSpeechText3:
 	text_far _OakSpeechText3
+	text_end
+OakSpeechText4:
+	text_far _OakSpeechText4A
+	sound_cry_dewgong
+	text_far _OakSpeechText4B
+	text_end
+OakSpeechText5:
+	text_far _OakSpeechText5A
+	sound_cry_pidgeot
+	text_end
+OakSpeechText6:
+	text_far _OakSpeechText6
 	text_end
 
 FadeInIntroPic:
