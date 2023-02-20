@@ -11,7 +11,7 @@ wChannel2:: channel_struct wChannel2
 wChannel3:: channel_struct wChannel3
 wChannel4:: channel_struct wChannel4
 
-	ds 1
+wUnusedD155:: db
 
 wCurTrackDuty:: db
 wCurTrackVolumeEnvelope:: db

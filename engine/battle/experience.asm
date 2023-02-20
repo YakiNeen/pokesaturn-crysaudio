@@ -2,6 +2,13 @@ GainExperience:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	ret z ; return if link battle
+	ld a, [wBoostExpByExpAll]
+	and a
+	jr z, .skipexpallmsg
+	ld a, [wd728]
+	set 7, a
+	ld [wd728], a	
+.skipexpallmsg
 	call DivideExpDataByNumMonsGainingExp
 	ld hl, wPartyMon1
 	xor a
@@ -375,6 +382,7 @@ DivideExpDataByNumMonsGainingExp:
 	dec c
 	jr nz, .countSetBitsLoop
 	cp $2
+	ld [wUnusedD155], a
 	ret c ; return if only one mon is gaining exp
 	ld [wd11e], a ; store number of mons gaining exp
 	ld hl, wEnemyMonBaseStats
@@ -412,10 +420,6 @@ BoostExp:
 GainedText:
 	text_far _GainedText
 	text_asm
-	ld a, [wBoostExpByExpAll]
-	ld hl, WithExpAllText
-	and a
-	ret nz
 	ld hl, ExpPointsText
 	ld a, [wGainBoostedExp]
 	and a

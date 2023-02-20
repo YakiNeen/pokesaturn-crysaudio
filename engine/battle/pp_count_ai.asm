@@ -1,3 +1,70 @@
+UndoDivision4ExpAll:
+	ld hl, wEnemyMonBaseStats
+	ld b, $7
+.exp_stat_loop
+	ld a, [wUnusedD155]	
+	ld c, a
+	xor a
+.exp_adder_loop
+	add [hl]
+	dec c
+	jr nz, .exp_adder_loop
+	ld [hl], a
+	inc hl
+	dec b
+	jr nz, .exp_stat_loop
+	ret
+
+SetExpAllFlags:
+	ld a, $1
+	ld [wBoostExpByExpAll], a
+	ld a, [wPartyCount]
+	ld c, a
+	ld b, 0
+	ld hl, wPartyMon1HP
+.gainExpFlagsLoop	
+	ld a, [hli]
+	or [hl] ; is mon's HP 0?
+	jp z, .setnextexpflag
+	scf
+.setnextexpflag 
+	jp .do_rotations	
+.nextmonforexpall
+	dec c
+	jr z, .return
+	ld a, [wPartyCount]
+	sub c
+	push bc
+	ld bc, wPartyMon2HP - wPartyMon1HP
+	ld hl, wPartyMon1HP
+	call AddNTimes
+	pop bc
+	jr .gainExpFlagsLoop
+.return
+	ld a, b
+	ld [wPartyGainExpFlags], a
+	ret
+.do_rotations
+	push af
+	ld a, $08
+	ld hl, wPartyCount 
+	sub [hl]
+	add c
+	ld h, a
+	pop af
+	ld a, h
+	push bc
+	ld c, a
+	ld a, $00
+.loop
+	rr a
+	dec c
+	jr nz, .loop
+	pop bc
+	or b
+	ld b, a
+	jp .nextmonforexpall
+
 CheckAISentOut::
 	ld a, [wWhichPokemon]	
 	cp $05

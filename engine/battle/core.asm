@@ -833,6 +833,12 @@ FaintEnemyPokemon:
 	call IsItemInBag
 	push af
 	jr z, .giveExpToMonsThatFought ; if no exp all, then jump
+	ld a, [wPartyGainExpFlags]
+	or a
+	jr nz, .noZeroParticipants
+	pop af
+	jp .expallfix_end
+.noZeroParticipants
 
 ; the player has exp all
 ; first, we halve the values that determine exp gain
@@ -854,21 +860,20 @@ FaintEnemyPokemon:
 	callfar GainExperience
 	pop af
 	ret z ; return if no exp all
+	ld a, [wUnusedD155]	
+	dec a
+	jr z, .expallfix_end
+	push hl
+	push bc
+	farcall UndoDivision4ExpAll
+	pop bc
+	pop hl
+.expallfix_end
 
 ; the player has exp all
 ; now, set the gain exp flag for every party member
 ; half of the total stat exp and normal exp will divided evenly amongst every party member
-	ld a, $1
-	ld [wBoostExpByExpAll], a
-	ld a, [wPartyCount]
-	ld b, 0
-.gainExpFlagsLoop
-	scf
-	rl b
-	dec a
-	jr nz, .gainExpFlagsLoop
-	ld a, b
-	ld [wPartyGainExpFlags], a
+	farcall SetExpAllFlags
 	jpfar GainExperience
 
 EnemyMonFaintedText:
