@@ -110,3 +110,4 @@ PredefPointers::
 	add_predef OaksAideScript
 	add_predef TryFieldMove
 	add_predef GetQuantityOfItemInBox
+	add_predef EmotionBubbleQuick

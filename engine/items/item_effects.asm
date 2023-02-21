@@ -1872,6 +1872,9 @@ ItemUseItemfinder:
 	ld hl, ItemfinderFoundNothingText
 	jr nc, .printText ; if no hidden items
 	ld c, 4
+	ld a, [wItemFinderItemDirection]
+	and a ; a = 0 means we're on top of the item
+	jr z, .loop2
 .loop
 	ld a, SFX_HEALING_MACHINE
 	call PlaySoundWaitForCurrent
@@ -1879,9 +1882,50 @@ ItemUseItemfinder:
 	call PlaySoundWaitForCurrent
 	dec c
 	jr nz, .loop
+	jr .doneLoop
+.loop2
+	; audio effect if right on top of the hidden item
+	ld a, SFX_PURCHASE
+	call PlaySoundWaitForCurrent
+	dec c
+	jr nz, .loop2
+.doneLoop
+	; say itemfinder found an item if we haven't seen this text yet
+	ld a, [wSawItemFinderText]
+	and a
+	jr nz, .doDirectionFacing ; already have seen the text since restarting the cartridge
 	ld hl, ItemfinderFoundItemText
+	call PrintText
+	ld a, 1
+	ld [wSawItemFinderText], a ; only display the "yes! itemfinder found an item!" text once per game restart
+.doDirectionFacing
+	ld a, [wItemFinderItemDirection]
+	and a ; a = 0 means we're on top of the item
+	jr z, .onTopOfItem2
+	; if we're not on top of the item, face the best direction to indicate where it is
+	ld [wPlayerMovingDirection], a
+	ld a, SFX_ARROW_TILES
+	call PlaySoundWaitForCurrent
+	xor a
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, QUESTION_BUBBLE
+  	ld [wWhichEmotionBubble], a
+	predef EmotionBubbleQuick
+	jr .done
+.onTopOfItem2
+	; if we're on top of the item, show an exclamation bubble
+	ld a, SFX_SWAP
+	call PlaySoundWaitForCurrent
+	ld a, EXCLAMATION_BUBBLE
+  	ld [wWhichEmotionBubble], a
+	xor a
+	ld [wEmotionBubbleSpriteIndex], a
+	predef EmotionBubble
+	jr .done
 .printText
-	jp PrintText
+	call PrintText
+.done	
+	ret
 
 ItemfinderFoundItemText:
 	text_far _ItemfinderFoundItemText

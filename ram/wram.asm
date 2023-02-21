@@ -1114,6 +1114,9 @@ wItemList:: ds 16
 
 wListPointer:: dw
 
+wItemFinderItemDirection:: db 
+wSawItemFinderText:: db
+
 ; used to store pointers, but never read
 ; used as a temp location for storing pointers for PP tracking
 wUnusedCF8D:: dw
