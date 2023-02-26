@@ -47,6 +47,8 @@ PlayerPCMenu:
 	ld [hli], a ; wListScrollOffset
 	ld [hl], a ; wMenuWatchMovingOutOfBounds
 	ld [wPlayerMonNumber], a
+	ld hl, wd730
+	set 6, [hl]
 	ld hl, WhatDoYouWantText
 	call PrintText
 	call HandleMenuInput
@@ -90,10 +92,14 @@ PlayerPCDeposit:
 	ld a, [wNumBagItems]
 	and a
 	jr nz, .loop
+	ld hl, wd730
+	set 6, [hl]
 	ld hl, NothingToDepositText
 	call PrintText
 	jp PlayerPCMenu
 .loop
+	ld hl, wd730
+	set 6, [hl]
 	ld hl, WhatToDepositText
 	call PrintText
 	ld hl, wNumBagItems
@@ -144,10 +150,14 @@ PlayerPCWithdraw:
 	ld a, [wNumBoxItems]
 	and a
 	jr nz, .loop
+	ld hl, wd730
+	set 6, [hl]
 	ld hl, NothingStoredText
 	call PrintText
 	jp PlayerPCMenu
 .loop
+	ld hl, wd730
+	set 6, [hl]
 	ld hl, WhatToWithdrawText
 	call PrintText
 	ld hl, wNumBoxItems
@@ -198,10 +208,14 @@ PlayerPCToss:
 	ld a, [wNumBoxItems]
 	and a
 	jr nz, .loop
+	ld hl, wd730
+	set 6, [hl]
 	ld hl, NothingStoredText
 	call PrintText
 	jp PlayerPCMenu
 .loop
+	ld hl, wd730
+	set 6, [hl]
 	ld hl, WhatToTossText
 	call PrintText
 	ld hl, wNumBoxItems
