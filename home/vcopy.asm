@@ -445,12 +445,12 @@ UpdateMovingBgTiles::
 	ret
 
 IF DEF(_SATURN)
-FlowerTile1: INCBIN "gfx/tilesets/flower/flower1_saturn.2bpp"
-FlowerTile2: INCBIN "gfx/tilesets/flower/flower2_saturn.2bpp"
-FlowerTile3: INCBIN "gfx/tilesets/flower/flower3_saturn.2bpp"
+FlowerTile1: INCBIN "gfx/tilesets/flower_saturn/flower1_saturn.2bpp"
+FlowerTile2: INCBIN "gfx/tilesets/flower_saturn/flower2_saturn.2bpp"
+FlowerTile3: INCBIN "gfx/tilesets/flower_saturn/flower3_saturn.2bpp"
 ENDC
 IF DEF(_MARS)
-FlowerTile1: INCBIN "gfx/tilesets/flower/flower1_mars.2bpp"
-FlowerTile2: INCBIN "gfx/tilesets/flower/flower2_mars.2bpp"
-FlowerTile3: INCBIN "gfx/tilesets/flower/flower3_mars.2bpp"
+FlowerTile1: INCBIN "gfx/tilesets/flower_mars/flower1_mars.2bpp"
+FlowerTile2: INCBIN "gfx/tilesets/flower_mars/flower2_mars.2bpp"
+FlowerTile3: INCBIN "gfx/tilesets/flower_mars/flower3_mars.2bpp"
 ENDC
