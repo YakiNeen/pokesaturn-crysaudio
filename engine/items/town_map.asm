@@ -71,8 +71,6 @@ DisplayTownMap:
 	ld b, a
 	and A_BUTTON | B_BUTTON | D_UP | D_DOWN
 	jr z, .inputLoop
-	ld a, SFX_TINK
-	call PlaySound
 	bit 6, b
 	jr nz, .pressedUp
 	bit 7, b
@@ -177,7 +175,7 @@ LoadTownMap_Fly::
 	ld c, 15
 	call DelayFrames
 	hlcoord 18, 0
-	ld [hl], $24
+	ld [hl], $14
 	hlcoord 19, 0
 	ld [hl], "▼"
 	pop hl
@@ -192,16 +190,12 @@ LoadTownMap_Fly::
 	jr z, .inputLoop
 	bit 0, b
 	jr nz, .pressedA
-	ld a, SFX_TINK
-	call PlaySound
 	bit 6, b
 	jr nz, .pressedUp
 	bit 7, b
 	jr nz, .pressedDown
 	jr .pressedB
 .pressedA
-	ld a, SFX_HEAL_AILMENT
-	call PlaySound
 	ld a, [hl]
 	ld [wDestinationMap], a
 	ld hl, wd732
@@ -242,7 +236,7 @@ LoadTownMap_Fly::
 	jr .pressedDown
 
 SetaText:
-	db $7f,$1c,"@"
+	db $7f,$0c,"@"
 
 BuildFlyLocationsList:
 	ld hl, wFlyAnimUsingCoordList
@@ -278,7 +272,7 @@ LoadTownMap:
 	call TextBoxBorder
 	call DisableLCD
 	ld hl, WorldMapTileGraphics
-	ld de, vTileset tile $10
+	ld de, vTileset
 	ld bc, WorldMapTileGraphicsEnd - WorldMapTileGraphics
 	ld a, BANK(WorldMapTileGraphics)
 	call FarCopyData2
