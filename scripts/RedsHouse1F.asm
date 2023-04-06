@@ -53,20 +53,5 @@ MomHealText2:
 	text_end
 
 RedsHouse1FTVText:
-	text_asm
-	ld a, [wSpritePlayerStateData1FacingDirection]
-	cp SPRITE_FACING_UP
-	ld hl, TVWrongSideText
-	jr nz, .got_text
-	ld hl, StandByMeText
-.got_text
-	call PrintText
-	jp TextScriptEnd
-
-StandByMeText:
 	text_far _StandByMeText
-	text_end
-
-TVWrongSideText:
-	text_far _TVWrongSideText
 	text_end

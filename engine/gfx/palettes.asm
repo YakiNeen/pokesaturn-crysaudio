@@ -159,10 +159,12 @@ SetPal_Overworld:
 	ld bc, $10
 	call CopyData
 	ld a, [wCurMapTileset]
-	cp CEMETERY
-	jr z, .PokemonTowerOrAgatha
 	cp CAVERN
 	jr z, .caveOrBruno
+	cp POKECENTER
+	jr z, .pokecenter
+	cp POKEMART
+	jr z, .pokemart
 	ld a, [wCurMap]
 	cp FIRST_INDOOR_MAP
 	jr c, .townOrRoute
@@ -188,11 +190,14 @@ SetPal_Overworld:
 	ld a, SET_PAL_OVERWORLD
 	ld [wDefaultPaletteCommand], a
 	ret
-.PokemonTowerOrAgatha
-	ld a, PAL_GREYMON - 1
-	jr .town
 .caveOrBruno
 	ld a, PAL_CAVE - 1
+	jr .town
+.pokecenter
+	ld a, PAL_REDMON - 1
+	jr .town
+.pokemart
+	ld a, PAL_BLUEMON - 1
 	jr .town
 .Lorelei
 	xor a

@@ -78,7 +78,7 @@ IsCutTile:
 	ld a, [wCurMapTileset]
 	and a ; OVERWORLD
 	jr z, .overworld
-	cp GYM
+	cp HOUSE1
 	jr nz, .no
 	ld a, [wTileInFrontOfPlayer]
 	cp $50 ; gym cut tree

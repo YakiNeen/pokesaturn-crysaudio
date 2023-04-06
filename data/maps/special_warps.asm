@@ -45,15 +45,15 @@ MACRO special_warp_spec
 ENDM
 
 FirstMapSpec:
-	special_warp_spec REDS_HOUSE_2F, 3, 6, REDS_HOUSE_2
+	special_warp_spec REDS_HOUSE_2F, 3, 6, HOUSE1
 TradeCenterSpec1:
-	special_warp_spec TRADE_CENTER,  3, 4, CLUB
+	special_warp_spec TRADE_CENTER,  3, 4, HOUSE1
 TradeCenterSpec2:
-	special_warp_spec TRADE_CENTER,  6, 4, CLUB
+	special_warp_spec TRADE_CENTER,  6, 4, HOUSE1
 ColosseumSpec1:
-	special_warp_spec COLOSSEUM,     3, 4, CLUB
+	special_warp_spec COLOSSEUM,     3, 4, HOUSE1
 ColosseumSpec2:
-	special_warp_spec COLOSSEUM,     6, 4, CLUB
+	special_warp_spec COLOSSEUM,     6, 4, HOUSE1
 
 
 MACRO fly_warp_spec

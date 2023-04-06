@@ -898,14 +898,14 @@ CableClub_Run:
 	jp Init
 .doBattleOrTrade
 	call CableClub_DoBattleOrTrade
-	ld hl, Club_GFX
+	ld hl, House2_GFX
 	ld a, h
 	ld [wTilesetGfxPtr + 1], a
 	ld a, l
 	ld [wTilesetGfxPtr], a
-	ld a, BANK(Club_GFX)
+	ld a, BANK(House2_GFX)
 	ld [wTilesetBank], a
-	ld hl, Club_Coll
+	ld hl, House2_Coll
 	ld a, h
 	ld [wTilesetCollisionPtr + 1], a
 	ld a, l

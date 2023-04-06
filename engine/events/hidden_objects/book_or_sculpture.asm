@@ -2,7 +2,7 @@ BookOrSculptureText::
 	text_asm
 	ld hl, PokemonBooksText
 	ld a, [wCurMapTileset]
-	cp MANSION ; Celadon Mansion tileset
+	cp HOUSE2 ; Celadon Mansion tileset
 	jr nz, .ok
 	lda_coord 8, 6
 	cp $38

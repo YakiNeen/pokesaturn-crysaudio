@@ -1,2 +1,2 @@
-	map_header CeruleanGym, CERULEAN_GYM, GYM, 0
+	map_header CeruleanGym, CERULEAN_GYM, HOUSE1, 0
 	end_map_header

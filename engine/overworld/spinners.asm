@@ -9,7 +9,7 @@ LoadSpinnerArrowTiles::
 	ld a, [hl]
 	ld [wSpritePlayerStateData1ImageIndex], a
 	ld a, [wCurMapTileset]
-	cp FACILITY
+	cp HOUSE1
 	ld hl, FacilitySpinnerArrows
 	jr z, .gotSpinnerArrows
 	ld hl, GymSpinnerArrows

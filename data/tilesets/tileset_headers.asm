@@ -6,31 +6,16 @@ MACRO tileset
 	db \6         ; animations (TILEANIM_* value)
 ENDM
 
+; counter tiles são aqueles tiles que permitem que você interaja com SPRITES como em um balcão 
+
 Tilesets:
 	table_width 12, Tilesets
 	; name, 3 counter tiles, grass tile, animations
-	tileset Overworld,    -1, -1, -1, $52, TILEANIM_WATER_FLOWER
-	tileset RedsHouse1,   -1, -1, -1,  -1, TILEANIM_NONE
-	tileset Mart,        $18,$19,$1E,  -1, TILEANIM_NONE
-	tileset Forest,       -1, -1, -1, $20, TILEANIM_WATER
-	tileset RedsHouse2,   -1, -1, -1,  -1, TILEANIM_NONE
-	tileset Dojo,        $3A, -1, -1,  -1, TILEANIM_WATER_FLOWER
-	tileset Pokecenter,  $18,$19,$1E,  -1, TILEANIM_NONE
-	tileset Gym,         $3A, -1, -1,  -1, TILEANIM_WATER_FLOWER
-	tileset House,        -1, -1, -1,  -1, TILEANIM_NONE
-	tileset ForestGate,  $17,$32, -1,  -1, TILEANIM_NONE
-	tileset Museum,      $17,$32, -1,  -1, TILEANIM_NONE
-	tileset Underground,  -1, -1, -1,  -1, TILEANIM_NONE
-	tileset Gate,        $17,$32, -1,  -1, TILEANIM_NONE
-	tileset Ship,         -1, -1, -1,  -1, TILEANIM_WATER
-	tileset ShipPort,     -1, -1, -1,  -1, TILEANIM_WATER
-	tileset Cemetery,    $12, -1, -1,  -1, TILEANIM_NONE
-	tileset Interior,     -1, -1, -1,  -1, TILEANIM_NONE
-	tileset Cavern,       -1, -1, -1,  -1, TILEANIM_WATER
-	tileset Lobby,       $15,$36, -1,  -1, TILEANIM_NONE
-	tileset Mansion,      -1, -1, -1,  -1, TILEANIM_NONE
-	tileset Lab,          -1, -1, -1,  -1, TILEANIM_NONE
-	tileset Club,        $07,$17, -1,  -1, TILEANIM_NONE
-	tileset Facility,    $12, -1, -1,  -1, TILEANIM_WATER
-	tileset Plateau,      -1, -1, -1, $45, TILEANIM_WATER
+	tileset Overworld,    -1, -1, -1, $0C, TILEANIM_WATER_FLOWER
+	tileset House1,       -1, -1, -1,  -1, TILEANIM_WATER_FLOWER
+	tileset House2,       -1, -1, -1,  -1, TILEANIM_WATER_FLOWER
+	tileset Cavern,       -1, -1, -1,  -1, TILEANIM_WATER_FLOWER
+	tileset Forest,       -1, -1, -1, $0C, TILEANIM_WATER_FLOWER
+	tileset PokeCenter,  $2E,$3F, -1,  -1, TILEANIM_WATER_FLOWER
+	tileset PokeMart,    $1A,$1E, -1,  -1, TILEANIM_WATER_FLOWER
 	assert_table_length NUM_TILESETS

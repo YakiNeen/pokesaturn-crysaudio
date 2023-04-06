@@ -736,8 +736,6 @@ CheckIfInOutsideMap::
 ; If the player is in an outside map (a town or route), set the z flag
 	ld a, [wCurMapTileset]
 	and a ; most towns/routes have tileset 0 (OVERWORLD)
-	ret z
-	cp PLATEAU ; Route 23 / Indigo Plateau
 	ret
 
 ; this function is an extra check that sometimes has to pass in order to warp, beyond just standing on a warp
@@ -760,12 +758,6 @@ ExtraWarpCheck::
 	jr z, .useFunction2
 	ld a, [wCurMapTileset]
 	and a ; outside tileset (OVERWORLD)
-	jr z, .useFunction2
-	cp SHIP ; S.S. Anne tileset
-	jr z, .useFunction2
-	cp SHIP_PORT ; Vermilion Port tileset
-	jr z, .useFunction2
-	cp PLATEAU ; Indigo Plateau tileset
 	jr z, .useFunction2
 .useFunction1
 	ld hl, IsPlayerFacingEdgeOfMap
@@ -1975,11 +1967,9 @@ CollisionCheckOnWater::
 	jr c, .collision
 	predef GetTileAndCoordsInFrontOfPlayer ; get tile in front of player (puts it in c and [wTileInFrontOfPlayer])
 	ld a, [wTileInFrontOfPlayer] ; tile in front of player
-	cp $14 ; water tile
+	cp $04 ; water tile
 	jr z, .noCollision ; keep surfing if it's a water tile
-	cp $32 ; either the left tile of the S.S. Anne boarding platform or the tile on eastern coastlines (depending on the current tileset)
-	jr z, .checkIfVermilionDockTileset
-	cp $48 ; tile on right on coast lines in Safari Zone
+	cp $32 ; tile on right on coast lines
 	jr z, .noCollision ; keep surfing
 ; check if the [land] tile in front of the player is passable
 .checkIfNextTileIsPassable
@@ -2020,9 +2010,6 @@ CollisionCheckOnWater::
 	call LoadPlayerSpriteGraphics
 	call PlayDefaultMusic
 	jr .noCollision
-.checkIfVermilionDockTileset
-	ld a, [wCurMapTileset] ; tileset
-	cp SHIP_PORT ; Vermilion Dock tileset
 	jr nz, .noCollision ; keep surfing if it's not the boarding platform tile
 	jr .stopSurfing ; if it is the boarding platform tile, stop surfing
 

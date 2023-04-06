@@ -4,7 +4,7 @@ UsedCut:
 	ld a, [wCurMapTileset]
 	and a ; OVERWORLD
 	jr z, .overworld
-	cp GYM
+	cp HOUSE2
 	jr nz, .nothingToCut
 	ld a, [wTileInFrontOfPlayer]
 	cp $50 ; gym cut tree

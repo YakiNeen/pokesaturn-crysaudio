@@ -31,7 +31,3 @@ _StandByMeText::
 
 	para "I better go too."
 	done
-
-_TVWrongSideText::
-	text "Oops, wrong side."
-	done
