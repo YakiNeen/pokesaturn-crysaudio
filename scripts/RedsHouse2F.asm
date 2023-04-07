@@ -21,5 +21,8 @@ RedsHouse2FScript1:
 	ret
 
 RedsHouse2F_TextPointers:
+	dw BedroomVideoGameText
 
-	text_end ; unused
+BedroomVideoGameText:
+	text_far _BedroomVideoGameText
+	text_end

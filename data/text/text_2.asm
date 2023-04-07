@@ -155,32 +155,9 @@ _GymStatueText2::
 	cont "<PLAYER>"
 	done
 
-_BookcaseText::
-	text "Crammed full of"
-	line "#MON books!"
-	done
-
 _NewBicycleText::
 	text "A shiny new"
 	line "BICYCLE!"
-	done
-
-_PushStartText::
-	text "Push START to"
-	line "open the MENU!"
-	done
-
-_SaveOptionText::
-	text "The SAVE option is"
-	line "on the MENU"
-	cont "screen."
-	done
-
-_StrengthsAndWeaknessesText::
-	text "All #MON types"
-	line "have strong and"
-	cont "weak points"
-	cont "against others."
 	done
 
 _TimesUpText::
@@ -289,33 +266,6 @@ _BillsHousePokemonListText2::
 	line "you want to see?"
 	done
 
-_OakLabEmailText::
-	text "There's an e-mail"
-	line "message here!"
-
-	para "..."
-
-	para "Calling all"
-	line "#MON trainers!"
-
-	para "The elite trainers"
-	line "of #MON LEAGUE"
-	cont "are ready to take"
-	cont "on all comers!"
-
-	para "Bring your best"
-	line "#MON and see"
-	cont "how you rate as a"
-	cont "trainer!"
-
-	para "#MON LEAGUE HQ"
-	line "INDIGO PLATEAU"
-
-	para "PS: PROF.OAK,"
-	line "please visit us!"
-	cont "..."
-	done
-
 _GameCornerCoinCaseText::
 	text "A COIN CASE is"
 	line "required!"
@@ -416,16 +366,6 @@ _ViridianSchoolNotebookText4::
 	line "#MON LEAGUE!"
 	prompt
 
-_EnemiesOnEverySideText::
-	text "Enemies on every"
-	line "side!"
-	done
-
-_WhatGoesAroundComesAroundText::
-	text "What goes around"
-	line "comes around!"
-	done
-
 _FightingDojoText::
 	text "FIGHTING DOJO"
 	done
@@ -433,13 +373,6 @@ _FightingDojoText::
 _IndigoPlateauHQText::
 	text "INDIGO PLATEAU"
 	line "#MON LEAGUE HQ"
-	done
-
-_RedBedroomSNESText::
-	text "<PLAYER> is"
-	line "playing the SNES!"
-	cont "...Okay!"
-	cont "It's time to go!"
 	done
 
 _Route15UpstairsBinocularsText::
@@ -592,13 +525,6 @@ _VermilionGymTrashSuccessText1::
 	text_end
 
 _VermilionGymTrashSuccessText2::
-	text "Hey! There's"
-	line "another switch"
-	cont "under the trash!"
-	cont "Turn it on!"
-	prompt
-
-_VermilionGymTrashSuccessText3::
 	text "The 2nd electric"
 	line "lock opened!"
 

@@ -92,7 +92,7 @@ GymTrashScript:
 	ld hl, wCurrentMapScriptFlags
 	set 6, [hl]
 
-	tx_pre_id VermilionGymTrashSuccessText3
+	tx_pre_id VermilionGymTrashSuccessText2
 
 .done
 	jp PrintPredefTextID
@@ -129,22 +129,8 @@ VermilionGymTrashSuccessText1::
 	call WaitForSoundToFinish
 	jp TextScriptEnd
 
-; unused
 VermilionGymTrashSuccessText2::
 	text_far _VermilionGymTrashSuccessText2
-	text_end
-
-; unused
-VermilionGymTrashSuccesPlaySfx:
-	text_asm
-	call WaitForSoundToFinish
-	ld a, SFX_SWITCH
-	call PlaySound
-	call WaitForSoundToFinish
-	jp TextScriptEnd
-
-VermilionGymTrashSuccessText3::
-	text_far _VermilionGymTrashSuccessText3
 	text_asm
 	call WaitForSoundToFinish
 	ld a, SFX_GO_INSIDE
