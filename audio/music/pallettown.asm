@@ -82,13 +82,7 @@ Music_RBYPalletTown_Ch2::
 
 Music_RBYPalletTown_Principal::
 	octave 4
-	note_type 12, 8, -7
-	note D#, 12
-	note_type 12, 12, 5
-	note G_, 2
-	note F_, 2
-	note G#, 8
-	note G_, 8
+	sound_call Music_RBYPalletTown_Principal_ppp
 	rest 4
 	octave 5
 	note C_, 4
@@ -100,13 +94,7 @@ Music_RBYPalletTown_Principal::
 	note D_, 4
 	note D#, 2
 	note F_, 2
-	note_type 12, 8, -7
-	note D#, 12
-	note_type 12, 12, 5
-	note G_, 2
-	note F_, 2
-	note G#, 8
-	note G_, 8
+	sound_call Music_RBYPalletTown_Principal_ppp
 	octave 5
 	note C_, 4
 	octave 4
@@ -115,13 +103,7 @@ Music_RBYPalletTown_Principal::
 	note G#, 4
 	note G_, 8
 	note F_, 8
-	note_type 12, 8, -7
-	note D#, 12
-	note_type 12, 12, 5
-	note G_, 2
-	note F_, 2
-	note G#, 8
-	note G_, 8
+	sound_call Music_RBYPalletTown_Principal_ppp
 	rest 4
 	octave 5
 	note C_, 4
@@ -154,33 +136,18 @@ Music_RBYPalletTown_Ch3::
 	note_type 12, 1, 2
 
 Music_RBYPalletTown_Baixo::
-	octave 3
-	note D#, 8
-	octave 2
-	note A#, 8
-	note D#, 8
-	note A#, 8
+	sound_call Music_RBYPalletTown_Baixo_lala
 	note G#, 4
 	rest 16
 	rest 12
-	octave 3
-	note D#, 8
-	octave 2
-	note A#, 8
-	note D#, 8
-	note A#, 8
+	sound_call Music_RBYPalletTown_Baixo_lala
 	note F_, 8
 	note G_, 8
 	octave 3
 	note C_, 8
 	octave 2
 	note A#, 8
-	octave 3
-	note D#, 8
-	octave 2
-	note A#, 8
-	note D#, 8
-	note A#, 8
+	sound_call Music_RBYPalletTown_Baixo_lala
 	note G#, 4
 	octave 3
 	note G#, 12
@@ -208,4 +175,23 @@ Music_RBYPalletTown_Dois_Robert::
 	octave 2
 	note A#, 8
 	note G#, 8
+	sound_ret
+
+Music_RBYPalletTown_Principal_ppp::
+	note_type 12, 8, -7
+	note D#, 12
+	note_type 12, 12, 5
+	note G_, 2
+	note F_, 2
+	note G#, 8
+	note G_, 8
+	sound_ret
+
+Music_RBYPalletTown_Baixo_lala::
+	octave 3
+	note D#, 8
+	octave 2
+	note A#, 8
+	note D#, 8
+	note A#, 8
 	sound_ret
