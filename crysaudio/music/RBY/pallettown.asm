@@ -5,7 +5,7 @@ Music_RBYPalletTown::
 	channel 3, Music_RBYPalletTown_Ch3
 
 Music_RBYPalletTown_Ch1::
-	tempo 130
+	tempo 120
 	volume 7, 7
 	duty_cycle 2
 	note_type 12, 8, 5
