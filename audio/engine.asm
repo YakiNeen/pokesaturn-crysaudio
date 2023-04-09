@@ -3018,11 +3018,11 @@ LoadMusicByte::
 	ld a, [wCurMusicByte]
 	ret
 
-INCLUDE "crysaudio/notes.asm"
+INCLUDE "audio/notes.asm"
 
-INCLUDE "crysaudio/wave_samples.asm"
+INCLUDE "audio/wave_samples.asm"
 
-INCLUDE "crysaudio/drumkits.asm"
+INCLUDE "audio/drumkits.asm"
 
 GetLRTracks:
 ; gets the default sound l/r channels

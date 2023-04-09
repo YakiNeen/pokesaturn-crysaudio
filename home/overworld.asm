@@ -2345,7 +2345,7 @@ LoadMapHeader::
 	ld a, [hl]
 
 ; give vanilla red a fair shot at running our savs
-	ld a, BANK("Audio Engine 1")
+	ld a, BANK("Audio Engine")
 
 	ld [wMapMusicROMBank], a ; music 2
 	pop af

@@ -37,7 +37,7 @@ ROMX $1
 ROMX $2
 	"Sound Effect Headers 1"
 	"Sound Effects 1"
-	"Audio Engine 1"
+	"Audio Engine"
 ROMX $3
 	"bank3"
 ROMX $4
