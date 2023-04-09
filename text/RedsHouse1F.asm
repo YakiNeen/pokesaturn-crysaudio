@@ -24,10 +24,6 @@ _MomHealText2::
 	done
 
 _StandByMeText::
-	text "There's a movie"
-	line "on TV. Four boys"
-	cont "are walking on"
-	cont "railroad tracks."
-
-	para "I better go too."
+	text "<yu1><yu2><yu3><yu4><ha1><ha2><kusho1><kusho2>"
+	line $20,$21,$12,$23,$24,$33,$34,$07
 	done

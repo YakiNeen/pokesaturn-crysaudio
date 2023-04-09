@@ -18,4 +18,5 @@ Tilesets:
 	tileset Forest,       -1, -1, -1, $0C, TILEANIM_WATER_FLOWER
 	tileset PokeCenter,  $2E,$3F, -1,  -1, TILEANIM_WATER_FLOWER
 	tileset PokeMart,    $1A,$1E, -1,  -1, TILEANIM_WATER_FLOWER
+	tileset Player1F,     -1, -1, -1,  -1, TILEANIM_WATER_FLOWER
 	assert_table_length NUM_TILESETS

@@ -6,6 +6,7 @@ DoorTileIDPointers:
 	dbw FOREST,      .DoorTileIDs
 	dbw POKECENTER,  .DoorTileIDs
 	dbw POKEMART,    .DoorTileIDs
+	dbw PLAYER_1F,   .DoorTileIDs
 	db -1 ; end
 
 MACRO door_tiles

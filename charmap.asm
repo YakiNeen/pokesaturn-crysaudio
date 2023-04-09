@@ -221,3 +221,21 @@
 	charmap "7",         $fd
 	charmap "8",         $fe
 	charmap "9",         $ff
+
+	charmap "<yu1>",      $08
+	charmap "<yu2>",      $09
+	charmap "<yu3>",      $44
+	charmap "<yu4>",      $45
+	charmap "<ha1>",      $40
+	charmap "<ha2>",      $3c
+	charmap "<kusho1>",   $2d
+	charmap "<kusho2>",   $01
+
+	charmap "<yu5>",      $0a
+	charmap "<yu6>",      $0d
+	charmap "<yu7>",      $0e
+	charmap "<yu8>",      $41
+	charmap "<ha3>",      $3d
+	charmap "<ha4>",      $0c
+	charmap "<kusho3>",   $02
+	charmap "<kusho4>",   $2c

@@ -29,17 +29,11 @@ MomHealPokemon:
 	call ReloadMapData
 	predef HealParty
 	ld a, MUSIC_PKMN_HEALED
-;	ld [wNewSoundID], a
 	call PlayMusic
 
 	call WaitForSongToFinish
-;.next
-;	ld a, [wChannelSoundIDs]
-;	cp MUSIC_PKMN_HEALED
-;	jr z, .next
 
 	ld a, [wMapMusicSoundID]
-;	ld [wNewSoundID], a
 	call PlayMusic
 	call GBFadeInFromWhite
 	ld hl, MomHealText2
@@ -53,5 +47,13 @@ MomHealText2:
 	text_end
 
 RedsHouse1FTVText:
+	text_asm
+	ld hl, StandByMeText
+	call PrintText
+	ld c, 0 ; BANK(Music_Surfing)
+	ld a, MUSIC_SURFING
+	jp PlayMusic
+
+StandByMeText:
 	text_far _StandByMeText
 	text_end
