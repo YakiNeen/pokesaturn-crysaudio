@@ -48,6 +48,8 @@ MomHealText2:
 
 RedsHouse1FTVText:
 	text_asm
+	ld hl, wd730
+	set 6, [hl]
 	ld hl, StandByMeText
 	call PrintText
 	ld c, 0 ; BANK(Music_Surfing)
