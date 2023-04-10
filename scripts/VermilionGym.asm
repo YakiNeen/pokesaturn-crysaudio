@@ -1,13 +1,8 @@
 VermilionGym_Script:
 	ld hl, wCurrentMapScriptFlags
-	bit 5, [hl]
-	res 5, [hl]
-	push hl
-	call nz, .LoadNames
-	pop hl
 	bit 6, [hl]
 	res 6, [hl]
-	call nz, VermilionGymSetDoorTile
+	call nz, .LoadNames
 	call EnableAutoTextBoxDrawing
 	ld hl, VermilionGymTrainerHeaders
 	ld de, VermilionGym_ScriptPointers
@@ -27,20 +22,6 @@ VermilionGym_Script:
 .LeaderName:
 	db "LT.SURGE@"
 
-VermilionGymSetDoorTile:
-	CheckEvent EVENT_2ND_LOCK_OPENED
-	jr nz, .doorsOpen
-	ld a, $24 ; double door tile ID
-	jr .replaceTile
-.doorsOpen
-	ld a, SFX_GO_INSIDE
-	call PlaySound
-	ld a, $5 ; clear floor tile ID
-.replaceTile
-	ld [wNewTileBlockID], a
-	lb bc, 2, 2
-	predef_jump ReplaceTileBlock
-
 VermilionGymResetScripts:
 	xor a
 	ld [wJoyIgnore], a
@@ -56,9 +37,9 @@ VermilionGym_ScriptPointers:
 
 VermilionGymLTSurgePostBattle:
 	ld a, [wIsInBattle]
-	cp $ff ; did we lose?
+	cp $ff
 	jp z, VermilionGymResetScripts
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, $f0
 	ld [wJoyIgnore], a
 
 VermilionGymReceiveTM24:

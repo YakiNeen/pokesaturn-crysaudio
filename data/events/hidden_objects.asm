@@ -223,23 +223,6 @@ CeruleanGymHiddenObjects:
 VermilionGymHiddenObjects:
 	hidden_object  3, 14, SPRITE_FACING_UP, GymStatues
 	hidden_object  6, 14, SPRITE_FACING_UP, GymStatues
-	hidden_object  6,  1, SPRITE_FACING_DOWN, PrintTrashText
-	; third param: [wGymTrashCanIndex]
-	hidden_object  1,  7,  0, GymTrashScript
-	hidden_object  1,  9,  1, GymTrashScript
-	hidden_object  1, 11,  2, GymTrashScript
-	hidden_object  3,  7,  3, GymTrashScript
-	hidden_object  3,  9,  4, GymTrashScript
-	hidden_object  3, 11,  5, GymTrashScript
-	hidden_object  5,  7,  6, GymTrashScript
-	hidden_object  5,  9,  7, GymTrashScript
-	hidden_object  5, 11,  8, GymTrashScript
-	hidden_object  7,  7,  9, GymTrashScript
-	hidden_object  7,  9, 10, GymTrashScript
-	hidden_object  7, 11, 11, GymTrashScript
-	hidden_object  9,  7, 12, GymTrashScript
-	hidden_object  9,  9, 13, GymTrashScript
-	hidden_object  9, 11, 14, GymTrashScript
 	db -1 ; end
 
 CeladonMansion2HiddenObjects:

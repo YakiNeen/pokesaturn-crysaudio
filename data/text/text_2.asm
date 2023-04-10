@@ -514,31 +514,6 @@ _VermilionGymTrashText::
 	line "only trash here."
 	done
 
-_VermilionGymTrashSuccessText1::
-	text "Hey! There's a"
-	line "switch under the"
-	cont "trash!"
-	cont "Turn it on!"
-
-	para "The 1st electric"
-	line "lock opened!@"
-	text_end
-
-_VermilionGymTrashSuccessText2::
-	text "The 2nd electric"
-	line "lock opened!"
-
-	para "The motorized door"
-	line "opened!@"
-	text_end
-
-_VermilionGymTrashFailText::
-	text "Nope! There's"
-	line "only trash here."
-	cont "Hey! The electric"
-	cont "locks were reset!@"
-	text_end
-
 _FoundHiddenItemText::
 	text "<PLAYER> found"
 	line "@"

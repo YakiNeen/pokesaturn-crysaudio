@@ -33,9 +33,6 @@ TextPredefs::
 	add_tx_pre FightingDojoText                     ; 36
 	add_tx_pre NewBicycleText                       ; 39
 	add_tx_pre IndigoPlateauStatues                 ; 3A
-	add_tx_pre VermilionGymTrashSuccessText1        ; 3B
-	add_tx_pre VermilionGymTrashSuccessText2        ; 3D
-	add_tx_pre VermilionGymTrashFailText            ; 3E
 	add_tx_pre TownMapText                          ; 3F
 	add_tx_pre BookOrSculptureText                  ; 40
 	add_tx_pre ElevatorText                         ; 41
