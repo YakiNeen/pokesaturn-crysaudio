@@ -1,34 +1,8 @@
 VermilionCity_Script:
 	call EnableAutoTextBoxDrawing
-	ld hl, wCurrentMapScriptFlags
-	bit 6, [hl]
-	res 6, [hl]
-	push hl
-	call nz, .initCityScript
-	pop hl
-	bit 5, [hl]
-	res 5, [hl]
-	call nz, .setFirstLockTrashCanIndex
 	ld hl, VermilionCity_ScriptPointers
 	ld a, [wVermilionCityCurScript]
 	jp CallFunctionInTable
-
-.setFirstLockTrashCanIndex
-	call Random
-	ldh a, [hRandomSub]
-	and $e
-	ld [wFirstLockTrashCanIndex], a
-	ret
-
-.initCityScript
-	CheckEventHL EVENT_SS_ANNE_LEFT
-	ret z
-	CheckEventReuseHL EVENT_WALKED_PAST_GUARD_AFTER_SS_ANNE_LEFT
-	SetEventReuseHL EVENT_WALKED_PAST_GUARD_AFTER_SS_ANNE_LEFT
-	ret nz
-	ld a, $2
-	ld [wVermilionCityCurScript], a
-	ret
 
 VermilionCity_ScriptPointers:
 	dw VermilionCityScript0

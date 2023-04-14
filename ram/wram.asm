@@ -875,8 +875,7 @@ ENDU
 ; 1 = warp pad
 ; 2 = hole
 wStandingOnWarpPadOrHole::
-wOAMBaseTile::
-wGymTrashCanIndex:: db
+wOAMBaseTile:: db
 
 wSymmetricSpriteOAMAttributes:: db
 
@@ -2278,12 +2277,7 @@ wWarpedFromWhichMap:: db
 wCardKeyDoorY:: db
 wCardKeyDoorX:: db
 
-	ds 2
-
-wFirstLockTrashCanIndex:: db
-wSecondLockTrashCanIndex:: db
-
-	ds 2
+	ds 6
 
 wEventFlags:: flag_array NUM_EVENTS
 

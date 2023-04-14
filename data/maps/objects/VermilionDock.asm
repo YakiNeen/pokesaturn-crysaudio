@@ -3,7 +3,7 @@ VermilionDock_Object:
 
 	def_warp_events
 	warp_event 14,  0, LAST_MAP, 6
-	warp_event 14,  2, SS_ANNE_1F, 2
+	warp_event 14,  2, SS_ANNE_CAPTAINS_ROOM, 1
 
 	def_bg_events
 

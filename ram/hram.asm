@@ -326,7 +326,6 @@ NEXTU
 hItemCounter::
 hSavedCoordIndex::
 hMissableObjectIndex::
-hGymTrashCanRandNumMask::
 	db
 
 NEXTU

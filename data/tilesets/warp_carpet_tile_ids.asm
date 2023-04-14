@@ -12,7 +12,7 @@ MACRO warp_carpet_tiles
 ENDM
 
 .FacingDownWarpTiles:
-	warp_carpet_tiles 
+	warp_carpet_tiles $0B
 
 .FacingUpWarpTiles:
 	warp_carpet_tiles
