@@ -3899,25 +3899,13 @@ PrintMoveName:
 _PrintMoveName:
 	text_far _MoveNameText
 	text_asm
-	ld hl, ExclamationPointPointerTable
-	xor a
-	add a
-	push bc
-	ld b, $0
-	ld c, a
-	add hl, bc
-	pop bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
+	ld hl, ExclamationPointText
 	ret
-
-ExclamationPointPointerTable:
-	dw ExclamationPointText
 
 ExclamationPointText:
 	text_far _ExclamationPointText
 	text_end
+	ret
 
 PrintMoveFailureText:
 	ld de, wPlayerMoveEffect
