@@ -22,16 +22,3 @@ _MomHealText2::
 	cont "looking great!"
 	cont "Take care now!"
 	done
-
-_WantToListenText::
-	text "Want to watch TV?"
-	done
-
-_NoWantListenText::
-	text "..."
-	done
-
-_YuYuHakushoText::
-	text "<yu1><yu2><yu3><yu4><ha1><ha2><kusho1><kusho2>"
-	line $20,$21,$12,$23,$24,$33,$34,$07
-	done

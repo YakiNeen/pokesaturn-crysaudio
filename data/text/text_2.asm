@@ -1563,3 +1563,33 @@ _OakSpeechText6::
 	cont "about that"
 	cont "creatures!"
 	prompt
+
+_SinkText::
+	text "The sink is spot-"
+	line "less."
+	done
+
+_FridgeText::
+	text "Let's see what's"
+	line "in the fridge..."
+
+	para "FRESH WATER and"
+	line "tasty LEMONADE!"
+	done
+
+_StoveText::
+	text "It's a stove."
+	done
+
+_WantToListenText::
+	text "Want to watch TV?"
+	done
+
+_NoWantListenText::
+	text "..."
+	done
+
+_YuYuHakushoText::
+	text "<yu1><yu2><yu3><yu4><ha1><ha2><kusho1><kusho2>"
+	line $20,$21,$12,$23,$24,$33,$34,$07
+	done
