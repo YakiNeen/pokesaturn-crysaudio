@@ -197,6 +197,7 @@ INCLUDE "audio/music/surfing.asm"
 INCLUDE "audio/music/jigglypuffsong.asm"
 INCLUDE "audio/music/halloffame.asm"
 INCLUDE "audio/music/credits.asm"
+INCLUDE "audio/music/digda01.asm"
 
 
 SECTION "Cries", ROMX
