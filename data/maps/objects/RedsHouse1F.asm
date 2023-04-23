@@ -7,7 +7,7 @@ RedsHouse1F_Object:
 	warp_event  9,  1, REDS_HOUSE_2F, 1
 
 	def_bg_events
-	bg_event  4,  1, 2 ; RedsHouse1FTVText
+	bg_event  4,  1, 2 ; YuYuHakushoTVText
 
 	def_object_events
 	object_event  7,  3, SPRITE_POKEMANIAC_F, STAY, LEFT, 1

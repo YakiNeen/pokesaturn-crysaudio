@@ -3,7 +3,7 @@ RedsHouse1F_Script:
 
 RedsHouse1F_TextPointers:
 	dw RedsHouse1FMomText
-	dw RedsHouse1FTVText
+	dw YuYuHakushoTVText
 
 RedsHouse1FMomText:
 	text_asm
@@ -46,16 +46,38 @@ MomHealText2:
 	text_far _MomHealText2
 	text_end
 
-RedsHouse1FTVText:
+YuYuHakushoTVText:
 	text_asm
+	ld hl, WantToListenText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .no
 	ld hl, wd730
 	set 6, [hl]
-	ld hl, StandByMeText
+	ld hl, YuYuHakushoText
 	call PrintText
 	ld c, 0 ; BANK(Music_Surfing)
 	ld a, MUSIC_SURFING
-	jp PlayMusic
+	call PlayMusic
+	ld hl, wd730
+	res 6, [hl]
+	jr .done
+.no
+	ld hl, NoWantListenText
+	call PrintText
+.done
+	jp TextScriptEnd
 
-StandByMeText:
-	text_far _StandByMeText
+WantToListenText:
+	text_far _WantToListenText
+	text_end
+
+NoWantListenText:
+	text_far _NoWantListenText
+	text_end
+
+YuYuHakushoText:
+	text_far _YuYuHakushoText
 	text_end

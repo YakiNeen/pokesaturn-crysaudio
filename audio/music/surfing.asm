@@ -10,19 +10,7 @@ Music_Surfing_Ch1::
 	volume 7, 7
 	duty_cycle 3
 	vibrato 12, 3, 4
-	toggle_perfect_pitch
-	note_type 12, 11, 5
-
-
-Music_Surfing_branch_7fa30::
-	note_type 12, 11, 2
-	rest 16
-	sound_loop 0, Music_Surfing_branch_7fa30
-
-
-Music_Surfing_Ch2::
-	duty_cycle 3
-	vibrato 16, 2, 5
+	; toggle_perfect_pitch
 	note_type 12, 12, 6
 	;
 	rest 4
@@ -43,7 +31,204 @@ Music_Surfing_Ch2::
 	;
 	rest 16
 
-Music_Surfing_branch_7faae::
+Music_Surfing_Dois::
+	note_type 12, 10, 6
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	octave 3
+	note D#, 2
+	rest 1
+	note G#, 2
+	rest 1
+	note_type 12, 9, 5
+	note A#, 10
+	note_type 12, 10, 6
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	note D#, 2
+	rest 1
+	note G#, 2
+	rest 1
+	note_type 12, 9, 5
+	note A#, 10
+	note_type 12, 10, 6
+	;
+	octave 4
+	duty_cycle 2
+	rest 7
+	note F_, 1
+	note G_, 1
+	note F_, 1
+	note D#, 1
+	rest 5
+	;
+	rest 2
+	note F_, 1
+	rest 1
+	note F_, 1
+	note F_, 1
+	note G_, 4
+	note F_, 2
+	rest 4
+	;
+	rest 2
+	note D_, 1
+	rest 1
+	note D_, 1
+	rest 1
+	note D_, 1
+	note D#, 1
+	note D_, 1
+	note D#, 1
+	note D_, 1
+	rest 4
+	note D#, 1
+	;
+	rest 2
+	note D#, 1
+	rest 1
+	note D#, 1
+	rest 1
+	note D#, 1
+	note F_, 1
+	note G_, 1
+	note F_, 1
+	note D#, 1
+	rest 5
+	;
+	duty_cycle 3
+	octave 3
+	note C_, 3
+	note D_, 3
+	note D#, 8
+	rest 2
+	;
+	note D#, 3
+	note F_, 3
+	note G_, 8
+	rest 2
+	;
+	octave 3
+	pitch_slide 1, 3, D#
+	note G_, 4
+	octave 3
+	rest 4
+	note D#, 1
+	rest 1
+	note D#, 1
+	rest 1
+	note D#, 1
+	rest 1
+	pitch_slide 1, 5, F_
+	note F_, 2
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;
+	rest 16
+	;	
+	rest 16
+	sound_loop 0, Music_Surfing_Dois
+
+
+Music_Surfing_Ch2::
+	duty_cycle 2
+	vibrato 16, 2, 5
+	note_type 12, 12, 6
+	;
+	rest 4
+	;
+	rest 12
+	octave 3
+	note A_, 2
+	octave 4
+	note C#, 2
+	;
+	note D#, 6
+	note D#, 6
+	note D#, 1
+	note F_, 3
+	;
+	rest 12
+	octave 3
+	note A_, 2
+	octave 4
+	note C#, 2
+	;
+	note D#, 3
+	note D#, 1
+	note D#, 2
+	note F_, 4
+	rest 6
+	;
+	note A#, 3
+	note A#, 3
+	octave 5
+	note C#, 16
+	;
+	rest 6
+	octave 4
+	note F#, 2
+	note G#, 2
+	note A#, 14
+	;
+	note C_, 1
+	note D#, 1
+	note F_, 1
+	note G_, 2
+	note A#, 2
+	octave 5
+	note C_, 1
+	octave 4
+	note A#, 1
+	octave 5
+	note C_, 1
+	note D#, 4
+	note D#, 4
+
+Music_Surfing_Principal::
+	duty_cycle 3
 	note_type 12, 12, 6
 	;
 	octave 4
@@ -141,7 +326,6 @@ Music_Surfing_branch_7faae::
 	note G_, 2
 	note G_, 2
 	note F#, 2
-	pitch_slide 1, 3, F_
 	note F_, 2
 	;
 	rest 16
@@ -236,7 +420,6 @@ Music_Surfing_branch_7faae::
 	note F_, 2
 	note D#, 2
 	;
-	pitch_slide 8, 5, A#
 	note A#, 16
 	;
 	note C_, 3
@@ -249,7 +432,7 @@ Music_Surfing_branch_7faae::
 	note G#, 11
 	note G_, 4
 	rest 1
-	sound_loop 0, Music_Surfing_branch_7faae
+	sound_loop 0, Music_Surfing_Principal
 
 
 Music_Surfing_Ch3::
@@ -322,7 +505,7 @@ Music_Surfing_Ch3::
 	octave 4
 	note C#, 4
 
-Music_Surfing_branch_7fb03::
+Music_Surfing_Baixo::
 	;
 	octave 3
 	note F#, 2
@@ -436,7 +619,7 @@ Music_Surfing_branch_7fb03::
 	note B_, 3
 	note A#, 10
 	;
-	note F#, 2
+	note G_, 2
 	rest 10
 	pitch_slide 1, 2, F_
 	note F#, 4
@@ -478,7 +661,7 @@ Music_Surfing_branch_7fb03::
 	rest 16
 	;
 	rest 16
-	sound_loop 0, Music_Surfing_branch_7fb03
+	sound_loop 0, Music_Surfing_Baixo
 
 Music_Surfing_Ch4::
 	toggle_noise 0
@@ -487,7 +670,7 @@ Music_Surfing_Ch4::
 	drum_note 2, 1
 	drum_note 2, 1
 
-Music_Surfing__branch_bubu::
+Music_Surfing_branch_bubu::
 	;
 	drum_note 2, 2
 	rest 2
@@ -512,7 +695,7 @@ Music_Surfing__branch_bubu::
 	;
 	sound_call Music_Surfing_ll
 	;
-	sound_loop 0, Music_Surfing__branch_bubu
+	sound_loop 0, Music_Surfing_branch_bubu
 
 Music_Surfing_ll::
 	drum_note 6, 2
