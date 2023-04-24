@@ -33,6 +33,7 @@ DayCareMText1:
 	call RestoreScreenTilesAndReloadTilePatterns
 	call LoadGBPal
 	pop af
+	call ReloadTilesetTilePatterns
 	ld hl, DayCareAllRightThenText
 	jp c, .done
 	callfar KnowsHMMove
