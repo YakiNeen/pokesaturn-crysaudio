@@ -1538,6 +1538,14 @@ ItemUseEscapeRope:
 	jr z, .notUsable
 	cp POKEMON_FAN_CLUB
 	jr z, .notUsable
+	cp SAFARI_ZONE_EAST
+	jr z, .notUsable
+	cp SAFARI_ZONE_NORTH
+	jr z, .notUsable
+	cp SAFARI_ZONE_WEST
+	jr z, .notUsable
+	cp SAFARI_ZONE_CENTER
+	jr z, .notUsable
 	ld a, [wCurMapTileset]
 	ld b, a
 	ld hl, EscapeRopeTilesets
