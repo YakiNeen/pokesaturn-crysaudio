@@ -47,8 +47,6 @@ HandleMenuInput_::
 	ld [wMenuWrappingEnabled], a ; disable menu wrapping
 	ret
 .keyPressed
-	xor a
-	ld [wCheckFor180DegreeTurn], a
 	ldh a, [hJoy5]
 	ld b, a
 	bit BIT_A_BUTTON, a
