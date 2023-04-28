@@ -4261,6 +4261,7 @@ GetDamageVarsForPlayerAttack:
 ; if the enemy has used Reflect, double the enemy's defense
 	sla c
 	rl b
+	call do999StatCap
 .physicalAttackCritCheck
 	ld hl, wBattleMonAttack
 	ld a, [wCriticalHitOrOHKO]
@@ -4293,6 +4294,7 @@ GetDamageVarsForPlayerAttack:
 	rl b
 ; reflect and light screen boosts do not cap the stat at MAX_STAT_VALUE, so weird things will happen during stats scaling
 ; if a Pokemon with 512 or more Defense has used Reflect, or if a Pokemon with 512 or more Special has used Light Screen
+	call do999StatCap
 .specialAttackCritCheck
 	ld hl, wBattleMonSpecial
 	ld a, [wCriticalHitOrOHKO]
@@ -4379,6 +4381,7 @@ GetDamageVarsForEnemyAttack:
 ; if the player has used Reflect, double the player's defense
 	sla c
 	rl b
+	call do999StatCap
 .physicalAttackCritCheck
 	ld hl, wEnemyMonAttack
 	ld a, [wCriticalHitOrOHKO]
@@ -4411,6 +4414,7 @@ GetDamageVarsForEnemyAttack:
 	rl b
 ; reflect and light screen boosts do not cap the stat at MAX_STAT_VALUE, so weird things will happen during stats scaling
 ; if a Pokemon with 512 or more Defense has used Reflect, or if a Pokemon with 512 or more Special has used Light Screen
+	call do999StatCap
 .specialAttackCritCheck
 	ld hl, wEnemyMonSpecial
 	ld a, [wCriticalHitOrOHKO]
@@ -7347,4 +7351,23 @@ PhysicalSpecialSplit:
 	ld [wTempMoveID], a
 	farcall _PhysicalSpecialSplit
 	ld a, [wTempMoveID]
+	ret
+
+do999StatCap:
+	;b register contains high byte & c register contains low byte
+	ld a, c ;let's work on low byte first. Note that decimal 999 is $03E7 in hex.
+	sub MAX_STAT_VALUE % $100 ;a = a - ($03E7 % $100). Gives a = a - $E7. A byte % $100 always gives the lesser nibble.
+	;Note that if a < $E7 then the carry bit 'c' in the flag register gets set due to overflowing with a negative result.
+	ld a, b ;now let's work on the high byte
+	sbc MAX_STAT_VALUE / $100 ;a = a - ($03E7 / $100 + c_flag). Gives a = a - ($03 + c_flag). A byte / $100 always gives the greater nibble.
+	;Note again that if a < $03 then the carry bit remains set. 
+	;If the bit is already set from the lesser nibble, then its addition here can still make it remain set if a is low enough.
+	jr c, .donecapping ;jump to next marker if the c_flag is set. This only remains set if BC <  the cap of $03E7.
+	;else let's continue and set the 999 cap
+	ld a, MAX_STAT_VALUE / $100 ; else load $03 into a
+	ld b, a ;and store it as the high byte
+	ld a, MAX_STAT_VALUE % $100 ; else load $E7 into a
+	ld c, a ;and store it as the low byte
+	;now registers b & c together contain $03E7 for a capped stat value of 999
+.donecapping
 	ret
