@@ -204,15 +204,6 @@ StartMenu_Pokemon::
 	call GBPalWhiteOutWithDelay3
 	jp .goBackToMap
 .teleport
-	call CheckIfInOutsideMap
-	jr z, .canTeleport
-	ld a, [wWhichPokemon]
-	ld hl, wPartyMonNicks
-	call GetPartyMonName
-	ld hl, .cannotUseTeleportNowText
-	call PrintText
-	jp .loop
-.canTeleport
 	ld hl, .warpToLastPokemonCenterText
 	call PrintText
 	ld hl, wd732
@@ -227,9 +218,6 @@ StartMenu_Pokemon::
 	jp .goBackToMap
 .warpToLastPokemonCenterText
 	text_far _WarpToLastPokemonCenterText
-	text_end
-.cannotUseTeleportNowText
-	text_far _CannotUseTeleportNowText
 	text_end
 .cannotFlyHereText
 	text_far _CannotFlyHereText
