@@ -704,6 +704,17 @@ PlayMapChangeSound::
 	ret nz
 	jp GBFadeOutToBlack
 
+CheckIfInFlyMap::
+	call CheckIfInOutsideMap
+	ret z
+	ld a, [wCurMap]
+	cp CELADON_MART_ROOF
+	ret z
+	cp CELADON_MANSION_ROOF
+	ret z
+	cp VIRIDIAN_FOREST
+	ret
+
 CheckIfInOutsideMap::
 ; If the player is in an outside map (a town or route), set the z flag
 	ld a, [wCurMapTileset]
