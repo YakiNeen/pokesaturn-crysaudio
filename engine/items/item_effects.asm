@@ -865,7 +865,7 @@ ItemUseMedicine:
 .checkItemType
 	ld a, [wcf91]
 	cp REVIVE
-	jr nc, .healHP ; if it's a Revive or Max Revive
+	jp nc, .healHP ; if it's a Revive or Max Revive
 	cp FULL_HEAL
 	jr z, .cureStatusAilment ; if it's a Full Heal
 	cp HP_UP
@@ -906,12 +906,20 @@ ItemUseMedicine:
 	cp d ; is pokemon the item was used on active in battle?
 	jp nz, .doneHealing
 ; if it is active in battle
-	xor a
-	ld [wBattleMonStatus], a ; remove the status ailment in the in-battle pokemon data
 	push hl
 	ld hl, wPlayerBattleStatus3
 	res BADLY_POISONED, [hl] ; heal Toxic status
+	ld a, [hWhoseTurn]
+	push af
+	xor a	;forcibly set it to the player's turn
+	ld [hWhoseTurn], a
+	callfar UndoBurnParStats	;undo brn/par stat changes
+	pop af
+	ld [hWhoseTurn], a
 	pop hl
+	xor a
+	ld [wBattleMonStatus], a ; remove the status ailment in the in-battle pokemon data
+	ld [wPlayerToxicCounter], a	;clear toxic counter
 	ld bc, wPartyMon1Stats - wPartyMon1Status
 	add hl, bc ; hl now points to party stats
 	ld de, wBattleMonStats
@@ -1166,8 +1174,24 @@ ItemUseMedicine:
 	jr nz, .updateInBattleData
 	ld bc, wPartyMon1Status - (wPartyMon1MaxHP + 1)
 	add hl, bc
+	ld a, [wIsInBattle]
+	and a
+	jr z, .clearParBrn	;do not adjust the stats if not currently in battle
+	push hl
+	push de
+	ld a, [hWhoseTurn]
+	push af
+	xor a	;forcibly set it to the player's turn
+	ld [hWhoseTurn], a
+	callfar UndoBurnParStats	;undo brn/par stat changes
+	pop af
+	ld [hWhoseTurn], a
+	pop de
+	pop hl
+.clearParBrn
 	xor a
 	ld [hl], a ; remove the status ailment in the party data
+	ld [wPlayerToxicCounter], a	;clear toxic counter
 .updateInBattleData
 	ld h, d
 	ld l, e
