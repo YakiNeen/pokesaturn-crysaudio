@@ -357,6 +357,7 @@ INCLUDE "engine/battle/just_slot_machine_stuff.asm"
 INCLUDE "engine/battle/stat_functions.asm"
 INCLUDE "engine/overworld/use_another_repel.asm"
 INCLUDE "engine/overworld/select_button_functionality.asm"
+INCLUDE "engine/menus/wrap_list_menu.asm"
 
 
 SECTION "Evos Movim", ROMX

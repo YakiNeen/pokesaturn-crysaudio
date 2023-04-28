@@ -50,7 +50,7 @@ DisplayListMenuID::
 	ld [wTopMenuItemY], a
 	ld a, 5
 	ld [wTopMenuItemX], a
-	ld a, A_BUTTON | B_BUTTON | SELECT
+	ld a, A_BUTTON | B_BUTTON | SELECT | D_LEFT
 	ld [wMenuWatchedKeys], a
 	ld c, 10
 	call DelayFrames
@@ -175,6 +175,8 @@ DisplayListMenuIDLoop::
 	bit BIT_SELECT, a
 	jp nz, HandleItemListSwapping ; if so, allow the player to swap menu entries
 	ld b, a
+	bit BIT_D_LEFT, b
+	jr nz, .handleListSkip
 	bit BIT_D_DOWN, b
 	ld hl, wListScrollOffset
 	jr z, .upPressed
@@ -192,6 +194,9 @@ DisplayListMenuIDLoop::
 	and a
 	jp z, DisplayListMenuIDLoop
 	dec [hl]
+	jp DisplayListMenuIDLoop
+.handleListSkip
+	callfar WrapListMenu
 	jp DisplayListMenuIDLoop
 
 DisplayChooseQuantityMenu::
