@@ -704,6 +704,27 @@ PlayMapChangeSound::
 	ret nz
 	jp GBFadeOutToBlack
 
+NaoPodeTeleport::
+	ld a, [wCurMap]
+	cp SAFARI_ZONE_EAST
+	ret z
+	cp SAFARI_ZONE_NORTH
+	ret z
+	cp SAFARI_ZONE_WEST
+	ret z
+	cp SAFARI_ZONE_CENTER
+	ret z
+	cp SAFARI_ZONE_CENTER_REST_HOUSE
+	ret z
+	cp SAFARI_ZONE_SECRET_HOUSE
+	ret z
+	cp SAFARI_ZONE_WEST_REST_HOUSE
+	ret z
+	cp SAFARI_ZONE_EAST_REST_HOUSE
+	ret z
+	cp SAFARI_ZONE_NORTH_REST_HOUSE
+	ret
+
 CheckIfInFlyMap::
 	call CheckIfInOutsideMap
 	ret z

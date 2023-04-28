@@ -40,6 +40,12 @@ _WarpToLastPokemonCenterText::
 	line "#MON CENTER."
 	done
 
+_CannotUseTeleportNowText::
+	text_ram wcd6d
+	text " can't"
+	line "use TELEPORT now."
+	prompt
+
 _CannotFlyHereText::
 	text_ram wcd6d
 	text " can't"
