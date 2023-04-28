@@ -5,10 +5,6 @@ TextScriptEnd::
 	ld hl, TextScriptEndingText
 	ret
 
-ExclamationText::
-	text_far _ExclamationText
-	text_end
-
 BoulderText::
 	text_far _BoulderText
 	text_asm

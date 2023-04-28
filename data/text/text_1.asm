@@ -32,10 +32,6 @@ _ItsABiteText::
 	line "It's a bite!"
 	prompt
 
-_ExclamationText::
-	text "!"
-	done
-
 _BoulderText::
 	text "This requires"
 	line "STRENGTH to move!"
