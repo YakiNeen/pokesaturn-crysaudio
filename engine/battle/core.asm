@@ -1176,22 +1176,27 @@ HandlePlayerBlackOut:
 	ld [wIsTrainerBattle], a
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
-	jr z, .notRival1Battle
+	jr z, .noLossText
 	ld a, [wCurOpponent]
 	cp OPP_RIVAL1
-	jr nz, .notRival1Battle
-	hlcoord 0, 0  ; rival 1 battle
+	jr z, .lossText
+	cp OPP_RIVAL2
+	jr z, .lossText
+	cp OPP_RIVAL3
+	jr z, .lossText
+	jr .noLossText
+.lossText
+	hlcoord 0, 0  ; battle that has loss text
 	lb bc, 8, 21
 	call ClearScreenArea
 	call ScrollTrainerPicAfterBattle
 	ld c, 40
 	call DelayFrames
-	ld hl, Rival1WinText
-	call PrintText
+	call PrintEndBattleText
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	ret z            ; starter battle in oak's lab: don't black out
-.notRival1Battle
+.noLossText
 	ld b, SET_PAL_BATTLE_BLACK
 	call RunPaletteCommand
 	ld hl, PlayerBlackedOutText2
@@ -1207,10 +1212,6 @@ HandlePlayerBlackOut:
 	call ClearScreen
 	scf
 	ret
-
-Rival1WinText:
-	text_far _Rival1WinText
-	text_end
 
 PlayerBlackedOutText2:
 	text_far _PlayerBlackedOutText2
