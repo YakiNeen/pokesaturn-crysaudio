@@ -353,6 +353,7 @@ INCLUDE "engine/menus/item_descriptions.asm"
 INCLUDE "engine/overworld/field_moves.asm"
 INCLUDE "engine/battle/pp_count_ai.asm"
 INCLUDE "engine/battle/physical_special_split.asm"
+INCLUDE "engine/battle/just_slot_machine_stuff.asm"
 
 
 SECTION "Evos Movim", ROMX
