@@ -355,6 +355,7 @@ INCLUDE "engine/battle/pp_count_ai.asm"
 INCLUDE "engine/battle/physical_special_split.asm"
 INCLUDE "engine/battle/just_slot_machine_stuff.asm"
 INCLUDE "engine/battle/stat_functions.asm"
+INCLUDE "engine/overworld/use_another_repel.asm"
 
 
 SECTION "Evos Movim", ROMX
