@@ -949,11 +949,22 @@ TrainerBattleVictory:
 .gymleader
 	ld a, [wTrainerClass]
 	cp RIVAL3 ; final battle against rival
-	jr nz, .notrival
+	jr z, .special1998
+	cp ELITE_FOUR1
+	jr z, .special1998
+	cp ELITE_FOUR2
+	jr z, .special1998
+	cp ELITE_FOUR3
+	jr z, .special1998
+	cp ELITE_FOUR4
+	jr nz, .nadaespecial
+.special1998
 	ld b, MUSIC_DEFEATED_GYM_LEADER
+	cp RIVAL3 ; final battle against rival
+	jr nz, .nadaespecial
 	ld hl, wFlags_D733
 	set 1, [hl]
-.notrival
+.nadaespecial
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	ld a, b
