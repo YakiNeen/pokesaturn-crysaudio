@@ -86,6 +86,7 @@ SubanimationPointers:
 	dw Subanim_0SafariRock
 	dw Subanim_0SafariBait
 	dw Subanim_0StarHigh
+	dw SubanimationBurn
 	assert_table_length NUM_SUBANIMS
 
 ; format:
@@ -176,6 +177,12 @@ Subanim_0BallBlock:
 Subanim_0StarHigh:
 	subanim SUBANIMTYPE_HFLIP, 1
 	db FRAMEBLOCK_01, BASECOORD_9D, FRAMEBLOCKMODE_00
+
+SubanimationBurn:
+	subanim SUBANIMTYPE_ENEMY, 3
+	db FRAMEBLOCK_0C, BASECOORD_20, FRAMEBLOCKMODE_00
+	db FRAMEBLOCK_0C, BASECOORD_21, FRAMEBLOCKMODE_00
+	db FRAMEBLOCK_0C, BASECOORD_23, FRAMEBLOCKMODE_00
 
 Subanim_1Flames:
 	subanim SUBANIMTYPE_HFLIP, 12
