@@ -68,9 +68,24 @@ UpdatePlayerSprite:
 	ld l, a
 	ld a, [hl]
 	inc a
+	call sprite60fps
+	sub b
 	ld [hl], a
-	cp 4
-	jr nz, .calcImageIndex
+	push bc
+	ld c, 4
+	ld b, a
+	ld a, [wJoyIgnore]
+	and a
+	jr nz, .doneSpeed
+	ld a, [hJoyHeld]
+	and B_BUTTON
+	jr z, .doneSpeed
+	ld c, 2
+.doneSpeed
+	ld a, b
+	cp c
+	pop bc
+	jr c, .calcImageIndex
 	xor a
 	ld [hl], a
 	inc hl
@@ -309,6 +324,9 @@ UpdateSpriteInWalkingAnimation:
 	ld l, a
 	ld a, [hl]                       ; x#SPRITESTATEDATA1_INTRAANIMFRAMECOUNTER
 	inc a
+	call sprite60fps	
+	push bc
+	sub b
 	ld [hl], a                       ; [x#SPRITESTATEDATA1_INTRAANIMFRAMECOUNTER]++
 	cp $4
 	jr nz, .noNextAnimationFrame
@@ -323,6 +341,11 @@ UpdateSpriteInWalkingAnimation:
 	ldh a, [hCurrentSpriteOffset]
 	add $3
 	ld l, a
+	pop bc
+	push bc
+	ld a, b
+	and a 
+	jr nz, .xydone
 	ld a, [hli]                      ; x#SPRITESTATEDATA1_YSTEPVECTOR
 	ld b, a
 	ld a, [hl]                       ; x#SPRITESTATEDATA1_YPIXELS
@@ -333,10 +356,13 @@ UpdateSpriteInWalkingAnimation:
 	ld a, [hl]                       ; x#SPRITESTATEDATA1_XPIXELS
 	add b
 	ld [hl], a                       ; update [x#SPRITESTATEDATA1_XPIXELS]
+.xydone
 	ldh a, [hCurrentSpriteOffset]
 	ld l, a
 	inc h
 	ld a, [hl]                       ; x#SPRITESTATEDATA2_WALKANIMATIONCOUNTER
+	pop bc
+	add b
 	dec a
 	ld [hl], a                       ; update walk animation counter
 	ret nz
@@ -377,6 +403,22 @@ UpdateSpriteInWalkingAnimation:
 	ld [hl], a                       ; [x#SPRITESTATEDATA1_XSTEPVECTOR] = 0
 	ret
 
+sprite60fps:
+	push hl
+	push af
+	ld h, $c2
+	ld l, $0a
+	ld a, [hCurrentSpriteOffset]
+	add l
+	ld l, a
+	ld a, [hl]
+	xor $01
+	ld [hl], a
+	ld b, a
+	pop af
+	pop hl
+	ret
+
 ; update [x#SPRITESTATEDATA2_MOVEMENTDELAY] for sprites in the delayed state (x#SPRITESTATEDATA1_MOVEMENTSTATUS)
 UpdateSpriteMovementDelay:
 	ld h, HIGH(wSpriteStateData2)
@@ -391,6 +433,10 @@ UpdateSpriteMovementDelay:
 	ld [hl], $0
 	jr .moving
 .tickMoveCounter
+	ld a, [hl]
+	call sprite60fps
+	add b
+	ld [hl], a
 	dec [hl]                ; x#SPRITESTATEDATA2_MOVEMENTDELAY
 	jr nz, notYetMoving
 .moving
@@ -743,6 +789,10 @@ DoScriptedNPCMovement:
 	ld a, [wd730]
 	bit 7, a
 	ret z
+	ld de, $00
+	call sprite60fps
+	ld e, b
+	ld d, $01
 	ld hl, wd72e
 	bit 7, [hl]
 	set 7, [hl]
@@ -761,6 +811,7 @@ DoScriptedNPCMovement:
 	call GetSpriteScreenYPointer
 	ld c, SPRITE_FACING_UP
 	ld a, -2
+	add d
 	jr .move
 .checkIfMovingDown
 	cp NPC_MOVEMENT_DOWN
@@ -768,6 +819,7 @@ DoScriptedNPCMovement:
 	call GetSpriteScreenYPointer
 	ld c, SPRITE_FACING_DOWN
 	ld a, 2
+	sub d
 	jr .move
 .checkIfMovingLeft
 	cp NPC_MOVEMENT_LEFT
@@ -775,6 +827,7 @@ DoScriptedNPCMovement:
 	call GetSpriteScreenXPointer
 	ld c, SPRITE_FACING_LEFT
 	ld a, -2
+	add d
 	jr .move
 .checkIfMovingRight
 	cp NPC_MOVEMENT_RIGHT
@@ -782,6 +835,7 @@ DoScriptedNPCMovement:
 	call GetSpriteScreenXPointer
 	ld c, SPRITE_FACING_RIGHT
 	ld a, 2
+	sub d
 	jr .move
 .noMatch
 	cp $ff
@@ -798,6 +852,9 @@ DoScriptedNPCMovement:
 	ld [hl], a ; facing direction
 	call AnimScriptedNPCMovement
 	ld hl, wScriptedNPCWalkCounter
+	ld a, [hl]
+	add e
+	ld [hl], a
 	dec [hl]
 	ret nz
 	ld a, 8
@@ -875,6 +932,7 @@ AdvanceScriptedNPCAnimFrameCounter:
 	ld l, a
 	ld a, [hl] ; intra-animation frame counter
 	inc a
+	sub e
 	ld [hl], a
 	cp 4
 	ret nz
