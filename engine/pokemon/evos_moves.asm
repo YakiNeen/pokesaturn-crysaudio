@@ -31,7 +31,7 @@ Evolution_PartyMonLoop: ; loop over party mons
 	pop hl
 	pop de
 	ld a, [de]
-	ld [wTempCoins1], a
+	ld [wTempLevelStore], a
 	inc de
 	inc hl
 	ld a, [hl]
@@ -217,7 +217,32 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld [wd11e], a
 	xor a
 	ld [wMonDataLocation], a
+	ld a, [wIsInBattle]
+	and a
+	jr z, .notinbattle
+	push bc
+	
+	ld a, [wCurEnemyLVL]	; load the final level into a.
+	ld c, a	; load the final level to over to c
+	ld a, [wTempLevelStore]	; load the evolution level into a
+	ld b, a	; load the evolution level over to b
+	dec b
+.inc_level	; marker for looping back 
+	inc b	;increment 	the current evolution level
+	ld a, b	;put the evolution level in a
+	ld [wCurEnemyLVL], a	;and reset the final level to the evolution level
+	push bc	;save b & c on the stack as they hold the currently tracked evolution level a true final level
 	call LearnMoveFromLevelUp
+	pop bc	;get the current evolution and final level values back from the stack
+	ld a, b	;load the current evolution level into a
+	cp c	;compare it with the final level
+	jr nz, .inc_level	;loop back again if final level has not been reached
+	
+	pop bc
+	jr .skipfix_end
+.notinbattle
+	call LearnMoveFromLevelUp
+.skipfix_end
 	pop hl
 	predef SetPartyMonTypes
 	ld a, [wIsInBattle]
@@ -354,6 +379,10 @@ LearnMoveFromLevelUp:
 	cp b ; is the move learnt at the mon's current level?
 	ld a, [hli] ; move ID
 	jr nz, .learnSetLoop
+	
+;the move can indeed be learned at this level
+.confirmlearnmove
+	push hl	
 	ld d, a ; ID of move to learn
 	ld a, [wMonDataLocation]
 	and a
@@ -371,7 +400,7 @@ LearnMoveFromLevelUp:
 .checkCurrentMovesLoop ; check if the move to learn is already known
 	ld a, [hli]
 	cp d
-	jr z, .done ; if already known, jump
+	jr z, .movesloop_done ; if already known, jump
 	dec b
 	jr nz, .checkCurrentMovesLoop
 	ld a, d
@@ -380,6 +409,9 @@ LearnMoveFromLevelUp:
 	call GetMoveName
 	call CopyToStringBuffer
 	predef LearnMove
+.movesloop_done
+	pop hl
+	jr .learnSetLoop
 .done
 	ld a, [wcf91]
 	ld [wd11e], a

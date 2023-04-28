@@ -1113,6 +1113,7 @@ wItemList:: ds 16
 
 wListPointer:: dw
 
+wTempLevelStore::
 wItemFinderItemDirection:: db 
 wSawItemFinderText:: db
 
