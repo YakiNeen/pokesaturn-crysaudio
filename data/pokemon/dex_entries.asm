@@ -204,7 +204,7 @@ PokedexEntryPointers:
 
 ; string: species name
 ; height in decimetres (1/10 of metre)
-; weight in centigrams (1/10 of kilogram)
+; weight in hectograms (1/10 of kilogram)
 ; text entry
 
 RhydonDexEntry:
