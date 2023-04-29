@@ -789,18 +789,6 @@ DoBlizzardSpecialEffects:
 	jp z, AnimationFlashScreen
 	ret
 
-; flashes the screen at 3 points in the subanimation
-; unused
-FlashScreenUnused:
-	ld a, [wSubAnimCounter]
-	cp 14
-	jp z, AnimationFlashScreen
-	cp 9
-	jp z, AnimationFlashScreen
-	cp 2
-	jp z, AnimationFlashScreen
-	ret
-
 ; function to make the pokemon disappear at the beginning of the animation
 TradeHidePokemon:
 	ld a, [wSubAnimCounter]
@@ -895,13 +883,6 @@ DoGrowlSpecialEffects:
 	dec a
 	call z, AnimationCleanOAM ; clean up at the end of the subanimation
 	ret
-
-; this is associated with Tail Whip, but Tail Whip doesn't use any subanimations
-TailWhipAnimationUnused:
-	ld a, 1
-	ld [wSubAnimCounter], a
-	ld c, 20
-	jp DelayFrames
 
 INCLUDE "data/battle_anims/special_effect_pointers.asm"
 

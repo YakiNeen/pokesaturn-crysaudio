@@ -536,11 +536,6 @@ endr
 	jr nz, .ch4_noise_sampling
 	ret
 
-.ch4_frequency_override ; unreferenced
-	ld a, [wCurTrackFrequency]
-	ldh [rNR43], a
-	ret
-
 .ch4_rest
 	ldh a, [rNR52]
 	and %10000111 ; ch4 off
