@@ -84,3 +84,12 @@ TimesUpText:
 GameOverText:
 	text_far _GameOverText
 	text_end
+
+ClearSafariFlags::
+	ResetEvents EVENT_SAFARI_GAME_OVER, EVENT_IN_SAFARI_ZONE
+	xor a
+	ld [wNumSafariBalls], a
+	ld [wSafariSteps], a
+	ld [wSafariZoneGameOver], a 
+	ld [wSafariZoneGateCurScript], a 
+	ret
