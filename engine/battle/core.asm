@@ -1532,6 +1532,7 @@ HasMonFainted:
 	ld a, [wFirstMonsNotOutYet]
 	and a
 	jr nz, .done
+	call EmptyPartyMenuRedraw
 	ld hl, NoWillText
 	call PrintText
 .done
@@ -2506,6 +2507,7 @@ PartyMenuOrRockOrRun:
 	cp d ; check if the mon to switch to is already out
 	jr nz, .notAlreadyOut
 ; mon is already out
+	call EmptyPartyMenuRedraw
 	ld hl, AlreadyOutText
 	call PrintText
 	jp .partyMonDeselected
@@ -7370,4 +7372,12 @@ do999StatCap:
 	ld c, a ;and store it as the low byte
 	;now registers b & c together contain $03E7 for a capped stat value of 999
 .donecapping
+	ret
+
+EmptyPartyMenuRedraw:
+	ld a, EMPTY_PARTY_MENU
+	ld [wPartyMenuTypeOrMessageID], a
+	call RedrawPartyMenu 
+	xor a ; NORMAL_PARTY_MENU
+	ld [wPartyMenuTypeOrMessageID], a
 	ret
