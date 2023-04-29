@@ -264,6 +264,7 @@ wPlayerMoveListIndex:: db
 wPlayerMonNumber:: db
 
 ; the address of the menu cursor's current location within wTileMap
+wSum::
 wMenuCursorLocation:: dw
 
 	ds 2
