@@ -1304,10 +1304,6 @@ CollisionCheckOnLand::
 	jr nc, .noCollision
 .collision
 
-;	ld a, [wChannelSoundIDs + CHAN5]
-;	cp SFX_COLLISION ; check if collision sound is already playing
-;	jr z, .setCarry
-
 	; ch5 on?
 	ld hl, wChannel5 + wChannel1Flags1 - wChannel1 ; + CHANNEL_FLAGS1
 	bit 0, [hl]
@@ -1990,10 +1986,6 @@ CollisionCheckOnWater::
 	jr z, .stopSurfing ; stop surfing if the tile is passable
 	jr .loop
 .collision
-
-;	ld a, [wChannelSoundIDs + CHAN5]
-;	cp SFX_COLLISION ; check if collision sound is already playing
-;	jr z, .setCarry
 
 	; ch5 on?
 	ld hl, wChannel5 + wChannel1Flags1 - wChannel1 ; + CHANNEL_FLAGS1

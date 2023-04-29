@@ -123,9 +123,6 @@ ClearVram::
 
 
 StopAllSounds::
-;	ld a, 0 ; BANK("Audio Engine 1")
-;	ld [wAudioROMBank], a
-;	ld [wAudioSavedROMBank], a
 	xor a
 	ld [wMusicFade], a
 	ld [wMusicFadeID], a

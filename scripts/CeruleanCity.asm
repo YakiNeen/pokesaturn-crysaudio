@@ -69,7 +69,6 @@ ENDC
 	and a
 	jr z, .walking
 	ld a, SFX_STOP_ALL_MUSIC
-;	ld [wNewSoundID], a
 	call PlaySound
 .walking
 	ld c, 0 ; BANK(Music_MeetRival)
@@ -180,7 +179,6 @@ CeruleanCityScript2:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, SFX_STOP_ALL_MUSIC
-;	ld [wNewSoundID], a
 	call PlaySound
 	farcall Music_RivalAlternateStart
 	ld a, $1

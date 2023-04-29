@@ -442,9 +442,6 @@ PlayTrainerMusic::
 	ld [wMusicFade], a
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
-;	ld a, 0 ; BANK(Music_MeetEvilTrainer)
-;	ld [wAudioROMBank], a
-;	ld [wAudioSavedROMBank], a
 	ld a, [wEngagedTrainerClass]
 	ld b, a
 	ld hl, EvilTrainerList
@@ -469,7 +466,6 @@ PlayTrainerMusic::
 .maleTrainer
 	ld a, MUSIC_MEET_MALE_TRAINER
 .PlaySound
-;	ld [wNewSoundID], a
 	jp PlayMusic
 
 INCLUDE "data/trainers/encounter_types.asm"

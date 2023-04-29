@@ -2182,18 +2182,6 @@ GetMoveSound:
 	ld a, b
 	scf
 	ret
-;	push hl
-;	call GetCryData
-;	ld b, a
-;	pop hl
-;	ld a, [wFrequencyModifier]
-;	add [hl]
-;	ld [wFrequencyModifier], a
-;	inc hl
-;	ld a, [wTempoModifier]
-;	add [hl]
-;	ld [wTempoModifier], a
-;	jr .done
 
 .NotCryMove
 	push bc
@@ -2631,8 +2619,4 @@ PlayApplyingAttackSound:
 	ld de, $1 + $80
 	ld a, SFX_NOT_VERY_EFFECTIVE
 .playSound
-;	ld [wFrequencyModifier], a
-;	ld a, b
-;	ld [wTempoModifier], a
-;	ld a, c
 	jp PlayBattleSound

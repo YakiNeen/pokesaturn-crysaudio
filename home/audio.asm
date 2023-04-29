@@ -34,26 +34,11 @@ PlayDefaultMusicCommon::
 
 .next
 	ld b, a
-;	ld a, d
-;	and a ; should current music be faded out first?
-;	ld a, 0 ; BANK(Music_BikeRiding)
-;	jr nz, .next2
-
-; Only change the audio ROM bank if the current music isn't going to be faded
-; out before the default music begins.
-;	ld [wAudioROMBank], a
-
-;.next2
-; [wAudioSavedROMBank] will be copied to [wAudioROMBank] after fading out the
-; current music (if the current music is faded out).
-;	ld [wAudioSavedROMBank], a
 	jr .next3
 
 .walking
 	ld a, [wMapMusicSoundID]
 	ld b, a
-;	call CompareMapMusicBankWithCurrentBank
-;	jr c, .next4
 
 .next3
 	ld a, [wLastMusicSoundID]
@@ -96,10 +81,6 @@ CheckForNoBikingMusicMap::
 	scf
 	ret
 
-;UpdateMusic6Times::
-;CompareMapMusicBankWithCurrentBank:
-;	ret
-
 ; plays music or SFX specified by a. If value is $ff, music is stopped
 PlaySound::
 	push de
@@ -117,35 +98,7 @@ PlaySound::
 	pop de
 	ret
 
-;InitSound::
-;	push hl
-;	push de
-;	push bc
-;	push af
-;
-;	ldh a, [hLoadedROMBank]
-;	push af
-;	ld a, BANK(_InitSound)
-;	ldh [hLoadedROMBank], a
-;	ld [MBC1RomBank], a
-;
-;	call _InitSound
-;
-;	pop af
-;	ldh [hLoadedROMBank], a
-;	ld [MBC1RomBank], a
-;
-;	pop af
-;	pop bc
-;	pop de
-;	pop hl
-;	ret
-
 UpdateSound::
-;	push hl
-;	push de
-;	push bc
-;	push af
 
 	ldh a, [hLoadedROMBank]
 	push af
@@ -159,10 +112,6 @@ UpdateSound::
 	ldh [hLoadedROMBank], a
 	ld [MBC1RomBank], a
 
-;	pop af
-;	pop bc
-;	pop de
-;	pop hl
 	ret
 
 _LoadMusicByte::
@@ -214,40 +163,6 @@ PlayMusic::
 	pop de
 	pop hl
 	ret
-
-;PlayMusic2::
-;	ld e, a
-;	xor a
-;	ld d, a
-; Stop playing music, then play music de.
-;
-;	push hl
-;	push de
-;	push bc
-;	push af
-;
-;	ldh a, [hLoadedROMBank]
-;	push af
-;	ld a, BANK(_PlayMusic)
-;	ldh [hLoadedROMBank], a
-;	ld [MBC1RomBank], a
-;
-;	push de
-;	ld de, MUSIC_NONE
-;	call _PlayMusic
-;	call DelayFrame
-;	pop de
-;	call _PlayMusic
-;
-;	pop af
-;	ldh [hLoadedROMBank], a
-;	ld [MBC1RomBank], a
-;
-;	pop af
-;	pop bc
-;	pop de
-;	pop hl
-;	ret
 
 PlayCry::
 ; Play monster a's cry.
@@ -359,15 +274,6 @@ PlaySFX::
 	push de
 	push bc
 	push af
-
-	; Is something already playing?
-;	call CheckSFX
-;	jr nc, .play
-
-	; Does it have priority?
-;	ld a, [wCurSFX]
-;	cp e
-;	jr c, .done
 
 .play
 	ldh a, [hLoadedROMBank]

@@ -167,9 +167,6 @@ ENDC
 	call ResetPlayerSpriteData
 	ldh a, [hLoadedROMBank]
 	push af
-;	ld a, 0 ; BANK(Music_PalletTown)
-;	ld [wAudioROMBank], a
-;	ld [wAudioSavedROMBank], a
 
 	ld a, 10
 	ld [wMusicFade], a
