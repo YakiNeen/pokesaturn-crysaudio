@@ -97,14 +97,14 @@ MACRO text_waitbutton
 	db TX_WAIT_BUTTON
 ENDM
 
-	const TX_SOUND_POKEDEX_RATING ; $0e
-MACRO sound_pokedex_rating
-	db TX_SOUND_POKEDEX_RATING
+	const TX_SOUND_GET_BADGE ; $0e
+MACRO sound_get_badge
+	db TX_SOUND_GET_BADGE
 ENDM
 
-	const TX_SOUND_GET_ITEM_1_DUPLICATE ; $0f
-MACRO sound_get_item_1_duplicate
-	db TX_SOUND_GET_ITEM_1_DUPLICATE
+	const TX_SOUND_GET_TM ; $0f
+MACRO sound_get_tm
+	db TX_SOUND_GET_TM
 ENDM
 
 	const TX_SOUND_GET_ITEM_2 ; $10

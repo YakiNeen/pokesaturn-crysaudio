@@ -106,3 +106,5 @@ SFX:
 	dba SFX_Slots_New_Spin
 
 	dba SFX_PokefluteInBattle
+	dba SFX_Get_Badge
+	dba SFX_Get_Tm

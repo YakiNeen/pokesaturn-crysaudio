@@ -140,7 +140,7 @@ LTSurgeThunderBadgeInfoText:
 
 ReceivedTM24Text:
 	text_far _ReceivedTM24Text
-	sound_get_key_item
+	sound_get_tm
 	text_far _TM24ExplanationText
 	text_end
 
@@ -150,6 +150,7 @@ TM24NoRoomText:
 
 ReceivedThunderBadgeText:
 	text_far _ReceivedThunderBadgeText
+	sound_get_badge
 	text_end
 
 VermilionGymTrainerText1:

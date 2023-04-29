@@ -141,6 +141,7 @@ ErikaPreBattleText:
 
 ReceivedRainbowBadgeText:
 	text_far _ReceivedRainbowBadgeText
+	sound_get_badge
 	text_end
 
 ErikaPostBattleAdviceText:
@@ -153,7 +154,7 @@ ErikaRainbowBadgeInfoText:
 
 ReceivedTM21Text:
 	text_far _ReceivedTM21Text
-	sound_get_item_1
+	sound_get_tm
 	text_far _TM21ExplanationText
 	text_end
 

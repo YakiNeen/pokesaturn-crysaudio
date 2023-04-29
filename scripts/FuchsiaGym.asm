@@ -142,6 +142,7 @@ KogaBeforeBattleText:
 
 ReceivedSoulBadgeText:
 	text_far _ReceivedSoulBadgeText
+	sound_get_badge
 	text_end
 
 KogaPostBattleAdviceText:
@@ -154,7 +155,7 @@ KogaSoulBadgeInfoText:
 
 ReceivedTM06Text:
 	text_far _ReceivedTM06Text
-	sound_get_key_item
+	sound_get_tm
 
 TM06ExplanationText:
 	text_far _TM06ExplanationText

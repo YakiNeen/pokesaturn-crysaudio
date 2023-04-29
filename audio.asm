@@ -124,6 +124,8 @@ INCLUDE "audio/sfx/intro_whoosh.asm"
 INCLUDE "audio/sfx/slots_stop_wheel.asm"
 INCLUDE "audio/sfx/slots_reward.asm"
 INCLUDE "audio/sfx/slots_new_spin.asm"
+INCLUDE "audio/sfx/get_badge.asm"
+INCLUDE "audio/sfx/get_tm.asm"
 
 
 SECTION "Music Routines", ROMX

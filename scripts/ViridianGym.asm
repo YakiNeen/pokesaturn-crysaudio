@@ -250,7 +250,7 @@ GiovanniPreBattleText:
 
 ReceivedEarthBadgeText:
 	text_far _ReceivedEarthBadgeText
-	sound_level_up ; probably supposed to play SFX_GET_ITEM_1 but the wrong music bank is loaded
+	sound_get_badge
 	text_end
 
 GiovanniPostBattleAdviceText:
@@ -264,7 +264,7 @@ GiovanniEarthBadgeInfoText:
 
 ReceivedTM27Text:
 	text_far _ReceivedTM27Text
-	sound_get_item_1
+	sound_get_tm
 
 TM27ExplanationText:
 	text_far _TM27ExplanationText

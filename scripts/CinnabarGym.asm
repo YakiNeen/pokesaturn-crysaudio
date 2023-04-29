@@ -236,8 +236,7 @@ BlainePreBattleText:
 
 ReceivedVolcanoBadgeText:
 	text_far _ReceivedVolcanoBadgeText
-	sound_get_key_item ; actually plays the second channel of SFX_BALL_POOF due to the wrong music bank being loaded
-	text_waitbutton
+	sound_get_badge
 	text_end
 
 BlainePostBattleAdviceText:
@@ -250,7 +249,7 @@ BlaineVolcanoBadgeInfoText:
 
 ReceivedTM38Text:
 	text_far _ReceivedTM38Text
-	sound_get_item_1
+	sound_get_tm
 	text_far _TM38ExplanationText
 	text_end
 
