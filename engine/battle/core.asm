@@ -7375,6 +7375,9 @@ do999StatCap:
 	ret
 
 EmptyPartyMenuRedraw:
+	hlcoord 11, 11
+	lb bc, 1, 9
+	call ClearScreenArea
 	ld a, EMPTY_PARTY_MENU
 	ld [wPartyMenuTypeOrMessageID], a
 	call RedrawPartyMenu 
