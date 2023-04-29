@@ -30,7 +30,6 @@ PlayPresentsScreen:
 	call LoadPresentsScreen
 	ld a, %11100100
 	ldh [rBGP], a
-	ld c, BANK(Music_Intro)
 	ld a, MUSIC_INTRO
 	call PlayMusic
 	ld c, 200
