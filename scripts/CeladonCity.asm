@@ -69,7 +69,7 @@ TM41PreText:
 
 ReceivedTM41Text:
 	text_far _ReceivedTM41Text
-	sound_get_item_1
+	sound_get_tm
 	text_end
 
 TM41ExplanationText:

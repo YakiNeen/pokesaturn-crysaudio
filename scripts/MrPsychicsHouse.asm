@@ -33,7 +33,7 @@ TM29PreReceiveText:
 
 ReceivedTM29Text:
 	text_far _ReceivedTM29Text
-	sound_get_item_1
+	sound_get_tm
 	text_end
 
 TM29ExplanationText:

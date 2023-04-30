@@ -258,7 +258,7 @@ ViridianCityText_191ca:
 
 ReceivedTM42Text:
 	text_far _ReceivedTM42Text
-	sound_get_item_2
+	sound_get_tm
 	text_end
 
 TM42Explanation:

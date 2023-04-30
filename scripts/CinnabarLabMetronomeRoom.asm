@@ -37,7 +37,7 @@ TM35PreReceiveText:
 
 ReceivedTM35Text:
 	text_far _ReceivedTM35Text
-	sound_get_item_1
+	sound_get_tm
 	text_end
 
 TM35ExplanationText:

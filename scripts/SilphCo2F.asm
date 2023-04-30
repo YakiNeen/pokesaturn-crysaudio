@@ -135,7 +135,7 @@ SilphCo2Text_59ded:
 
 ReceivedTM36Text:
 	text_far _ReceivedTM36Text
-	sound_get_item_1
+	sound_get_tm
 	text_end
 
 TM36ExplanationText:

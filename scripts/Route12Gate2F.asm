@@ -35,7 +35,7 @@ TM39PreReceiveText:
 
 ReceivedTM39Text:
 	text_far _ReceivedTM39Text
-	sound_get_item_1
+	sound_get_tm
 	text_end
 
 TM39ExplanationText:

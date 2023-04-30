@@ -53,7 +53,7 @@ TM31PreReceiveText:
 
 ReceivedTM31Text:
 	text_far _ReceivedTM31Text
-	sound_get_item_1
+	sound_get_tm
 TM31ExplanationText1:
 	text_far _TM31ExplanationText1
 	text_waitbutton
