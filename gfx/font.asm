@@ -45,3 +45,6 @@ IF DEF(_MARS)
 PlayerCharacterTitleGraphics: INCBIN "gfx/title/player_mars.2bpp"
 ENDC
 PlayerCharacterTitleGraphicsEnd:
+
+PrismWarningGraphics:: INCBIN "gfx/splash/prism_warning.2bpp"
+PrismWarningGraphicsEnd::

@@ -456,14 +456,32 @@ LoadCopyrightTiles:
 	ld hl, vChars2 tile $60
 	lb bc, BANK(NintendoCopyrightLogoGraphics), (NintendoCopyrightLogoGraphicsEnd - NintendoCopyrightLogoGraphics) / $10
 	call CopyVideoData
-	hlcoord 2, 7
+	hlcoord 2, 2
 	ld de, CopyrightTextString
 	jp PlaceString
 
+PrismWarningFunction:
+	ld de, PrismWarningGraphics
+	ld hl, vFont
+	lb bc, BANK(PrismWarningGraphics), (PrismWarningGraphicsEnd - PrismWarningGraphics) / $10
+	call CopyVideoData
+	hlcoord 1, 12
+	ld de, AlgumaCoisa
+	jp PlaceString
+
 CopyrightTextString:
-	db   $60,$61,$62,$7C,$79,$7A,$7B,$7F,$6D,$6E,$6F,$70,$71,$72             ; ©1995-2023 Nintendo
+	db   $7F,$AE,$AF,$C0,$79,$7A,$7B,$7F,$C1,$C2,$C3,$C4,$C5,$C6
+	next $60,$61,$62,$7C,$79,$7A,$7B,$7F,$6D,$6E,$6F,$70,$71,$72             ; ©1995-2023 Nintendo
 	next $60,$61,$62,$7C,$79,$7A,$7B,$7F,$73,$74,$75,$76,$77,$78,$6B,$6C     ; ©1995-2023 Creatures inc.
 	next $60,$61,$62,$7C,$79,$7A,$7B,$7F,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C ; ©1995-2023 GAME FREAK inc.
+	db   "@"
+
+AlgumaCoisa:
+	db   $80,$81,$82,$83,$84,$85,$86,$87,$88,$89,$8A,$8B,$8C,$8D,$8E,$8F,$A0,$A1,$7F
+	db   $7F,$90,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$B0,$B1
+	next $7F,$7F,$7F,$7F,$7F,$7F,$7F,$7F,$7F,$7F,$7F,$7F,$7F,$7F,$7F,$7F,$7F,$7F,$7F
+	db   $7F,$7F,$7F,$B2,$B3,$B4,$B5,$B6,$B7,$B8,$B9,$BA,$BB,$BC,$BD,$BE,$BF,$7F,$7F
+	db   $7F,$7F,$7F,$7F,$7F,$A2,$A3,$A4,$A5,$A6,$A7,$A8,$A9,$AA,$AB,$AC,$AD
 	db   "@"
 
 INCLUDE "data/pokemon/title_mons.asm"
