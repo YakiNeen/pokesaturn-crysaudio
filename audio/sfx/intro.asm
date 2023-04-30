@@ -1,10 +1,5 @@
-Music_Intro::
-	channel_count 3
-	channel 1, Music_Intro_Ch1
-	channel 2, Music_Intro_Ch2
-	channel 3, Music_Intro_Ch3
-
-Music_Intro_Ch1::
+Sfx_Intro_Ch5:
+	execute_music
 	tempo 128
 	volume 7, 7
 	toggle_perfect_pitch
@@ -29,8 +24,8 @@ Music_Intro_Ch1::
 	note A_, 8
 	sound_ret
 
-
-Music_Intro_Ch2::
+Sfx_Intro_Ch6:
+	execute_music
 	duty_cycle 2
 	vibrato 10, 2, 4
 	note_type 12, 10, 3
@@ -50,8 +45,8 @@ Music_Intro_Ch2::
 	note F_, 8
 	sound_ret
 
-
-Music_Intro_Ch3::
+Sfx_Intro_Ch7:
+	execute_music
 	note_type 12, 1, 0
 	octave 3
 	note F_, 2

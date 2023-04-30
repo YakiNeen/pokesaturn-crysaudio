@@ -126,6 +126,7 @@ INCLUDE "audio/sfx/slots_reward.asm"
 INCLUDE "audio/sfx/slots_new_spin.asm"
 INCLUDE "audio/sfx/get_badge.asm"
 INCLUDE "audio/sfx/get_tm.asm"
+INCLUDE "audio/sfx/intro.asm"
 
 
 SECTION "Music Routines", ROMX
@@ -194,7 +195,6 @@ INCLUDE "audio/music/silphco.asm"
 INCLUDE "audio/music/meeteviltrainer.asm"
 INCLUDE "audio/music/meetfemaletrainer.asm"
 INCLUDE "audio/music/meetmaletrainer.asm"
-INCLUDE "audio/music/intro.asm"
 INCLUDE "audio/music/surfing.asm"
 INCLUDE "audio/music/jigglypuffsong.asm"
 INCLUDE "audio/music/halloffame.asm"

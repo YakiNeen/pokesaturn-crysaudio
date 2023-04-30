@@ -38,7 +38,6 @@ Music:
 	dba Music_BikeRiding
 	dba Music_Surfing
 	dba Music_RBYGameCorner
-	dba Music_Intro
 	dba Music_Dungeon1
 	dba Music_Dungeon2
 	dba Music_Dungeon3

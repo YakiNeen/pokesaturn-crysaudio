@@ -30,3 +30,9 @@ SFX_Get_Tm::
 	channel 5, Sfx_Get_Tm_Ch5
 	channel 6, Sfx_Get_Tm_Ch6
 	channel 7, Sfx_Get_Tm_Ch7
+
+SFX_Intro::
+	channel_count 3
+	channel 5, Sfx_Intro_Ch5
+	channel 6, Sfx_Intro_Ch6
+	channel 7, Sfx_Intro_Ch7

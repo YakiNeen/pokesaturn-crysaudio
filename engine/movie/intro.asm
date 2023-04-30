@@ -30,8 +30,8 @@ PlayPresentsScreen:
 	call LoadPresentsScreen
 	ld a, %11100100
 	ldh [rBGP], a
-	ld a, MUSIC_INTRO
-	call PlayMusic
+	ld a, SFX_INTRO
+	call PlaySound
 	ld c, 200
 	call DelayFrames
 	call ClearSprites
