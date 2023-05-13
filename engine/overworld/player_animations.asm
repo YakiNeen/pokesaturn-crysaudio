@@ -205,7 +205,7 @@ FlyAnimationScreenCoords2:
 
 LeaveMapThroughHoleAnim:
 	ld a, [wLastMusicSoundID]
-	cp MUSIC_BIKE_RIDING
+	cp MUSIC_RIDING_BIKE
 	call z, PlayDefaultMusic
 	ld a, $ff
 	ld [wUpdateSpritesEnabled], a ; disable UpdateSprites

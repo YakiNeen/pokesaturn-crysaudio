@@ -44,7 +44,7 @@ SSAnne7Text1:
 SSAnne7RubText:
 	text_far _SSAnne7RubText
 	text_asm
-	ld a, MUSIC_PKMN_HEALED
+	ld a, MUSIC_PKMN_HEALED_1
 	call PlayMusic
 
 	call WaitForSongToFinish

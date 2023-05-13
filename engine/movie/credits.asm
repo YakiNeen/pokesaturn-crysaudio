@@ -23,8 +23,8 @@ HallOfFamePC:
 	call EnableLCD
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySoundWaitForCurrent
-	ld c, 0 ; BANK(Music_Credits)
-	ld a, MUSIC_CREDITS
+	ld c, 0 ; BANK(Music_StaffRoll)
+	ld a, MUSIC_STAFF_ROLL
 	call PlayMusic
 	ld c, 128
 	call DelayFrames

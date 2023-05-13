@@ -26,8 +26,8 @@ YuYuHakushoTVText::
 	set 6, [hl]
 	ld hl, YuYuHakushoText
 	call PrintText
-	ld c, 0 ; BANK(Music_Surfing)
-	ld a, MUSIC_SURFING
+	ld c, 0 ; BANK(Music_YuYuHakusho)
+	ld a, MUSIC_YU_YU_HAKUSHO
 	call PlayMusic
 	ld hl, wd730
 	res 6, [hl]

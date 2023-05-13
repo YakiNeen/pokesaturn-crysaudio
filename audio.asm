@@ -132,74 +132,93 @@ INCLUDE "audio/sfx/intro.asm"
 SECTION "Music Routines", ROMX
 
 INCLUDE "audio/play_battle_music.asm"
-INCLUDE "audio/alternate_tempo.asm"
 INCLUDE "audio/pokedex_rating_sfx.asm"
 
 
 SECTION "Audio Engine", ROMX
 
 INCLUDE "audio/engine.asm"
+INCLUDE "audio/nothing.asm"
 INCLUDE "audio/music_pointers.asm"
-INCLUDE "audio/music/nothing.asm"
 INCLUDE "audio/cry_pointers.asm"
 INCLUDE "audio/sfx_pointers.asm"
 
 
 SECTION "Songs 1", ROMX
 
-INCLUDE "audio/music/pkmnhealed.asm"
+INCLUDE "audio/music/0title_screen.asm"
+
+INCLUDE "audio/music/meet_prof.asm"
+INCLUDE "audio/music/follow_me.asm"
+
+INCLUDE "audio/music/safari_zone.asm"
+
+INCLUDE "audio/music/mon_centro.asm"
+INCLUDE "audio/music/mon_loja.asm"
+
+INCLUDE "audio/music/dungeon0.asm"
+INCLUDE "audio/music/dungeon1.asm"
+INCLUDE "audio/music/dungeon2.asm"
+INCLUDE "audio/music/dungeon3.asm"
+INCLUDE "audio/music/dungeon4.asm"
+INCLUDE "audio/music/dungeon5.asm"
+INCLUDE "audio/music/dungeon6.asm"
+
+INCLUDE "audio/music/routes0.asm"
 INCLUDE "audio/music/routes1.asm"
 INCLUDE "audio/music/routes2.asm"
 INCLUDE "audio/music/routes3.asm"
 INCLUDE "audio/music/routes4.asm"
-INCLUDE "audio/music/indigoplateau.asm"
-INCLUDE "audio/music/pallettown.asm"
-INCLUDE "audio/music/cities1.asm"
-INCLUDE "audio/music/followme.asm"
-INCLUDE "audio/music/meetprofoak.asm"
-INCLUDE "audio/music/meetrival.asm"
-INCLUDE "audio/music/ssanne.asm"
-INCLUDE "audio/music/cities2.asm"
-INCLUDE "audio/music/celadon.asm"
-INCLUDE "audio/music/cinnabar.asm"
-INCLUDE "audio/music/vermilion.asm"
-INCLUDE "audio/music/lavender.asm"
-INCLUDE "audio/music/safarizone.asm"
-INCLUDE "audio/music/gym.asm"
-INCLUDE "audio/music/pokecenter.asm"
+INCLUDE "audio/music/routes5.asm"
+
+INCLUDE "audio/music/town0.asm"
+INCLUDE "audio/music/town1.asm"
+INCLUDE "audio/music/town2.asm"
+INCLUDE "audio/music/town3.asm"
+INCLUDE "audio/music/town4.asm"
+INCLUDE "audio/music/town5.asm"
+INCLUDE "audio/music/town6.asm"
+INCLUDE "audio/music/town7.asm"
+INCLUDE "audio/music/town8.asm"
+INCLUDE "audio/music/town9.asm"
 
 
 SECTION "Songs 2", ROMX
 
-INCLUDE "audio/music/gymleaderbattle.asm"
-INCLUDE "audio/music/trainerbattle.asm"
-INCLUDE "audio/music/wildbattle.asm"
-INCLUDE "audio/music/finalbattle.asm"
-INCLUDE "audio/music/defeatedtrainer.asm"
-INCLUDE "audio/music/defeatedwildmon.asm"
-INCLUDE "audio/music/defeatedgymleader.asm"
+INCLUDE "audio/music/battle_0wild_mon.asm"
+INCLUDE "audio/music/battle_1trainer.asm"
+INCLUDE "audio/music/battle_2gym_leader.asm"
+INCLUDE "audio/music/battle_3elite_four.asm"
+INCLUDE "audio/music/battle_4champion.asm"
+
+INCLUDE "audio/music/defeated_0wild_mon.asm"
+INCLUDE "audio/music/defeated_1trainer.asm"
+INCLUDE "audio/music/defeated_2gym_leader.asm"
+
+INCLUDE "audio/music/rivals_theme.asm"
+
+INCLUDE "audio/music/meet_male_trainer.asm"
+INCLUDE "audio/music/meet_female_trainer.asm"
+INCLUDE "audio/music/meet_evil_trainer.asm"
 
 
 SECTION "Songs 3", ROMX
 
-INCLUDE "audio/music/bikeriding.asm"
-INCLUDE "audio/music/dungeon1.asm"
-INCLUDE "audio/music/gamecorner.asm"
-INCLUDE "audio/music/titlescreen.asm"
-INCLUDE "audio/music/dungeon2.asm"
-INCLUDE "audio/music/dungeon3.asm"
-INCLUDE "audio/music/cinnabarmansion.asm"
-INCLUDE "audio/music/oakslab.asm"
-INCLUDE "audio/music/pokemontower.asm"
-INCLUDE "audio/music/silphco.asm"
-INCLUDE "audio/music/meeteviltrainer.asm"
-INCLUDE "audio/music/meetfemaletrainer.asm"
-INCLUDE "audio/music/meetmaletrainer.asm"
-INCLUDE "audio/music/surfing.asm"
-INCLUDE "audio/music/jigglypuffsong.asm"
-INCLUDE "audio/music/halloffame.asm"
-INCLUDE "audio/music/credits.asm"
-INCLUDE "audio/music/digda01.asm"
+INCLUDE "audio/music/riding_bike.asm"
+INCLUDE "audio/music/surf_theme.asm"
+
+INCLUDE "audio/music/game_corner.asm"
+INCLUDE "audio/music/profs_lab.asm"
+
+INCLUDE "audio/music/gym_theme.asm"
+INCLUDE "audio/music/hall_of_fame.asm"
+
+INCLUDE "audio/music/staff_roll.asm"
+
+INCLUDE "audio/music/yu_yu_hakusho.asm"
+INCLUDE "audio/music/jigglypuffs_song.asm"
+INCLUDE "audio/music/pkmnhealed_1.asm"
+INCLUDE "audio/music/pkmnhealed_2.asm"
 
 
 SECTION "Cries", ROMX

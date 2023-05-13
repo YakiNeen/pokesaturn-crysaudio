@@ -71,8 +71,8 @@ ENDC
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
 .walking
-	ld c, 0 ; BANK(Music_MeetRival)
-	ld a, MUSIC_MEET_RIVAL
+	ld c, 0 ; BANK(Music_RivalsTheme)
+	ld a, MUSIC_RIVALS_THEME
 	call PlayMusic
 	xor a
 	ldh [hJoyHeld], a
@@ -180,7 +180,9 @@ CeruleanCityScript2:
 	call DisplayTextID
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
-	farcall Music_RivalAlternateStart
+	ld c, 0 ; BANK(Music_RivalsTheme)
+	ld a, MUSIC_RIVALS_THEME
+	call PlayMusic
 	ld a, $1
 	ldh [hSpriteIndex], a
 	call SetSpriteMovementBytesToFF

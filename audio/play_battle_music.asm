@@ -29,7 +29,7 @@ PlayBattleMusic::
 	ld a, MUSIC_FINAL_BATTLE
 	jr .playSong
 .Elite4Battle
-	ld a, MUSIC_GYM_LEADER_BATTLE
+	ld a, MUSIC_ELITE_FOUR_BATTLE
 	jr .playSong
 .normalTrainerBattle
 	ld a, MUSIC_TRAINER_BATTLE

@@ -29,9 +29,9 @@ PalletTownScript0:
 	ld [wPlayerMovingDirection], a
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
-	ld a, 0 ; BANK(Music_MeetProfOak)
+	ld a, 0 ; BANK(Music_MeetProf)
 	ld c, a
-	ld a, MUSIC_MEET_PROF_OAK ; "oak appears" music
+	ld a, MUSIC_MEET_PROF ; "oak appears" music
 	call PlayMusic
 	ld a, $FC
 	ld [wJoyIgnore], a

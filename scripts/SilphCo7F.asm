@@ -132,8 +132,8 @@ SilphCo7Script0:
 	ld [wPlayerMovingDirection], a
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
-	ld c, 0 ; BANK(Music_MeetRival)
-	ld a, MUSIC_MEET_RIVAL
+	ld c, 0 ; BANK(Music_RivalsTheme)
+	ld a, MUSIC_RIVALS_THEME
 	call PlayMusic
 	ld a, $9
 	ldh [hSpriteIndexOrTextID], a
@@ -224,7 +224,9 @@ SilphCo7Script4:
 	call DisplayTextID
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
-	farcall Music_RivalAlternateStart
+	ld c, 0 ; BANK(Music_RivalsTheme)
+	ld a, MUSIC_RIVALS_THEME
+	call PlayMusic
 	ld de, MovementData_51d1d
 	ld a, [wcf0d]
 	cp $1

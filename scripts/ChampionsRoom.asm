@@ -112,7 +112,15 @@ GaryScript3:
 	ret
 
 GaryScript4:
-	farcall Music_Cities1AlternateTempo
+	ld a, 10
+	ld [wMusicFade], a
+	xor a
+	ld [wMusicFadeID], a
+	ld c, 100
+	call DelayFrames ; wait for the fade-out to finish
+	ld c, 0 ; BANK(Music_Cidades0)
+	ld a, MUSIC_TOWN0
+	call PlayMusic
 	ld a, $2
 	ldh [hSpriteIndexOrTextID], a
 	call GaryScript_760c8

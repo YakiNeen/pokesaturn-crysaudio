@@ -26,8 +26,8 @@ SSAnne2Script0:
 	ret nc
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
-	ld c, 0 ; BANK(Music_MeetRival)
-	ld a, MUSIC_MEET_RIVAL
+	ld c, 0 ; BANK(Music_RivalsTheme)
+	ld a, MUSIC_RIVALS_THEME
 	call PlayMusic
 	ld a, [wCoordIndex]
 	ldh [hSavedCoordIndex], a
@@ -149,7 +149,9 @@ SSAnne2Script2:
 	call MoveSprite
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
-	farcall Music_RivalAlternateStart
+	ld c, 0 ; BANK(Music_RivalsTheme)
+	ld a, MUSIC_RIVALS_THEME
+	call PlayMusic
 	ld a, $3
 	ld [wSSAnne2FCurScript], a
 	ret

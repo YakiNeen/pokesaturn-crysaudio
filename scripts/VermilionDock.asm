@@ -41,8 +41,8 @@ VermilionDock_1db9b:
 	ld a, SFX_STOP_ALL_MUSIC
 	ld [wJoyIgnore], a
 	call PlaySound
-	ld c, 0 ; BANK(Music_Surfing)
-	ld a, MUSIC_SURFING
+	ld c, 0 ; BANK(Music_SurfTheme)
+	ld a, MUSIC_SURF_THEME
 	call PlayMusic
 	farcall LoadSmokeTileFourTimes
 	xor a

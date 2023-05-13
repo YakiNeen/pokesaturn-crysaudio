@@ -26,11 +26,11 @@ PlayDefaultMusicCommon::
 	jr z, .surfing
 	call CheckForNoBikingMusicMap
 	jr c, .next3
-	ld a, MUSIC_BIKE_RIDING
+	ld a, MUSIC_RIDING_BIKE
 	jr .next
 
 .surfing
-	ld a, MUSIC_SURFING
+	ld a, MUSIC_SURF_THEME
 
 .next
 	ld b, a

@@ -35,7 +35,7 @@ AnimateHealingMachine:
 	call DelayFrames
 	dec b
 	jr nz, .partyLoop
-	ld a, MUSIC_PKMN_HEALED
+	ld a, MUSIC_PKMN_HEALED_1
 	call PlayMusic
 	ld d, $28
 	call FlashSprite8Times

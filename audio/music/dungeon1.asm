@@ -1,3 +1,4 @@
+; Junichi Masuda - Rocket Hideout and Kanto's Power Plant
 Music_Dungeon1::
 	channel_count 4
 	channel 1, Music_Dungeon1_Ch1
@@ -13,14 +14,12 @@ Music_Dungeon1_Ch1::
 	vibrato 10, 1, 4
 	note_type 12, 4, -5
 	rest 8
-	;stereo_panning %1110, %1101
 	stereo_panning FALSE, TRUE
 	octave 4
 	note F#, 8
-	;stereo_panning %1111, %1111
 	stereo_panning TRUE, TRUE
 
-Music_Dungeon1_branch_7dee5::
+Music_Dungeon1_Dois::
 	note_type 12, 11, 2
 	octave 3
 
@@ -172,7 +171,7 @@ Music_Dungeon1_branch_7df6e::
 	note_type 12, 12, 2
 	sound_call Music_Dungeon1_branch_7dfaa
 	sound_call Music_Dungeon1_branch_7dfaa
-	sound_loop 0, Music_Dungeon1_branch_7dee5
+	sound_loop 0, Music_Dungeon1_Dois
 
 Music_Dungeon1_branch_7dfaa::
 	note E_, 1
@@ -247,7 +246,7 @@ Music_Dungeon1_Ch2::
 	note D_, 8
 	stereo_panning TRUE, TRUE
 
-Music_Dungeon1_branch_7dfeb::
+Music_Dungeon1_Principal::
 	note_type 12, 12, 2
 
 Music_Dungeon1_branch_7dfed::
@@ -368,7 +367,7 @@ Music_Dungeon1_branch_7e006::
 	note_type 12, 13, 2
 	sound_call Music_Dungeon1_branch_7e097
 	sound_call Music_Dungeon1_branch_7e097
-	sound_loop 0, Music_Dungeon1_branch_7dfeb
+	sound_loop 0, Music_Dungeon1_Principal
 
 Music_Dungeon1_branch_7e097::
 	octave 2
@@ -460,7 +459,7 @@ Music_Dungeon1_Ch3::
 	note D_, 1
 	note D#, 1
 
-Music_Dungeon1_branch_7e0e5::
+Music_Dungeon1_Baixo::
 	sound_call Music_Dungeon1_branch_7e140
 	sound_call Music_Dungeon1_branch_7e140
 	octave 5
@@ -520,7 +519,7 @@ Music_Dungeon1_branch_7e0e5::
 	note D#, 1
 	rest 16
 	rest 16
-	sound_loop 0, Music_Dungeon1_branch_7e0e5
+	sound_loop 0, Music_Dungeon1_Baixo
 
 Music_Dungeon1_branch_7e140::
 	octave 5
@@ -614,9 +613,9 @@ Music_Dungeon1_Ch4::
 	drum_note 5, 1
 	drum_note 5, 1
 
-Music_Dungeon1_branch_7e190::
+Music_Dungeon1_Percussao::
 	sound_call Music_Dungeon1_branch_7e1f1
-	sound_loop 3, Music_Dungeon1_branch_7e190
+	sound_loop 3, Music_Dungeon1_Percussao
 	drum_note 6, 4
 	drum_note 5, 4
 	drum_note 6, 4
@@ -663,7 +662,7 @@ Music_Dungeon1_branch_7e1d5::
 	drum_note 5, 1
 	sound_call Music_Dungeon1_branch_7e1f1
 	sound_call Music_Dungeon1_branch_7e1f1
-	sound_loop 0, Music_Dungeon1_branch_7e190
+	sound_loop 0, Music_Dungeon1_Percussao
 
 Music_Dungeon1_branch_7e1f1::
 	drum_note 6, 4

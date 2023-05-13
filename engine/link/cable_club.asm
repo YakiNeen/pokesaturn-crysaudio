@@ -914,7 +914,7 @@ CableClub_Run:
 	ldh [hJoy5], a
 	ld a, 10
 	ld [wMusicFade], a
-	ld a, MUSIC_CELADON
+	ld a, MUSIC_TOWN0
 	ld [wMusicFadeID], a
 	ret
 

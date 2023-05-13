@@ -93,8 +93,8 @@ Route22Script0:
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
 .asm_50f4e
-	ld c, 0 ; BANK(Music_MeetRival)
-	ld a, MUSIC_MEET_RIVAL
+	ld c, 0 ; BANK(Music_RivalsTheme)
+	ld a, MUSIC_RIVALS_THEME
 	call PlayMusic
 	ld a, $1
 	ldh [hSpriteIndex], a
@@ -172,7 +172,9 @@ Route22Script2:
 	call DisplayTextID
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
-	farcall Music_RivalAlternateStart
+	ld c, 0 ; BANK(Music_RivalsTheme)
+	ld a, MUSIC_RIVALS_THEME
+	call PlayMusic
 	ld a, [wcf0d]
 	cp $1
 	jr nz, .asm_50fff
@@ -248,7 +250,9 @@ Route22Script_5104e:
 .skipYVisibilityTesta
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
-	farcall Music_RivalAlternateTempo
+	ld c, 0 ; BANK(Music_RivalsTheme)
+	ld a, MUSIC_RIVALS_THEME
+	call PlayMusic
 	ld a, $2
 	ldh [hSpriteIndex], a
 	call Route22MoveRivalSprite
@@ -330,7 +334,9 @@ Route22Script5:
 	call DisplayTextID
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
-	farcall Music_RivalAlternateStartAndTempo
+	ld c, 0 ; BANK(Music_RivalsTheme)
+	ld a, MUSIC_RIVALS_THEME
+	call PlayMusic
 	ld a, [wcf0d]
 	cp $1
 	jr nz, .asm_51134

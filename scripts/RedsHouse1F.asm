@@ -6,8 +6,7 @@ RedsHouse1F_TextPointers:
 
 RedsHouse1FMomText:
 	text_asm
-	ld a, [wd72e]
-	bit 3, a ; received a Pokémon from Oak?
+	CheckEvent EVENT_GOT_STARTER
 	jr nz, .heal
 	ld hl, MomWakeUpText
 	call PrintText
@@ -27,7 +26,7 @@ MomHealPokemon:
 	call GBFadeOutToWhite
 	call ReloadMapData
 	predef HealParty
-	ld a, MUSIC_PKMN_HEALED
+	ld a, MUSIC_PKMN_HEALED_2
 	call PlayMusic
 
 	call WaitForSongToFinish

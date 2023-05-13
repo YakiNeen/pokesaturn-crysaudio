@@ -41,8 +41,8 @@ PewterJigglypuffText:
 	dec hl
 
 	push hl
-	ld c, 0 ; BANK(Music_JigglypuffSong)
-	ld a, MUSIC_JIGGLYPUFF_SONG
+	ld c, 0 ; BANK(Music_JigglypuffsSong)
+	ld a, MUSIC_JIGGLYPUFFS_SONG
 	call PlayMusic
 	pop hl
 
