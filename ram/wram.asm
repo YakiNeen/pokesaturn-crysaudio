@@ -804,10 +804,7 @@ wTrainerInfoTextBoxWidth:: db
 wTrainerInfoTextBoxNextRowOffset:: db
 
 NEXTU
-wOptionsTextSpeedCursorX:: db
-wOptionsBattleAnimCursorX:: db
-wOptionsBattleStyleCursorX:: db
-wOptionsCancelCursorX:: db
+	ds 4
 
 NEXTU
 ; tile ID of the badge number being drawn
@@ -871,6 +868,7 @@ wSwappedMenuItem::
 ; 1 = bite
 ; 2 = no fish on map
 wRodResponse::
+wOptionsCursorLocation::
 	db
 ENDU
 
