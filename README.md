@@ -24,7 +24,6 @@ Other disassembly projects:
 - [**Pokémon Gold/Silver**](https://github.com/pret/pokegold)
 - [**Pokémon Crystal**](https://github.com/pret/pokecrystal)
 - [**Pokémon Pinball**](https://github.com/pret/pokepinball)
-- [**Pokémon TCG**](https://github.com/pret/poketcg)
 - [**Pokémon Ruby/Sapphire**](https://github.com/pret/pokeruby)
 - [**Pokémon FireRed/LeafGreen**](https://github.com/pret/pokefirered)
 - [**Pokémon Emerald**](https://github.com/pret/pokeemerald)
