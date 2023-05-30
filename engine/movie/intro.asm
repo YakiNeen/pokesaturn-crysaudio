@@ -83,6 +83,10 @@ LoadPresentsScreen::
 	ld de, vChars2
 	ld bc, PresentsGraphics1End - PresentsGraphics1
 	call CopyData
+	ld hl, PresentsGraphics2
+	ld de, vSprites
+	ld bc, PresentsGraphics2End - PresentsGraphics2
+	call CopyData
 	ld hl, PresentsTilemap
 	ld de, wTileMap
 	ld bc, PresentsTilemapEnd - PresentsTilemap
@@ -94,6 +98,8 @@ LoadPresentsScreen::
 
 PresentsGraphics1: INCBIN "gfx/splash/presents1.2bpp"
 PresentsGraphics1End:
+PresentsGraphics2: INCBIN "gfx/splash/presents2.2bpp"
+PresentsGraphics2End:
 
 PresentsTilemap:
 	INCBIN "gfx/splash/presents.tilemap"
