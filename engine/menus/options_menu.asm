@@ -10,7 +10,7 @@ DisplayOptionMenu:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 3 ; the number of options to loop through
+	ld c, 2 ; the number of options to loop through
 .loop
 	push bc
 	call GetOptionPointer ; updates the next option
@@ -186,7 +186,7 @@ OptionsControl:
 	ld a, [hl]
 	cp $2 ; número de opções que sobe + 1
 	jr nz, .doNotMoveCursorToPrintOption
-	ld [hl], $4
+	ld [hl], $1 ; pra qual opção subir quando apertar para baixo na última opção?
 	scf
 	ret
 .doNotMoveCursorToPrintOption
