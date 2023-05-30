@@ -79,6 +79,7 @@ LoadPresentsScreen::
 	call ClearScreen
 	call DisableLCD
 .skipWarningScreen
+	call LoadFontTilePatterns
 	ld hl, PresentsGraphics1
 	ld de, vChars2
 	ld bc, PresentsGraphics1End - PresentsGraphics1
