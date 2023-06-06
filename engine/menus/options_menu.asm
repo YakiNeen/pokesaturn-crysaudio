@@ -8,6 +8,9 @@ DisplayOptionMenu:
 	hlcoord 2, 6
 	ld de, OptionMenuCancelText
 	call PlaceString
+	hlcoord 2, 11
+	ld de, HelpText
+	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
 	ld c, 2 ; the number of options to loop through
@@ -27,6 +30,9 @@ DisplayOptionMenu:
 .optionMenuLoop
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
+	and A_BUTTON
+	jr nz, .explanation ; quando apertar A, exibir um texto
+	ldh a, [hJoy5]
 	and START | B_BUTTON
 	jr nz, .exitOptionMenu
 	call OptionsControl
@@ -42,7 +48,22 @@ DisplayOptionMenu:
 .exitOptionMenu
 	ld a, SFX_PRESS_AB
 	call PlaySound
-	ret
+	jr .acaba ; sair do menu de opções
+.explanation
+	call GetOptionPointer ; tá em cima do cancel? 
+	jr c, .exitOptionMenu ; com A, sair ao invés de aparecer texto
+	; como fazer identificar cada opção?
+.animationoption
+	ld hl, BattleAnimationExplanationText
+	call PrintText
+	jr .robertinho
+.styleoption
+	ld hl, BattleStyleExplanationText
+	call PrintText
+.robertinho
+	jp DisplayOptionMenu ; depois de exibir o texto, resetar a tela de opções
+.acaba
+	ret ; sair do menu de opções
 
 GetOptionPointer:
 	ld a, [wOptionsCursorLocation]
@@ -148,6 +169,9 @@ AllOptionsText:
 OptionMenuCancelText:
 	db "CANCEL@"
 
+HelpText:
+	db "PRESS A TO INFO@"
+
 OptionsMenu_Cancel:
 	ldh a, [hJoy5]
 	and A_BUTTON
@@ -213,3 +237,11 @@ OptionsMenu_UpdateCursorPosition:
 	call AddNTimes
 	ld [hl], "▶"
 	ret
+
+BattleAnimationExplanationText:
+	text "Animação merda"
+	prompt
+
+BattleStyleExplanationText:
+	text "que porra"
+	prompt
