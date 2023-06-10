@@ -127,9 +127,9 @@ MACRO sound_dex_page_added
 	db TX_SOUND_DEX_PAGE_ADDED
 ENDM
 IF DEF(_SATURN)
-	const TX_SOUND_CRY_GROWLITHE ; $14
-MACRO sound_cry_growlithe
-	db TX_SOUND_CRY_GROWLITHE
+	const TX_SOUND_CRY_CUBONE ; $14
+MACRO sound_cry_cubone
+	db TX_SOUND_CRY_CUBONE
 ENDM
 ENDC
 IF DEF(_MARS)

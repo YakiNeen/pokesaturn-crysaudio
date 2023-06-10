@@ -628,7 +628,7 @@ TextCommand_SOUND::
 
 .play
 IF DEF(_SATURN)
-	cp TX_SOUND_CRY_GROWLITHE
+	cp TX_SOUND_CRY_CUBONE
 	jr z, .pokemonCry
 ENDC
 IF DEF(_MARS)
@@ -664,7 +664,7 @@ TextCommandSounds::
 	db TX_SOUND_GET_KEY_ITEM,         SFX_GET_KEY_ITEM
 	db TX_SOUND_DEX_PAGE_ADDED,       SFX_DEX_PAGE_ADDED
 IF DEF(_SATURN)
-	db TX_SOUND_CRY_GROWLITHE,        GROWLITHE ; used in OakSpeech
+	db TX_SOUND_CRY_CUBONE,           CUBONE ; used in OakSpeech
 ENDC
 IF DEF(_MARS)
 	db TX_SOUND_CRY_MAREEP,           MAREEP    ; used in OakSpeech

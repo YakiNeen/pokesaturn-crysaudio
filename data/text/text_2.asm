@@ -1470,7 +1470,7 @@ _OakSpeechText2B::
 
 	para "Eternal companions"
 	line "at home, or even"
-	cont "on long adventure"
+	cont "on long adventure."
 	prompt
 
 _IntroducePlayerText::
@@ -1539,7 +1539,7 @@ _ContCharText::
 
 _OakSpeechText4A::
 	text "They can live in"
-	line "the vast oceans@"
+	line "the vast oceans...@"
 	text_end
 
 _OakSpeechText4B::

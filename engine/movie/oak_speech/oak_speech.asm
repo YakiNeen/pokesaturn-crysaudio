@@ -69,7 +69,7 @@ OakSpeech:
 	call GBFadeOutToWhite
 	call ClearScreen
 IF DEF(_SATURN)
-	ld a, GROWLITHE
+	ld a, CUBONE
 ENDC
 IF DEF(_MARS)
 	ld a, MAREEP
@@ -195,7 +195,7 @@ OakSpeechText1:
 OakSpeechText2:
 	text_far _OakSpeechText2A
 IF DEF(_SATURN)
-	sound_cry_growlithe
+	sound_cry_cubone
 ENDC
 IF DEF(_MARS)
 	sound_cry_mareep
