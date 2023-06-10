@@ -470,7 +470,11 @@ wAILayer2Encouragement:: db
 wPlayerSubstituteHP:: db
 wEnemySubstituteHP:: db
 
-	ds 2
+; The player's selected move during a test battle.
+; InitBattleVariables sets it to the move Pound.
+wTestBattlePlayerSelectedMove:: db
+
+	ds 1
 
 ; 0=regular, 1=mimic, 2=above message box (relearn, heal pp..)
 wMoveMenuType:: db
