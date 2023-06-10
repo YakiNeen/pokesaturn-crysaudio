@@ -271,9 +271,9 @@ LoadOriginalCopyrightTiles:
 	jp PlaceString
 
 OriginalCopyrightTextString:
-	db   $60,$61,$62,$7C,$61,$62,$63,$6D,$6E,$6F,$70,$71,$72             ; ©1995-1999  Nintendo
-	next $60,$61,$62,$7C,$61,$62,$63,$73,$74,$75,$76,$77,$78,$6B,$6C     ; ©1995-1999  Creatures inc.
-	next $60,$61,$62,$7C,$61,$62,$63,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C ; ©1995-1999  GAME FREAK inc.
+	db   $60,$61,$62,$6D,$61,$62,$63,$7C,$6E,$6F,$70,$71,$72             ; ©1995-1999  Nintendo
+	next $60,$61,$62,$6D,$61,$62,$63,$73,$74,$75,$76,$77,$78,$6B,$6C     ; ©1995-1999  Creatures inc.
+	next $60,$61,$62,$6D,$61,$62,$63,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C ; ©1995-1999  GAME FREAK inc.
 	db   "@"
 
 INCLUDE "data/credits/credits_order.asm"

@@ -40,7 +40,7 @@ ENDC
 	call LoadFontTilePatterns
 	ld hl, NintendoCopyrightLogoGraphics
 	ld de, vTitleLogo2 tile 16
-	ld bc, 13 tiles
+	ld bc, 14 tiles
 	ld a, BANK(NintendoCopyrightLogoGraphics)
 	call FarCopyData2
 	ld hl, PokemonLogoGraphics
@@ -98,14 +98,22 @@ IF DEF(_MARS)
 ENDC
 
 ; place tiles for title screen copyright
-	hlcoord 3, 17
-	ld a, $41
-	ld b, 13 tiles
+	hlcoord 2, 17
+	ld de, .tileScreenCopyrightTiles
+	ld b, $10
 .tileScreenCopyrightTilesLoop
+	ld a, [de]
 	ld [hli], a
-	inc a
+	inc de
 	dec b
 	jr nz, .tileScreenCopyrightTilesLoop
+
+	jr .next
+
+.tileScreenCopyrightTiles
+	db $41,$42,$43,$4E,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D, ; ©1995-1999 GAME FREAK inc.
+
+.next
 
 	call SaveScreenTilesToBuffer2
 IF DEF(_SATURN)
@@ -471,9 +479,9 @@ PrismWarningFunction:
 
 CopyrightTextString:
 	db   $7F,$AE,$AF,$C0,$79,$7A,$7B,$7F,$C1,$C2,$C3,$C4,$C5,$C6
-	next $60,$61,$62,$7C,$79,$7A,$7B,$7F,$6D,$6E,$6F,$70,$71,$72             ; ©1995-2023 Nintendo
-	next $60,$61,$62,$7C,$79,$7A,$7B,$7F,$73,$74,$75,$76,$77,$78,$6B,$6C     ; ©1995-2023 Creatures inc.
-	next $60,$61,$62,$7C,$79,$7A,$7B,$7F,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C ; ©1995-2023 GAME FREAK inc.
+	next $60,$61,$62,$6D,$79,$7A,$7B,$7F,$7C,$6E,$6F,$70,$71,$72             ; ©1995-2023 Nintendo
+	next $60,$61,$62,$6D,$79,$7A,$7B,$7F,$73,$74,$75,$76,$77,$78,$6B,$6C     ; ©1995-2023 Creatures inc.
+	next $60,$61,$62,$6D,$79,$7A,$7B,$7F,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C ; ©1995-2023 GAME FREAK inc.
 	db   "@"
 
 AlgumaCoisa:
