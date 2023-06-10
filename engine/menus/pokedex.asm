@@ -284,8 +284,6 @@ HandlePokedexListMenu:
 	call HandleMenuInput
 	bit BIT_B_BUTTON, a
 	jp nz, .buttonBPressed
-	bit BIT_A_BUTTON, a 
-	jp nz, .buttonAPressed
 .checkIfUpPressed
 	bit BIT_D_UP, a
 	jr z, .checkIfDownPressed
@@ -521,7 +519,7 @@ ShowPokedexDataInternal:
 
 	ld a, c
 	and a
-	jp z, .displaySeenBottomInfo ; if the pokemon has not been owned, don't print the height or weight, but show their type
+	jp z, .waitForButtonPress ; if the pokemon has not been owned, don't print the height, weight, or description
 	inc de ; de = address of decimetre (height)
 	ld a, [de] ; reads decimetre, but a is overwritten without being used
 	push af
@@ -580,83 +578,6 @@ ShowPokedexDataInternal:
 	ld a, %10
 	ldh [hClearLetterPrintingDelayFlags], a
 	call TextCommandProcessor ; print pokedex description text
-	CheckEvent EVENT_GOT_POKEDEX
-	jp z, .clearLetterPrintingFlags ; don't display this new third page if we're showing the starters before getting the pokedex.
-	ld hl, PromptText
-	call PokedexTextScroll ; TextCommandProcessor
-	hlcoord 1, 10
-	lb bc, 7, 18
-	call ClearScreenArea
-	call PrintMonTypes
-	; print mon base stats
-	hlcoord 9, 10
-	ld de, BaseStatsText
-	call PlaceString
-	hlcoord 12, 11
-	ld de, HPText
-	call PlaceString
-	ld de, wMonHBaseHP
-	hlcoord 15, 11
-	lb bc, 1, 3
-	call PrintNumber 
-	hlcoord 11, 12
-	ld de, AtkText
-	call PlaceString
-	ld de, wMonHBaseAttack
-	hlcoord 15, 12
-	lb bc, 1, 3
-	call PrintNumber 
-	hlcoord 11, 13
-	ld de, DefText
-	call PlaceString
-	ld de, wMonHBaseDefense
-	hlcoord 15, 13
-	lb bc, 1, 3
-	call PrintNumber
-	hlcoord 11, 14
-	ld de, SpdText
-	call PlaceString
-	ld de, wMonHBaseSpeed
-	hlcoord 15, 14
-	lb bc, 1, 3
-	call PrintNumber
-	hlcoord 11, 15
-	ld de, SpcText
-	call PlaceString
-	ld de, wMonHBaseSpecial
-	hlcoord 15, 15
-	lb bc, 1, 3
-	call PrintNumber 
-	hlcoord 9, 16
-	ld de, TotalText
-	call PlaceString
-	; calculate the base stat total to print it
-	ld b, 0
-	ld a, [wMonHBaseHP]
-	ld hl, 0
-	ld c, a
-	add hl, bc
-	ld a, [wMonHBaseAttack]
-	ld c, a
-	add hl, bc
-	ld a, [wMonHBaseDefense]
-	ld c, a
-	add hl, bc
-	ld a, [wMonHBaseSpeed]
-	ld c, a
-	add hl, bc
-	ld a, [wMonHBaseSpecial]
-	ld c, a
-	add hl, bc
-	ld a, h
-	ld [wSum], a
-	ld a, l
-	ld [wSum+1], a
-	ld de, wSum
-	hlcoord 15, 16
-	lb bc, 2, 3
-	call PrintNumber
-.clearLetterPrintingFlags
 	xor a
 	ldh [hClearLetterPrintingDelayFlags], a
 .waitForButtonPress
@@ -675,17 +596,6 @@ ShowPokedexDataInternal:
 	ld a, $77 ; max volume
 	ldh [rNR50], a
 	ret
-.displaySeenBottomInfo
-	call PrintMonTypes
-	jr .waitForButtonPress
-
-PrintMonTypes:
-	hlcoord 1, 10
-	ld de, DexTypeText
-	call PlaceString
-	hlcoord 2, 11
-	predef PrintMonType
-	jp PlaceString
 
 HeightWeightText:
 	db   "HT   ???<m>"
@@ -755,31 +665,3 @@ LoadPokedexTilePatterns:
 	ld hl, vChars2 tile $60
 	lb bc, BANK(PokedexTileGraphics), (PokedexTileGraphicsEnd - PokedexTileGraphics) / $10
 	jp CopyVideoData
-
-PromptText:
-	text_promptbutton
-	text_end
-
-DexTypeText:
-	db "TYPE/@"
-
-BaseStatsText:
-	db "BASE STATS@"
-
-HPText:
-	db "HP@"
-
-AtkText:
-	db "ATK@"
-
-DefText:
-	db "DEF@"
-
-SpdText:
-	db "SPD@"
-
-SpcText:
-	db "SPC@"
-
-TotalText:
-	db "TOTAL@"
