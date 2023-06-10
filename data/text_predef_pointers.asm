@@ -40,4 +40,3 @@ TextPredefs::
 	add_tx_pre SinkText
 	add_tx_pre FridgeText
 	add_tx_pre StoveText
-	add_tx_pre YuYuHakushoTVText

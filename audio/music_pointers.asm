@@ -69,7 +69,6 @@ Music:
 
 	dba Music_StaffRoll
 
-	dba Music_YuYuHakusho
 	dba Music_JigglypuffsSong
 	dba Music_PkmnHealed_1
 	dba Music_PkmnHealed_2

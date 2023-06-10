@@ -215,7 +215,6 @@ INCLUDE "audio/music/hall_of_fame.asm"
 
 INCLUDE "audio/music/staff_roll.asm"
 
-INCLUDE "audio/music/yu_yu_hakusho.asm"
 INCLUDE "audio/music/jigglypuffs_song.asm"
 INCLUDE "audio/music/pkmnhealed_1.asm"
 INCLUDE "audio/music/pkmnhealed_2.asm"

@@ -24,6 +24,3 @@ PokeCenter_Block::  INCBIN "gfx/blocksets/pokecenter.bst"
 
 PokeMart_GFX::      INCBIN "gfx/tilesets/pokemart.2bpp"
 PokeMart_Block::    INCBIN "gfx/blocksets/pokemart.bst"
-
-Player1F_GFX::      INCBIN "gfx/tilesets/player1F.2bpp"
-Player1F_Block::    INCBIN "gfx/blocksets/player1F.bst"

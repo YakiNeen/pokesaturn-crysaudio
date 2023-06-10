@@ -8,5 +8,4 @@
 	const FOREST       ; 4
 	const POKECENTER   ; 5
 	const POKEMART     ; 6
-	const PLAYER_1F    ; 7
 DEF NUM_TILESETS EQU const_value

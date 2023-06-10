@@ -2861,7 +2861,6 @@ WaterTilesets:
 	db FOREST
 	db POKECENTER
 	db POKEMART
-	db PLAYER_1F
 	db -1 ; end
 
 ReadSuperRodData:

@@ -7,7 +7,6 @@ WarpTileIDPointers:
 	dw .WarpTileIDs ; FOREST
 	dw .WarpTileIDs ; POKECENTER
 	dw .WarpTileIDs ; POKEMART
-	dw .WarpTileIDs ; PLAYER_1F
 	assert_table_length NUM_TILESETS
 
 MACRO warp_tiles
