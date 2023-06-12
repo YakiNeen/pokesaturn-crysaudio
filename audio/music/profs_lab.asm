@@ -114,9 +114,7 @@ Music_ProfsLab_Dois::
 	rest 3
 	octave 3
 	note A_, 4
-	note B_, 4
-	octave 4
-	note C#, 4
+	rest 8
 	sound_loop 0, Music_ProfsLab_Dois
 
 
@@ -162,7 +160,12 @@ Music_ProfsLab_Principal::
 	rest 2
 	note F#, 2
 	note D_, 12
-	rest 8
+	note_type 12, 11, 3
+	octave 3
+	note B_, 4
+	octave 4
+	note C#, 4
+	note_type 12, 12, 4
 	sound_loop 0, Music_ProfsLab_Principal
 
 
