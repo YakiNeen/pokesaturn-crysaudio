@@ -331,9 +331,9 @@ Music_Routes1_Baixo::
 
 Music_Routes1_Ch4::
 	toggle_noise 0
-	drum_speed 12
 
 Music_Routes1_Percussao::
+	drum_speed 12
 	drum_note 3, 2
 	rest 2
 	drum_note 3, 1
