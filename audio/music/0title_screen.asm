@@ -1,3 +1,5 @@
+; Pokémon Prototype Title Screen - https://github.com/dannye/pokered-prototype.
+; Pokémon TV Theme 1 (Outside Japan) "Gotta Catch 'em All!". https://www.youtube.com/watch?v=ZhwIUI2IrgI
 Music_TitleScreen::
 	channel_count 4
 	channel 1, Music_TitleScreen_Ch1
