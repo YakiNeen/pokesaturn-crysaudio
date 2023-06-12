@@ -42,6 +42,8 @@ OakSpeech:
 	ld c, a
 	ld a, MUSIC_ROUTES2
 	call PlayMusic
+	ld b, SET_PAL_GENERIC
+	call RunPaletteCommand
 	call ClearScreen
 	call LoadTextBoxTilePatterns
 	call SetDefaultNames

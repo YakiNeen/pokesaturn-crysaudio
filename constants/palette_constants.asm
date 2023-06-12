@@ -23,7 +23,6 @@ DEF PALETTE_SIZE EQU NUM_PAL_COLORS * PAL_COLOR_SIZE
 	const SET_PAL_OVERWORLD            ; $08
 	const SET_PAL_PARTY_MENU           ; $09
 	const SET_PAL_POKEMON_WHOLE_SCREEN ; $0A
-	const SET_PAL_GAME_FREAK_INTRO     ; $0B
 	const SET_PAL_TRAINER_CARD         ; $0C
 
 DEF SET_PAL_PARTY_MENU_HP_BARS EQU $fc
@@ -68,7 +67,6 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_REDBAR         ; $21
 	const PAL_BADGE          ; $22
 	const PAL_CAVE           ; $23
-	const PAL_GAMEFREAK      ; $24
 	const PAL_SHINYMEWMON    ; $25
 	const PAL_SHINYBLUEMON   ; $26
 	const PAL_SHINYREDMON    ; $27

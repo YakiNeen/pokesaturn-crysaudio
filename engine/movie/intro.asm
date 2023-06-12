@@ -13,7 +13,9 @@ PlayIntro:
 	ret
 
 PlayPresentsScreen:
-	ld b, SET_PAL_GAME_FREAK_INTRO
+	ld a, SLOWPOKE
+	ld [wWholeScreenPaletteMonSpecies],a
+	ld b, SET_PAL_POKEMON_WHOLE_SCREEN
 	call RunPaletteCommand
 	farcall LoadCopyrightAndTextBoxTiles
 	farcall PrismWarningFunction
@@ -23,10 +25,6 @@ PlayPresentsScreen:
 	call DelayFrames
 	call GBFadeOutToWhite
 	call ClearScreen
-	ld a, SLOWPOKE
-	ld [wWholeScreenPaletteMonSpecies],a
-	ld b, SET_PAL_POKEMON_WHOLE_SCREEN
-	call RunPaletteCommand
 	call LoadPresentsScreen
 	ld a, %11100100
 	ldh [rBGP], a

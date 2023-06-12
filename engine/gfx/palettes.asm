@@ -145,13 +145,6 @@ SetPal_Generic:
 	ld de, BlkPacket_WholeScreen
 	ret
 
-SetPal_GameFreakIntro:
-	ld hl, PalPacket_GameFreakIntro
-	ld de, BlkPacket_GameFreakIntro
-	ld a, SET_PAL_GENERIC
-	ld [wDefaultPaletteCommand], a
-	ret
-
 ; uses PalPacket_Empty to build a packet based on the current map
 SetPal_Overworld:
 	ld hl, PalPacket_Empty
@@ -277,7 +270,6 @@ SetPalFunctions:
 	dw SetPal_Overworld
 	dw SetPal_PartyMenu
 	dw SetPal_PokemonWholeScreen
-	dw SetPal_GameFreakIntro
 	dw SetPal_TrainerCard
 
 ; The length of the blk data of each badge on the Trainer Card.

@@ -184,23 +184,6 @@ BlkPacket_TrainerCard:
 	db $03, 15,15, 16,16, $01
 	db $00
 
-BlkPacket_GameFreakIntro:
-	ATTR_BLK 3
-	ATTR_BLK_DATA %111, 1,1,0, 05,11, 07,13 ; falling stars (left): pal 1, GameFreak logo: pal 0
-	ATTR_BLK_DATA %010, 2,2,0, 08,11, 09,13 ; falling stars (middle): pal 2
-	ATTR_BLK_DATA %011, 3,3,0, 12,11, 14,13 ; falling stars (right): pal 3
-	ds 12, 0
-
-; unused
-	db $03, 00,00, 19,10, $00
-	db $03, 00,11, 04,13, $00
-	db $03, 05,11, 07,13, $01
-	db $03, 08,11, 19,13, $00
-	db $03, 00,14, 19,17, $00
-	db $03, 08,11, 09,13, $02
-	db $03, 12,11, 14,13, $03
-	db $00
-
 
 PalPacket_Empty:          PAL_SET 0, 0, 0, 0
 PalPacket_PartyMenu:      PAL_SET PAL_MEWMON, PAL_GREENBAR, PAL_YELLOWBAR, PAL_REDBAR
@@ -211,7 +194,6 @@ PalPacket_Slots:          PAL_SET PAL_SLOTS1, PAL_SLOTS2, PAL_SLOTS3, PAL_SLOTS4
 PalPacket_Titlescreen:    PAL_SET PAL_LOGO2, PAL_LOGO1, PAL_MEWMON, PAL_PURPLEMON
 PalPacket_TrainerCard:    PAL_SET PAL_MEWMON, PAL_BADGE, PAL_REDMON, PAL_YELLOWMON
 PalPacket_Generic:        PAL_SET PAL_MEWMON, 0, 0, 0
-PalPacket_GameFreakIntro: PAL_SET PAL_GAMEFREAK, PAL_REDMON, PAL_VIRIDIAN, PAL_BLUEMON
 
 PalTrnPacket:  PAL_TRN
 MltReq1Packet: MLT_REQ 1
