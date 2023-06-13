@@ -1,3 +1,4 @@
+; J. Masuda, M. Aoki, G. Ichinose - Game Corner & Lucky Channel
 Music_GameCorner:
 	channel_count 4
 	channel 1, Music_GameCorner_Ch1
