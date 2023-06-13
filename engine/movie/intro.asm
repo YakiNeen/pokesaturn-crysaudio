@@ -159,8 +159,8 @@ SpecialThanksText6:
 	next "   RAINBOW DEVS    "
 	next "  IRONINVOKER 47   "
 	next "   SILVA GUNNER    "
-	next "                   "
-	next "                   "
+	next "    MICKEY-A42     "
+	next "     JWIBAGI       " ; torto
 	next "                  @"
 
 WarningText:
