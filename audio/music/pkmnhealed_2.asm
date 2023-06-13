@@ -8,7 +8,7 @@ Music_PkmnHealed_2_Ch1::
 	tempo 144
 	volume 7, 7
 	duty_cycle 3
-	note_type 12, 8, 1
+	note_type 12, 8, 3
 	octave 3
 	rest 8
 	note G#, 2
