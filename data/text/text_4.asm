@@ -179,6 +179,11 @@ _NeedYourPokemonText::
 	line "your #MON."
 	done
 
+_TemPokemonOuNao::
+	text "You don't have"
+	line "any #MON!"
+	done
+
 _PokemonFightingFitText::
 	text "Thank you!"
 	line "Your #MON are"

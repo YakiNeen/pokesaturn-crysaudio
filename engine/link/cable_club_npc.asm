@@ -1,6 +1,9 @@
 CableClubNPC::
 	ld hl, CableClubNPCWelcomeText
 	call PrintText
+	ld a, [wPartyCount]
+	and a
+	jp z, .nadadepoke
 	CheckEvent EVENT_GOT_POKEDEX
 	jp nz, .receivedPokedex
 ; if the player hasn't received the pokedex
@@ -108,6 +111,9 @@ CableClubNPC::
 	ld [hld], a
 	ld [hl], a
 	jpfar LinkMenu
+.nadadepoke
+	ld hl, TemPokemonOuNao
+	jp PrintText
 
 CableClubNPCAreaReservedFor2FriendsLinkedByCableText:
 	text_far _CableClubNPCAreaReservedFor2FriendsLinkedByCableText
