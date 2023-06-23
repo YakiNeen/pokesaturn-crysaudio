@@ -8,4 +8,7 @@
 	const FOREST       ; 4
 	const POKECENTER   ; 5
 	const POKEMART     ; 6
+	const DOJO         ; 7
+	const GATE         ; 8
+	const ESCOLA       ; 9
 DEF NUM_TILESETS EQU const_value

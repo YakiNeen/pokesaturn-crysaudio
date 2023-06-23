@@ -157,8 +157,8 @@ ItemUseBall:
 	jr nz, .notOldManBattle
 
 .oldManBattle
-	ld hl, wGrassRate
-	ld de, wCurTrainerName
+	ld hl, wCurTrainerName
+	ld de, wPlayerName
 	ld bc, NAME_LENGTH
 	call CopyData
 	jp .captured
@@ -2842,9 +2842,13 @@ IsNextTileShoreOrWater:
 	call IsInArray
 	jr nc, .notShoreOrWater
 	ld a, [wTileInFrontOfPlayer] ; tile in front of player
-	cp $32 ; usual eastern shore tile
+	cp $76 ; usual eastern shore tile
 	jr z, .shoreOrWater
 	cp $04 ; water tile
+	jr z, .shoreOrWater
+	cp $47
+	jr z, .shoreOrWater
+	cp $65
 	jr z, .shoreOrWater
 .notShoreOrWater
 	scf

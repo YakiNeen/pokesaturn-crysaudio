@@ -1,9 +1,9 @@
 ViridianGym_Object:
-	db $3 ; border block
+	db $0 ; border block
 
 	def_warp_events
-	warp_event 16, 17, LAST_MAP, 5
-	warp_event 17, 17, LAST_MAP, 5
+	warp_event 16, 17, LAST_MAP, 6
+	warp_event 17, 17, LAST_MAP, 6
 
 	def_bg_events
 

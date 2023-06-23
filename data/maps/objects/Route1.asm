@@ -1,5 +1,5 @@
 Route1_Object:
-	db $b ; border block
+	db $5b ; border block
 
 	def_warp_events
 

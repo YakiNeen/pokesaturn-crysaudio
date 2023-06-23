@@ -22,19 +22,30 @@ TryDoWildEncounter:
 	and a
 	jr z, .next
 	dec a
-	jr z, .lastRepelStep
+	jp z, .lastRepelStep
 	ld [wRepelRemainingSteps], a
 .next
 ; determine if wild pokemon can appear in the half-block we're standing in
 ; is the bottom right tile (8,9) of the half-block we're standing in a grass/water tile?
-; note that by using the bottom left tile, this prevents the "left-shore" tiles from generating grass encounters
 	hlcoord 8, 9
 	ld c, [hl]
 	ld a, [wGrassTile]
 	cp c
 	ld a, [wGrassRate]
 	jr z, .CanEncounter
-	ld a, $14 ; in all tilesets with a water tile, this is its id
+	ld a, $04 ; in all tilesets with a water tile, this is its id
+	cp c
+	ld a, [wWaterRate]
+	jr z, .CanEncounter
+	ld a, $76
+	cp c
+	ld a, [wWaterRate]
+	jr z, .CanEncounter
+	ld a, $47
+	cp c
+	ld a, [wWaterRate]
+	jr z, .CanEncounter
+	ld a, $65
 	cp c
 	ld a, [wWaterRate]
 	jr z, .CanEncounter
@@ -71,11 +82,16 @@ TryDoWildEncounter:
 	ld c, [hl]
 	ld hl, wGrassMons
 	lda_coord 8, 9
-	cp $14 ; is the bottom left tile (8,9) of the half-block we're standing in a water tile?
-	jr nz, .gotWildEncounterType ; else, it's treated as a grass tile by default
+	cp $04 ; is the bottom left tile (8,9) of the half-block we're standing in a water tile?
+	jr z, .water
+	cp $76
+	jr z, .water
+	cp $47
+	jr z, .water
+	cp $65
+	jr nz, .gotWildEncounterType
+.water
 	ld hl, wWaterMons
-; since the bottom right tile of a "left shore" half-block is $14 but the bottom left tile is not,
-; "left shore" half-blocks (such as the one in the east coast of Cinnabar) load grass encounters.
 .gotWildEncounterType
 	ld b, 0
 	add hl, bc

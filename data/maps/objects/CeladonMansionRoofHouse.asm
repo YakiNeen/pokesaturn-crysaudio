@@ -1,5 +1,5 @@
 CeladonMansionRoofHouse_Object:
-	db $a ; border block
+	db $0 ; border block
 
 	def_warp_events
 	warp_event  2,  7, CELADON_MANSION_ROOF, 3

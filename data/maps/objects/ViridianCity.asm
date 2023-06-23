@@ -1,17 +1,19 @@
 ViridianCity_Object:
-	db $f ; border block
+	db $5b ; border block
 
 	def_warp_events
-	warp_event 23, 25, VIRIDIAN_POKECENTER, 1
+	warp_event 22, 25, VIRIDIAN_POKECENTER, 1
+	warp_event 23, 25, VIRIDIAN_POKECENTER, 2
 	warp_event 29, 19, VIRIDIAN_MART, 1
-	warp_event 21, 15, VIRIDIAN_SCHOOL_HOUSE, 1
-	warp_event 21,  9, VIRIDIAN_NICKNAME_HOUSE, 1
+	warp_event 20, 15, VIRIDIAN_SCHOOL_HOUSE, 1
+	warp_event 21, 15, VIRIDIAN_SCHOOL_HOUSE, 2
 	warp_event 32,  7, VIRIDIAN_GYM, 1
+	warp_event 21,  9, VIRIDIAN_NICKNAME_HOUSE, 1
 
 	def_bg_events
-	bg_event 17, 17,  8 ; ViridianCityText8
+	bg_event 17, 15,  8 ; ViridianCityText8
 	bg_event 19,  1,  9 ; ViridianCityText9
-	bg_event 21, 29, 10 ; ViridianCityText10
+	bg_event 23, 29, 10 ; ViridianCityText10
 	bg_event 30, 19, 11 ; MartSignText
 	bg_event 24, 25, 12 ; PokeCenterSignText
 	bg_event 27,  7, 13 ; ViridianCityText13

@@ -78,15 +78,15 @@ IsCutTile:
 	ld a, [wCurMapTileset]
 	and a ; OVERWORLD
 	jr z, .overworld
-	cp HOUSE1
+	cp HOUSE1 ; gym tileset
 	jr nz, .no
 	ld a, [wTileInFrontOfPlayer]
-	cp $50 ; gym cut tree
+	cp $38 ; gym cut tree
 	jr nz, .no
 	jr .yes
 .overworld
 	ld a, [wTileInFrontOfPlayer]
-	cp $3d ; cut tree
+	cp $38 ; cut tree
 	jr nz, .no
 .yes
 	scf

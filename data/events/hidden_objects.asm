@@ -192,12 +192,15 @@ CinnabarPokecenterHiddenObjects:
 MtMoonPokecenterHiddenObjects:
 RockTunnelPokecenterHiddenObjects:
 SaffronPokecenterHiddenObjects:
+	hidden_object  0,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 13,  8, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1 ; end
 
 ViridianSchoolHiddenObjects:
-	hidden_text_predef  3,  4, ViridianSchoolNotebook, PrintNotebookText
-	hidden_text_predef  3,  0, ViridianSchoolBlackboard, PrintBlackboardLinkCableText
+	hidden_text_predef  4,  4, ViridianSchoolNotebook, PrintNotebookText
+	hidden_text_predef  3,  1, ViridianSchoolBlackboard, PrintBlackboardLinkCableText
+	hidden_text_predef  4,  1, ViridianSchoolBlackboard, PrintBlackboardLinkCableText
 	db -1 ; end
 
 ViridianGymHiddenObjects:
@@ -451,9 +454,9 @@ LavenderHouse1HiddenObjects:
 	db -1 ; end
 
 CeladonMansion5HiddenObjects:
-	hidden_text_predef  3,  0, LinkCableHelp, PrintBlackboardLinkCableText
-	hidden_text_predef  4,  0, LinkCableHelp, PrintBlackboardLinkCableText
-	hidden_text_predef  3,  4, TMNotebook, PrintNotebookText
+	hidden_text_predef  3,  1, LinkCableHelp, PrintBlackboardLinkCableText
+	hidden_text_predef  4,  1, LinkCableHelp, PrintBlackboardLinkCableText
+	hidden_text_predef  4,  4, TMNotebook, PrintNotebookText
 	db -1 ; end
 
 FightingDojoHiddenObjects:

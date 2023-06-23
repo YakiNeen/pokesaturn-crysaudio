@@ -24,3 +24,14 @@ PokeCenter_Block::  INCBIN "gfx/blocksets/pokecenter.bst"
 
 PokeMart_GFX::      INCBIN "gfx/tilesets/pokemart.2bpp"
 PokeMart_Block::    INCBIN "gfx/blocksets/pokemart.bst"
+
+SECTION "Tilesets 4", ROMX
+
+Dojo_GFX::          INCBIN "gfx/tilesets/dojo.2bpp"
+Dojo_Block::        INCBIN "gfx/blocksets/dojo.bst"
+
+Gate_GFX::          INCBIN "gfx/tilesets/gate.2bpp"
+Gate_Block::        INCBIN "gfx/blocksets/gate.bst"
+
+Escola_GFX::        INCBIN "gfx/tilesets/escola.2bpp"
+Escola_Block::      INCBIN "gfx/blocksets/escola.bst"

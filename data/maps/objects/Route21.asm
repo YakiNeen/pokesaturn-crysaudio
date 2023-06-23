@@ -1,5 +1,5 @@
 Route21_Object:
-	db $43 ; border block
+	db $05 ; border block
 
 	def_warp_events
 

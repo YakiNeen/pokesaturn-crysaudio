@@ -7,6 +7,9 @@ WarpTileIDPointers:
 	dw .WarpTileIDs ; FOREST
 	dw .WarpTileIDs ; POKECENTER
 	dw .WarpTileIDs ; POKEMART
+	dw .WarpTileIDs ; DOJO
+	dw .WarpTileIDs ; GATE
+	dw .WarpTileIDs ; ESCOLA
 	assert_table_length NUM_TILESETS
 
 MACRO warp_tiles

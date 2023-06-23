@@ -47,6 +47,10 @@ LoadPresentsScreen::
 	call Delay3
 	call GBPalNormal
 	hlcoord 1, 1
+	ld de, WarningText
+	call PlaceString
+	call WaitForTextScrollButtonPress
+	hlcoord 1, 1
 	ld de, SpecialThanksText1
 	call PlaceString
 	call WaitForTextScrollButtonPress
@@ -71,7 +75,7 @@ LoadPresentsScreen::
 	call PlaceString
 	call WaitForTextScrollButtonPress
 	hlcoord 1, 1
-	ld de, WarningText
+	ld de, SpecialThanksText7
 	call PlaceString
 	call WaitForTextScrollButtonPress
 	call ClearScreen
@@ -145,10 +149,10 @@ SpecialThanksText5:
 	db   "  SPECIAL THANKS   "
 	next "     NARFNRA       " ; torto
 	next "   GUERNOUILLE     " ; torto
+	next "    TEMPOQUILL     "
 	next "    SKEETENDO      " ; torto
 	next "    IIMARCKUS      " ; torto
 	next "P.R.E.T. Community "
-	next "                   "
 	next "                   "
 	next "                  @"
 
@@ -161,7 +165,18 @@ SpecialThanksText6:
 	next "   SILVA GUNNER    "
 	next "    MICKEY-A42     "
 	next "     JWIBAGI       " ; torto
-	next "                  @"
+	next "     SAWAKITA     @"
+
+SpecialThanksText7:
+	db   "  SPECIAL THANKS   "
+	next "       80-C        "
+	next "     COM3TIIN      "
+	next "   VIRTUABOY123    "
+	next "     POKETTO       " ; torto
+	next "     SOLO993       " ; torto
+	next " MADAME FROG/HATUN " ; torto
+	next "   MEGAMAN-OMEGA   " ; torto
+	next " NICOLAS J. GARCIA@" ; torto
 
 WarningText:
 	db   "     WARNING!      "

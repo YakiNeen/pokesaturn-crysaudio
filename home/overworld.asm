@@ -1970,8 +1970,12 @@ CollisionCheckOnWater::
 	ld a, [wTileInFrontOfPlayer] ; tile in front of player
 	cp $04 ; water tile
 	jr z, .noCollision ; keep surfing if it's a water tile
-	cp $32 ; tile on right on coast lines
+	cp $76 ; tile on right on coast lines
 	jr z, .noCollision ; keep surfing
+	cp $65
+	jr z, .noCollision ; keep surfing
+	cp $47
+	jr z, .noCollision
 ; check if the [land] tile in front of the player is passable
 .checkIfNextTileIsPassable
 	ld hl, wTilesetCollisionPtr ; pointer to list of passable tiles

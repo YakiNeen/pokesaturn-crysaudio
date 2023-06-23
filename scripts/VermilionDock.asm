@@ -53,7 +53,7 @@ VermilionDock_1db9b:
 	call CopyScreenTileBufferToVRAM
 	hlcoord 0, 10
 	ld bc, SCREEN_WIDTH * 6
-	ld a, $14 ; water tile
+	ld a, $04 ; water tile
 	call FillMemory
 	ld a, 1
 	ldh [hAutoBGTransferEnabled], a
@@ -182,7 +182,7 @@ VermilionDock_EraseSSAnne:
 ; Fill the area the S.S. Anne occupies in BG map 0 with water tiles.
 	ld hl, wVermilionDockTileMapBuffer
 	ld bc, wVermilionDockTileMapBufferEnd - wVermilionDockTileMapBuffer
-	ld a, $14 ; water tile
+	ld a, $04 ; water tile
 	call FillMemory
 	hlbgcoord 0, 10
 	ld de, wVermilionDockTileMapBuffer

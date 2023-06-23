@@ -14,8 +14,11 @@ Tilesets:
 	tileset Overworld,    -1, -1, -1, $0C, TILEANIM_WATER_FLOWER
 	tileset House1,       -1, -1, -1,  -1, TILEANIM_WATER_FLOWER
 	tileset House2,       -1, -1, -1,  -1, TILEANIM_WATER_FLOWER
-	tileset Cavern,       -1, -1, -1,  -1, TILEANIM_WATER_FLOWER
+	tileset Cavern,       -1, -1, -1, $0C, TILEANIM_WATER_FLOWER
 	tileset Forest,       -1, -1, -1, $0C, TILEANIM_WATER_FLOWER
 	tileset PokeCenter,  $2E,$3F, -1,  -1, TILEANIM_WATER_FLOWER
 	tileset PokeMart,    $1A,$1E, -1,  -1, TILEANIM_WATER_FLOWER
+	tileset Dojo,         -1, -1, -1,  -1, TILEANIM_WATER_FLOWER
+	tileset Gate,        $6C,$6E, -1,  -1, TILEANIM_WATER_FLOWER
+	tileset Escola,       -1, -1, -1,  -1, TILEANIM_WATER_FLOWER
 	assert_table_length NUM_TILESETS
