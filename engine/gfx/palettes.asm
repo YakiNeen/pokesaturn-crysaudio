@@ -154,6 +154,8 @@ SetPal_Overworld:
 	ld a, [wCurMapTileset]
 	cp CAVERN
 	jr z, .caveOrBruno
+	cp FOREST
+	jr z, .forest
 	cp POKECENTER
 	jr z, .pokecenter
 	cp POKEMART
@@ -185,6 +187,9 @@ SetPal_Overworld:
 	ret
 .caveOrBruno
 	ld a, PAL_CAVE - 1
+	jr .town
+.forest
+	ld a, PAL_FOREST - 1
 	jr .town
 .pokecenter
 	ld a, PAL_REDMON - 1

@@ -67,6 +67,7 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_REDBAR         ; $21
 	const PAL_BADGE          ; $22
 	const PAL_CAVE           ; $23
+	const PAL_FOREST         ; $24
 	const PAL_SHINYMEWMON    ; $25
 	const PAL_SHINYBLUEMON   ; $26
 	const PAL_SHINYREDMON    ; $27
