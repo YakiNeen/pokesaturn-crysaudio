@@ -36,6 +36,19 @@ HandleLedges::
 	inc hl
 	jr .loop
 .foundMatch
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_DOWN
+	lda_coord  8, 13
+	jr z, .checkCollision
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_LEFT
+	lda_coord  4,  9
+	jr z, .checkCollision
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_RIGHT
+	lda_coord 12,  9
+	jr z, .checkCollision
+.noCollisionTile
 	ldh a, [hJoyHeld]
 	and e
 	ret z
@@ -61,6 +74,26 @@ HandleLedges::
 	call LoadHoppingShadowOAM
 	ld a, SFX_LEDGE
 	call PlaySound
+	ret
+.checkCollision
+	cp $05
+	jr z, .noCollisionTile
+	cp $06
+	jr z, .noCollisionTile
+	cp $07
+	jr z, .noCollisionTile
+	cp $08
+	jr z, .noCollisionTile
+	cp $0A
+	jr z, .noCollisionTile
+	cp $0B
+	jr z, .noCollisionTile
+	cp $0C
+	jr z, .noCollisionTile
+	cp $10
+	jr z, .noCollisionTile
+	cp $15
+	jr z, .noCollisionTile
 	ret
 
 INCLUDE "data/tilesets/ledge_tiles.asm"
