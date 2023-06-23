@@ -136,7 +136,7 @@ ClefableMoves::
 	ld hl, wPartyMon1Moves
 	ld a, BITE
 	ld [hli], a
-	ld a, FOCUS_ENERGY
+	ld a, CUT
 	ld [hli], a
 	ld a, SURF
 	ld [hli], a
