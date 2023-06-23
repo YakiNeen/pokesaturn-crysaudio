@@ -1,4 +1,4 @@
-; Junichi Masuda - Oak's Intro and Routes 24 and 25
+; Junichi Masuda - Oak's Intro and Kanto's Routes 24 and 25
 Music_Routes1::
 	channel_count 4
 	channel 1, Music_Routes1_Ch1
